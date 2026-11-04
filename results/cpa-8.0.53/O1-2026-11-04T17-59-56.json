@@ -1,0 +1,30 @@
+{
+  "probeVersion": "0.1.0",
+  "label": "O1",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "probe-o1",
+  "runSalt": "faom7jy4",
+  "replicas": 3,
+  "plannedAges": [
+    300000,
+    450000,
+    600000
+  ],
+  "startedAt": "2026-11-04T17:59:56.102Z",
+  "status": "no-observable-cache",
+  "checks": [],
+  "control": {
+    "prime": {
+      "promptTokens": 4341,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 4341,
+      "cachedTokens": 0
+    },
+    "warm": false
+  },
+  "error": "an immediate re-send was not served from cache",
+  "finishedAt": "2026-11-04T18:00:15.999Z"
+}

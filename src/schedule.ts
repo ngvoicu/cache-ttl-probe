@@ -55,7 +55,7 @@ export function shouldStop(ages: number[], results: Map<number, boolean[]>, repl
   let coldRun = 0;
   for (const age of ages) {
     const r = results.get(age);
-    if (!r || r.length < replicas) return false; // an earlier age is still incomplete
+    if (!r || r.length < replicas) return false; // an earlier age is still incomplete (errors count as done)
     coldRun = r.every((w) => !w) ? coldRun + 1 : 0;
     if (coldRun >= 2) return true;
   }

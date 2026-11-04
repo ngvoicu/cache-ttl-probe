@@ -1,0 +1,29 @@
+{
+  "probeVersion": "0.1.0",
+  "label": "K1-beta",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "messages",
+  "model": "probe-k1",
+  "ttl": "1h",
+  "runSalt": "znh9e45k",
+  "replicas": 3,
+  "plannedAges": [
+    600000,
+    1800000,
+    3900000
+  ],
+  "startedAt": "2026-11-04T18:02:56.216Z",
+  "status": "running",
+  "checks": [],
+  "control": {
+    "prime": {
+      "promptTokens": 4356,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 4356,
+      "cachedTokens": 4340
+    },
+    "warm": true
+  }
+}
