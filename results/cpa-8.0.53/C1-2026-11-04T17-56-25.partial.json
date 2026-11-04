@@ -99,6 +99,30 @@
       "promptTokens": 2699,
       "cachedTokens": 2560,
       "warm": true
+    },
+    {
+      "sampleId": "10m-r1",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600003,
+      "promptTokens": 2707,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "10m-r2",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 601110,
+      "promptTokens": 2712,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "10m-r3",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 603691,
+      "promptTokens": 2667,
+      "cachedTokens": 2432,
+      "warm": true
     }
   ],
   "control": {

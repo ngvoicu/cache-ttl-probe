@@ -1,10 +1,10 @@
 {
   "probeVersion": "0.1.0",
-  "label": "O9",
+  "label": "D9",
   "baseUrl": "http://127.0.0.1:8317/v1",
   "format": "responses",
-  "model": "probe-o9",
-  "runSalt": "ac2o9hpg",
+  "model": "probe-d9",
+  "runSalt": "k86qsily",
   "replicas": 3,
   "plannedAges": [
     150000,
@@ -20,19 +20,22 @@
     3600000,
     4500000,
     5400000,
-    7200000
+    7200000,
+    14400000,
+    28800000,
+    43200000
   ],
-  "startedAt": "2026-11-04T18:01:41.182Z",
+  "startedAt": "2026-11-04T18:04:59.322Z",
   "status": "running",
   "checks": [],
   "control": {
     "prime": {
-      "promptTokens": 2649,
-      "cachedTokens": 0
+      "promptTokens": 2946,
+      "cachedTokens": 256
     },
     "check": {
-      "promptTokens": 2649,
-      "cachedTokens": 2624
+      "promptTokens": 2946,
+      "cachedTokens": 2816
     },
     "warm": true
   }

@@ -35,6 +35,7 @@ Options:
   --max-output <n>        max output tokens per call (default: 16)
   --warm-fraction <f>     share of the prompt that must be cached for a warm check (default: 0.5)
   --stream                use streaming responses
+  --no-cache-key          don't send a per-sample prompt_cache_key (sent by default on chat/responses)
   --concurrency <n>       parallel priming requests (default: 4)
   --label <text>          run label used in file names and the report (default: <model>-<format>)
   --salt <text>           run salt (default: random)
@@ -72,6 +73,7 @@ const { values } = parseArgs({
     "max-output": { type: "string" },
     "warm-fraction": { type: "string" },
     stream: { type: "boolean", default: false },
+    "cache-key": { type: "boolean", default: true },
     concurrency: { type: "string" },
     label: { type: "string" },
     salt: { type: "string" },
@@ -80,6 +82,7 @@ const { values } = parseArgs({
     help: { type: "boolean", short: "h", default: false },
   },
   strict: true,
+  allowNegative: true,
 });
 
 if (values.help) {
@@ -132,13 +135,14 @@ const opts: RunOptions = {
   runSalt: values.salt ?? newRunSalt(),
   concurrency: int(values.concurrency, "concurrency", 4),
   label,
+  cacheKey: values["cache-key"],
   warmFraction: values["warm-fraction"] === undefined ? 0.5 : Number(values["warm-fraction"]),
 };
 if (!(opts.warmFraction! > 0 && opts.warmFraction! <= 1)) fail("--warm-fraction must be in (0, 1]");
 
 if (values["dry-run"]) {
   const samples = planSamples(opts.ages, opts.replicas);
-  const req = buildRequest(format, { model, prefix: makePrefix(opts.runSalt, "control", 40), ttl: opts.ttl, maxOutput: opts.maxOutput, stream: opts.stream, bodyExtra });
+  const req = buildRequest(format, { model, prefix: makePrefix(opts.runSalt, "control", 40), ttl: opts.ttl, maxOutput: opts.maxOutput, stream: opts.stream, bodyExtra, cacheKey: opts.cacheKey ? `cache-ttl-probe-${opts.runSalt}-control` : undefined });
   process.stdout.write(
     `${label}: ${samples.length} samples + control, ages ${opts.ages.map(formatDuration).join(", ")}\n` +
       `POST ${baseUrl.replace(/\/+$/, "")}${req.path}\nheaders: ${Object.keys({ ...req.headers, ...extraHeaders }).join(", ") || "(none extra)"}\n` +

@@ -53,7 +53,7 @@ export function renderMarkdown(result: RunResult): string {
     "",
     `- Endpoint: \`${result.baseUrl}\` · format \`${result.format}\` · model \`${result.model}\`${result.ttl ? ` · ttl \`${result.ttl}\`` : ""}`,
     `- Started ${result.startedAt}${result.finishedAt ? `, finished ${result.finishedAt}` : ""} · status **${result.status}**${result.error ? ` (${result.error})` : ""}`,
-    `- Probe ${result.probeVersion} · run salt \`${result.runSalt}\` · ${result.replicas} replicas per age`,
+    `- Probe ${result.probeVersion} · run salt \`${result.runSalt}\` · ${result.replicas} replicas per age · prompt_cache_key ${result.cacheKey === false ? "off" : "per sample"}`,
   ];
   if (result.control) {
     lines.push(
