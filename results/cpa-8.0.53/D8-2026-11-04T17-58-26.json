@@ -23,7 +23,7 @@
     7200000
   ],
   "startedAt": "2026-11-04T17:58:26.045Z",
-  "status": "running",
+  "status": "stopped-early",
   "checks": [
     {
       "sampleId": "2.5m-r1",
@@ -96,6 +96,78 @@
       "promptTokens": 3895,
       "cachedTokens": 1152,
       "warm": false
+    },
+    {
+      "sampleId": "10m-r1",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600000,
+      "promptTokens": 3890,
+      "cachedTokens": 3840,
+      "warm": true
+    },
+    {
+      "sampleId": "10m-r2",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600059,
+      "promptTokens": 3869,
+      "cachedTokens": 1152,
+      "warm": false
+    },
+    {
+      "sampleId": "10m-r3",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600670,
+      "promptTokens": 3878,
+      "cachedTokens": 3840,
+      "warm": true
+    },
+    {
+      "sampleId": "15m-r1",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 900001,
+      "promptTokens": 3900,
+      "cachedTokens": 1152,
+      "warm": false
+    },
+    {
+      "sampleId": "15m-r2",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 900254,
+      "promptTokens": 3904,
+      "cachedTokens": 1152,
+      "warm": false
+    },
+    {
+      "sampleId": "15m-r3",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 901328,
+      "promptTokens": 3848,
+      "cachedTokens": 1152,
+      "warm": false
+    },
+    {
+      "sampleId": "20m-r1",
+      "targetAgeMs": 1200000,
+      "actualAgeMs": 1200003,
+      "promptTokens": 3871,
+      "cachedTokens": 1152,
+      "warm": false
+    },
+    {
+      "sampleId": "20m-r2",
+      "targetAgeMs": 1200000,
+      "actualAgeMs": 1200796,
+      "promptTokens": 3895,
+      "cachedTokens": 1152,
+      "warm": false
+    },
+    {
+      "sampleId": "20m-r3",
+      "targetAgeMs": 1200000,
+      "actualAgeMs": 1201348,
+      "promptTokens": 3896,
+      "cachedTokens": 1536,
+      "warm": false
     }
   ],
   "control": {
@@ -108,5 +180,6 @@
       "cachedTokens": 3840
     },
     "warm": true
-  }
+  },
+  "finishedAt": "2026-11-04T18:18:57.455Z"
 }
