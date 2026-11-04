@@ -1,0 +1,17 @@
+[18:01:26] control: O7
+[18:01:46]   control warm (cached 2560/2677)
+[18:01:46] priming 42 samples
+
+# O7
+
+- Endpoint: `http://127.0.0.1:8317/v1` · format `responses` · model `probe-o7`
+- Started 2026-11-04T18:01:26.172Z, finished 2026-11-04T18:02:26.947Z · status **failed** (HTTP 402: {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budget","remedy_hint":"Retry after yo)
+- Probe 0.1.0 · run salt `6cqrz3lp` · 3 replicas per age
+- Control: prime 0/2677 cached, re-send 2560/2677 → warm
+
+**Lifetime: no checks**
+
+| Age | Warm | Checks |
+|---|---|---|
+
+wrote results/cpa-8.0.53/O7-2026-11-04T18-01-26.json and results/cpa-8.0.53/O7-2026-11-04T18-01-26.md

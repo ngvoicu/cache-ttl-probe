@@ -1,5 +1,5 @@
 node_modules/
-results/*.partial.json
+results/**/*.partial.json
 .DS_Store
 dist/
 results/**/logs/

@@ -1,10 +1,10 @@
 {
   "probeVersion": "0.1.0",
-  "label": "D2",
+  "label": "M3",
   "baseUrl": "http://127.0.0.1:8317/v1",
   "format": "responses",
-  "model": "probe-d2",
-  "runSalt": "fc11jz6d",
+  "model": "probe-m3",
+  "runSalt": "7ybd4evl",
   "replicas": 3,
   "plannedAges": [
     150000,
@@ -22,90 +22,90 @@
     5400000,
     7200000
   ],
-  "startedAt": "2026-11-04T17:57:10.991Z",
+  "startedAt": "2026-11-04T17:59:26.095Z",
   "status": "running",
   "checks": [
     {
       "sampleId": "2.5m-r1",
       "targetAgeMs": 150000,
-      "actualAgeMs": 172687,
-      "promptTokens": 2776,
-      "cachedTokens": 2773,
-      "warm": true
+      "actualAgeMs": 150002,
+      "promptTokens": 2615,
+      "cachedTokens": 0,
+      "warm": false
     },
     {
       "sampleId": "2.5m-r2",
       "targetAgeMs": 150000,
-      "actualAgeMs": 174281,
-      "promptTokens": 2788,
-      "cachedTokens": 2785,
-      "warm": true
+      "actualAgeMs": 151438,
+      "promptTokens": 2650,
+      "cachedTokens": 0,
+      "warm": false
     },
     {
       "sampleId": "2.5m-r3",
       "targetAgeMs": 150000,
-      "actualAgeMs": 174459,
-      "promptTokens": 2739,
-      "cachedTokens": 2736,
+      "actualAgeMs": 151801,
+      "promptTokens": 2621,
+      "cachedTokens": 2545,
       "warm": true
     },
     {
       "sampleId": "5m-r1",
       "targetAgeMs": 300000,
-      "actualAgeMs": 300004,
-      "promptTokens": 2813,
-      "cachedTokens": 2810,
+      "actualAgeMs": 300001,
+      "promptTokens": 2636,
+      "cachedTokens": 2545,
       "warm": true
     },
     {
       "sampleId": "5m-r2",
       "targetAgeMs": 300000,
-      "actualAgeMs": 300421,
-      "promptTokens": 2758,
-      "cachedTokens": 2755,
+      "actualAgeMs": 301562,
+      "promptTokens": 2654,
+      "cachedTokens": 2545,
       "warm": true
     },
     {
       "sampleId": "5m-r3",
       "targetAgeMs": 300000,
-      "actualAgeMs": 301427,
-      "promptTokens": 2769,
-      "cachedTokens": 2766,
+      "actualAgeMs": 303352,
+      "promptTokens": 2632,
+      "cachedTokens": 2545,
       "warm": true
     },
     {
       "sampleId": "7.5m-r1",
       "targetAgeMs": 450000,
-      "actualAgeMs": 450001,
-      "promptTokens": 2787,
-      "cachedTokens": 2784,
-      "warm": true
+      "actualAgeMs": 450003,
+      "promptTokens": 2632,
+      "cachedTokens": 0,
+      "warm": false
     },
     {
       "sampleId": "7.5m-r2",
       "targetAgeMs": 450000,
-      "actualAgeMs": 451040,
-      "promptTokens": 2773,
-      "cachedTokens": 2770,
+      "actualAgeMs": 452252,
+      "promptTokens": 2675,
+      "cachedTokens": 2673,
       "warm": true
     },
     {
       "sampleId": "7.5m-r3",
       "targetAgeMs": 450000,
-      "actualAgeMs": 451440,
-      "promptTokens": 2749,
-      "cachedTokens": 2746,
-      "warm": true
+      "actualAgeMs": 452698,
+      "promptTokens": 2651,
+      "cachedTokens": 0,
+      "warm": false
     }
   ],
   "control": {
     "prime": {
-      "promptTokens": 3,
+      "promptTokens": 2652,
       "cachedTokens": 0
     },
     "check": {
-      "promptTokens": 2754,
-      "cachedTokens": 2751
+      "promptTokens": 2652,
+      "cachedTokens": 2545
     },
     "warm": true
   }
