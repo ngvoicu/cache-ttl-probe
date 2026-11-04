@@ -14,5 +14,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: node --version
+      - run: npm ci
+      - run: npm run typecheck
       - run: npm test
-      - run: node src/cli.ts --base-url http://localhost/v1 --model m --dry-run
+      - run: node dist/cli.js --base-url http://localhost/v1 --model m --dry-run

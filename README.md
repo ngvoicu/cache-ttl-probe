@@ -9,26 +9,26 @@ that keep caches warm (or that decide when a pause will cost a full re-write) ne
 - Chat Completions, Responses and Anthropic Messages formats
 - Optional explicit Anthropic `cache_control` ttl (`5m` / `1h`), extra headers and body fields
 - Works against any base URL: vendor APIs, OpenRouter, or a local proxy such as CLIProxyAPI
-- Zero dependencies, Node ≥ 22.19 (runs the TypeScript sources directly), MIT
+- No runtime dependencies, Node ≥ 22.19, MIT (TypeScript is a build-time dependency only)
 
 ## Quick start
 
 ```bash
-git clone https://github.com/ngvoicu/cache-ttl-probe && cd cache-ttl-probe
+# run straight from GitHub (or: git clone, npm install, node src/cli.ts …)
 export CACHE_PROBE_KEY=sk-...           # never passed on the command line, never printed
 
 # OpenAI-style Responses endpoint, default schedule (2.5 min → 2 h)
-node src/cli.ts --base-url https://api.openai.com/v1 --model gpt-6.1-sol
+npx github:ngvoicu/cache-ttl-probe --base-url https://api.openai.com/v1 --model gpt-6.1-sol
 
 # Anthropic, explicit 1-hour cache, three checks
-node src/cli.ts --base-url https://api.anthropic.com/v1 --format messages --model claude-opus-5-5 \
+npx github:ngvoicu/cache-ttl-probe --base-url https://api.anthropic.com/v1 --format messages --model claude-opus-5-5 \
   --ttl 1h --ages 10m,30m,65m
 
 # Through a local proxy, long schedule (adds 4 h, 8 h, 12 h)
-node src/cli.ts --base-url http://127.0.0.1:8317/v1 --model gpt-6.1-sol --schedule long
+npx github:ngvoicu/cache-ttl-probe --base-url http://127.0.0.1:8317/v1 --model gpt-6.1-sol --schedule long
 
 # Show the plan and the request body without sending anything
-node src/cli.ts --base-url http://127.0.0.1:8317/v1 --model m --dry-run
+npx github:ngvoicu/cache-ttl-probe --base-url http://127.0.0.1:8317/v1 --model m --dry-run
 ```
 
 Each run writes `results/<label>-<timestamp>.json` (every check) and `.md` (survival table), and keeps a

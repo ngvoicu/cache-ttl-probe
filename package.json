@@ -5,13 +5,39 @@
   "type": "module",
   "license": "MIT",
   "author": "Gabriel Voicu",
-  "repository": { "type": "git", "url": "git+https://github.com/ngvoicu/cache-ttl-probe.git" },
-  "bin": { "cache-ttl-probe": "src/cli.ts" },
-  "files": ["src", "README.md", "LICENSE"],
-  "engines": { "node": ">=22.19" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngvoicu/cache-ttl-probe.git"
+  },
+  "bin": {
+    "cache-ttl-probe": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.19"
+  },
   "scripts": {
+    "build": "tsc",
+    "prepare": "tsc",
+    "typecheck": "tsc --noEmit",
     "test": "node --test \"test/*.test.ts\"",
     "probe": "node src/cli.ts"
   },
-  "keywords": ["llm", "prompt-cache", "ttl", "anthropic", "openai", "measurement"]
+  "keywords": [
+    "llm",
+    "prompt-cache",
+    "ttl",
+    "anthropic",
+    "openai",
+    "measurement"
+  ],
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "@types/node": "^22.15.21"
+  }
 }
