@@ -61,3 +61,10 @@ test("warm rule: half the prompt and at least 500 tokens", () => {
   assert.equal(isWarm({ promptTokens: 800, cachedTokens: 450 }), false);
   assert.equal(isWarm({ promptTokens: 0, cachedTokens: 0 }), false);
 });
+
+test("prompt_cache_key on chat/responses only", () => {
+  assert.equal(buildRequest("responses", { ...base, cacheKey: "k1" }).body.prompt_cache_key, "k1");
+  assert.equal(buildRequest("chat", { ...base, cacheKey: "k1" }).body.prompt_cache_key, "k1");
+  assert.equal(buildRequest("messages", { ...base, cacheKey: "k1" }).body.prompt_cache_key, undefined);
+  assert.equal(buildRequest("responses", base).body.prompt_cache_key, undefined);
+});

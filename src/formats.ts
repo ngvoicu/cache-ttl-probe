@@ -13,6 +13,11 @@ export interface BuildOptions {
   stream: boolean;
   /** Extra top-level body fields, merged last (e.g. {"prompt_cache_options": {"ttl": "12h"}}). */
   bodyExtra?: Record<string, unknown>;
+  /**
+   * `prompt_cache_key` for chat/responses. OpenAI-style backends route requests with the same key to the same
+   * cache; real clients (Codex, pi) send one per conversation, so the probe sends one per sample.
+   */
+  cacheKey?: string;
 }
 
 export interface ProbeRequest {
@@ -89,6 +94,7 @@ export function buildRequest(format: Format, o: BuildOptions): ProbeRequest {
       };
       break;
   }
+  if (o.cacheKey && format !== "messages") req.body.prompt_cache_key = o.cacheKey;
   if (o.bodyExtra) Object.assign(req.body, o.bodyExtra);
   return req;
 }

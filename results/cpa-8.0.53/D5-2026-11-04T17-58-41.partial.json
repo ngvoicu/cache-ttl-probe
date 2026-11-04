@@ -64,6 +64,14 @@
       "promptTokens": 5019,
       "cachedTokens": 0,
       "warm": false
+    },
+    {
+      "sampleId": "5m-r3",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 304365,
+      "promptTokens": 5022,
+      "cachedTokens": 2968,
+      "warm": true
     }
   ],
   "control": {

@@ -21,6 +21,8 @@ export interface RunOptions {
   label: string;
   /** Fraction of the prompt that must come from cache for a warm check (default 0.5). */
   warmFraction?: number;
+  /** Send a per-sample `prompt_cache_key` (chat/responses). Default true. */
+  cacheKey?: boolean;
 }
 
 export interface SendResult {
@@ -58,6 +60,7 @@ export interface RunResult {
   ttl?: string;
   runSalt: string;
   replicas: number;
+  cacheKey: boolean;
   plannedAges: number[];
   startedAt: string;
   finishedAt?: string;
@@ -84,8 +87,9 @@ function retryable(err: unknown): boolean {
 }
 
 /** Sends one request for a prefix and returns its usage, retrying transient failures. */
-async function call(o: RunOptions, deps: Deps, prefix: string): Promise<{ usage: Usage; startedAt: number }> {
+async function call(o: RunOptions, deps: Deps, prefix: string, sampleId: string): Promise<{ usage: Usage; startedAt: number }> {
   const req = buildRequest(o.format, {
+    cacheKey: o.cacheKey === false ? undefined : `cache-ttl-probe-${o.runSalt}-${sampleId}`,
     model: o.model,
     prefix,
     ttl: o.ttl,
@@ -139,6 +143,7 @@ export async function runProbe(o: RunOptions, deps: Deps): Promise<RunResult> {
     ttl: o.ttl,
     runSalt: o.runSalt,
     replicas: o.replicas,
+    cacheKey: o.cacheKey !== false,
     plannedAges: o.ages,
     startedAt: new Date(deps.now()).toISOString(),
     status: "running",
@@ -156,11 +161,11 @@ export async function runProbe(o: RunOptions, deps: Deps): Promise<RunResult> {
     // Control: an immediate re-send must hit the cache, otherwise nothing below can be measured.
     deps.log(`control: ${o.label}`);
     const controlPrefix = makePrefix(o.runSalt, "control", o.prefixTokens);
-    const prime = await call(o, deps, controlPrefix);
+    const prime = await call(o, deps, controlPrefix, "control");
     let check: Usage | undefined;
     for (const wait of [3_000, 10_000]) {
       await deps.sleep(wait);
-      check = (await call(o, deps, controlPrefix)).usage;
+      check = (await call(o, deps, controlPrefix, "control")).usage;
       if (warmOf(check)) break;
     }
     const warm = check !== undefined && warmOf(check);
@@ -174,7 +179,7 @@ export async function runProbe(o: RunOptions, deps: Deps): Promise<RunResult> {
     deps.log(`priming ${samples.length} samples`);
     await pool(samples, o.concurrency, async (s) => {
       try {
-        const { startedAt } = await call(o, deps, makePrefix(o.runSalt, s.id, o.prefixTokens));
+        const { startedAt } = await call(o, deps, makePrefix(o.runSalt, s.id, o.prefixTokens), s.id);
         // Lifetimes count from the start of the request that wrote the entry.
         primedAt.set(s.id, startedAt);
       } catch (err) {
@@ -199,7 +204,7 @@ export async function runProbe(o: RunOptions, deps: Deps): Promise<RunResult> {
       if (wait > 0) await deps.sleep(wait);
       let got: { usage: Usage; startedAt: number };
       try {
-        got = await call(o, deps, makePrefix(o.runSalt, s.id, o.prefixTokens));
+        got = await call(o, deps, makePrefix(o.runSalt, s.id, o.prefixTokens), s.id);
       } catch (err) {
         const message = (err as Error).message.slice(0, 300);
         result.checks.push({ sampleId: s.id, error: message, targetAgeMs: s.ageMs, actualAgeMs: deps.now() - (primedAt.get(s.id) as number), promptTokens: 0, cachedTokens: 0, warm: false });
