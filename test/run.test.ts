@@ -85,8 +85,8 @@ test("a check that keeps failing is recorded as an error and the run continues",
   let n = 0;
   deps.send = async (u, h, b) => {
     n++;
-    // control (3 calls) + 2 primes succeed, then the first check fails for good
-    if (n >= 6 && n <= 13) return { status: 503, text: "down" };
+    // control (prime + warm re-send) and 2 primes succeed; the first check then fails on every attempt (1 + 7 retries)
+    if (n >= 5 && n <= 12) return { status: 503, text: "down" };
     return send(u, h, b);
   };
   const r = await runProbe(opts([5 * MIN, 10 * MIN], 1), deps);
