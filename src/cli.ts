@@ -33,6 +33,7 @@ Options:
   --replicas <n>          samples per age (default: 3)
   --prefix-tokens <n>     approximate prefix size (default: 2500; must exceed the provider's minimum)
   --max-output <n>        max output tokens per call (default: 16)
+  --warm-fraction <f>     share of the prompt that must be cached for a warm check (default: 0.5)
   --stream                use streaming responses
   --concurrency <n>       parallel priming requests (default: 4)
   --label <text>          run label used in file names and the report (default: <model>-<format>)
@@ -69,6 +70,7 @@ const { values } = parseArgs({
     replicas: { type: "string" },
     "prefix-tokens": { type: "string" },
     "max-output": { type: "string" },
+    "warm-fraction": { type: "string" },
     stream: { type: "boolean", default: false },
     concurrency: { type: "string" },
     label: { type: "string" },
@@ -130,7 +132,9 @@ const opts: RunOptions = {
   runSalt: values.salt ?? newRunSalt(),
   concurrency: int(values.concurrency, "concurrency", 4),
   label,
+  warmFraction: values["warm-fraction"] === undefined ? 0.5 : Number(values["warm-fraction"]),
 };
+if (!(opts.warmFraction! > 0 && opts.warmFraction! <= 1)) fail("--warm-fraction must be in (0, 1]");
 
 if (values["dry-run"]) {
   const samples = planSamples(opts.ages, opts.replicas);

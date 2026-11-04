@@ -19,6 +19,8 @@ export interface RunOptions {
   runSalt: string;
   concurrency: number;
   label: string;
+  /** Fraction of the prompt that must come from cache for a warm check (default 0.5). */
+  warmFraction?: number;
 }
 
 export interface SendResult {
@@ -38,6 +40,8 @@ export interface Deps {
 
 export interface Check {
   sampleId: string;
+  /** Set when the check request failed after all retries; such checks count neither warm nor cold. */
+  error?: string;
   targetAgeMs: number;
   actualAgeMs: number;
   promptTokens: number;
@@ -64,7 +68,7 @@ export interface RunResult {
 }
 
 export const PROBE_VERSION = "0.1.0";
-const RETRY_DELAYS_MS = [2_000, 5_000, 15_000, 30_000];
+const RETRY_DELAYS_MS = [2_000, 5_000, 15_000, 30_000, 60_000, 60_000, 120_000];
 
 export class HttpError extends Error {
   status: number;
@@ -125,6 +129,7 @@ async function pool<T>(items: T[], limit: number, fn: (item: T) => Promise<void>
 }
 
 export async function runProbe(o: RunOptions, deps: Deps): Promise<RunResult> {
+  const warmOf = (u: Usage) => isWarm(u, o.warmFraction ?? 0.5);
   const result: RunResult = {
     probeVersion: PROBE_VERSION,
     label: o.label,
@@ -156,9 +161,9 @@ export async function runProbe(o: RunOptions, deps: Deps): Promise<RunResult> {
     for (const wait of [3_000, 10_000]) {
       await deps.sleep(wait);
       check = (await call(o, deps, controlPrefix)).usage;
-      if (isWarm(check)) break;
+      if (warmOf(check)) break;
     }
-    const warm = check !== undefined && isWarm(check);
+    const warm = check !== undefined && warmOf(check);
     result.control = { prime: prime.usage, check: check as Usage, warm };
     deps.log(`  control ${warm ? "warm" : "COLD"} (cached ${check?.cachedTokens}/${check?.promptTokens})`);
     if (!warm) return finish("no-observable-cache", "an immediate re-send was not served from cache");
@@ -168,14 +173,20 @@ export async function runProbe(o: RunOptions, deps: Deps): Promise<RunResult> {
     const primedAt = new Map<string, number>();
     deps.log(`priming ${samples.length} samples`);
     await pool(samples, o.concurrency, async (s) => {
-      const { startedAt } = await call(o, deps, makePrefix(o.runSalt, s.id, o.prefixTokens));
-      // Lifetimes count from the start of the request that wrote the entry.
-      primedAt.set(s.id, startedAt);
+      try {
+        const { startedAt } = await call(o, deps, makePrefix(o.runSalt, s.id, o.prefixTokens));
+        // Lifetimes count from the start of the request that wrote the entry.
+        primedAt.set(s.id, startedAt);
+      } catch (err) {
+        deps.log(`  priming ${s.id} failed, sample dropped: ${(err as Error).message.slice(0, 160)}`);
+      }
     });
+    if (!primedAt.size) throw new Error("every priming request failed");
     deps.onProgress?.(result);
 
     // Check each sample exactly once, when it reaches its age.
     const due = samples
+      .filter((s) => primedAt.has(s.id))
       .map((s) => ({ s, at: (primedAt.get(s.id) as number) + s.ageMs }))
       .sort((a, b) => a.at - b.at);
     const byAge = new Map<number, boolean[]>();
@@ -186,14 +197,26 @@ export async function runProbe(o: RunOptions, deps: Deps): Promise<RunResult> {
       }
       const wait = at - deps.now();
       if (wait > 0) await deps.sleep(wait);
-      const { usage, startedAt } = await call(o, deps, makePrefix(o.runSalt, s.id, o.prefixTokens));
+      let got: { usage: Usage; startedAt: number };
+      try {
+        got = await call(o, deps, makePrefix(o.runSalt, s.id, o.prefixTokens));
+      } catch (err) {
+        const message = (err as Error).message.slice(0, 300);
+        result.checks.push({ sampleId: s.id, error: message, targetAgeMs: s.ageMs, actualAgeMs: deps.now() - (primedAt.get(s.id) as number), promptTokens: 0, cachedTokens: 0, warm: false });
+        deps.log(`  ${formatDuration(s.ageMs)} r${s.replica}: ERROR ${message.slice(0, 120)}`);
+        // An errored check completes its age for the stop rule but never counts as cold.
+        byAge.set(s.ageMs, [...(byAge.get(s.ageMs) ?? []), true]);
+        deps.onProgress?.(result);
+        continue;
+      }
+      const { usage, startedAt } = got;
       const c: Check = {
         sampleId: s.id,
         targetAgeMs: s.ageMs,
         actualAgeMs: startedAt - (primedAt.get(s.id) as number),
         promptTokens: usage.promptTokens,
         cachedTokens: usage.cachedTokens,
-        warm: isWarm(usage),
+        warm: warmOf(usage),
       };
       result.checks.push(c);
       const list = byAge.get(s.ageMs) ?? [];

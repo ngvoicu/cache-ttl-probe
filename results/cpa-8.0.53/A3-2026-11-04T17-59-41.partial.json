@@ -1,0 +1,64 @@
+{
+  "probeVersion": "0.1.0",
+  "label": "A3",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "probe-a3",
+  "runSalt": "zy5vgr5q",
+  "replicas": 3,
+  "plannedAges": [
+    150000,
+    300000,
+    450000,
+    600000,
+    900000,
+    1200000,
+    1500000,
+    1800000,
+    2400000,
+    3000000,
+    3600000,
+    4500000,
+    5400000,
+    7200000
+  ],
+  "startedAt": "2026-11-04T17:59:41.100Z",
+  "status": "running",
+  "checks": [
+    {
+      "sampleId": "2.5m-r1",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 150002,
+      "promptTokens": 4643,
+      "cachedTokens": 2604,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r2",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 152955,
+      "promptTokens": 4694,
+      "cachedTokens": 2655,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r3",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 153925,
+      "promptTokens": 4688,
+      "cachedTokens": 2649,
+      "warm": true
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 4605,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 4605,
+      "cachedTokens": 2566
+    },
+    "warm": true
+  }
+}

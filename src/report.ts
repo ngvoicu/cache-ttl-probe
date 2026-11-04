@@ -22,6 +22,7 @@ export interface Summary {
 export function summarize(result: RunResult): Summary {
   const byAge = new Map<number, AgeRow>();
   for (const c of result.checks) {
+    if (c.error) continue;
     const row = byAge.get(c.targetAgeMs) ?? { ageMs: c.targetAgeMs, warm: 0, total: 0 };
     row.total++;
     if (c.warm) row.warm++;

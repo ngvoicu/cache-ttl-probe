@@ -78,3 +78,35 @@ test("hard errors fail the run with a message", async () => {
   assert.equal(r.status, "failed");
   assert.match(r.error ?? "", /HTTP 401/);
 });
+
+test("a check that keeps failing is recorded as an error and the run continues", async () => {
+  const { deps } = fakeUpstream(60 * MIN);
+  const send = deps.send;
+  let n = 0;
+  deps.send = async (u, h, b) => {
+    n++;
+    // control (3 calls) + 2 primes succeed, then the first check fails for good
+    if (n >= 6 && n <= 13) return { status: 503, text: "down" };
+    return send(u, h, b);
+  };
+  const r = await runProbe(opts([5 * MIN, 10 * MIN], 1), deps);
+  assert.equal(r.status, "completed");
+  assert.equal(r.checks.length, 2);
+  assert.ok(r.checks[0].error);
+  assert.equal(r.checks[1].warm, true);
+  assert.equal(summarize(r).rows.length, 1, "errored checks are excluded from the survival table");
+});
+
+test("warm fraction is configurable", async () => {
+  const { deps } = fakeUpstream(60 * MIN);
+  const send = deps.send;
+  // a provider that caches only ~40% of the prompt (e.g. block-aligned implicit caching)
+  deps.send = async (u, h, b) => {
+    const res = await send(u, h, b);
+    return { status: res.status, text: res.text.replace('"cached_tokens":2560', '"cached_tokens":1040') };
+  };
+  const strict = await runProbe(opts([5 * MIN], 1), deps);
+  assert.equal(strict.status, "no-observable-cache");
+  const loose = await runProbe({ ...opts([5 * MIN], 1), runSalt: "t2", warmFraction: 0.3 }, deps);
+  assert.equal(loose.status, "completed");
+});

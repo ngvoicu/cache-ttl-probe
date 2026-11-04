@@ -1,0 +1,115 @@
+{
+  "probeVersion": "0.1.0",
+  "label": "C1",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "probe-c1",
+  "runSalt": "y5jhd057",
+  "replicas": 3,
+  "plannedAges": [
+    150000,
+    300000,
+    450000,
+    600000,
+    900000,
+    1200000,
+    1500000,
+    1800000,
+    2400000,
+    3000000,
+    3600000,
+    4500000,
+    5400000,
+    7200000,
+    14400000,
+    28800000,
+    43200000
+  ],
+  "startedAt": "2026-11-04T17:56:25.963Z",
+  "status": "running",
+  "checks": [
+    {
+      "sampleId": "2.5m-r1",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 150002,
+      "promptTokens": 2696,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r2",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 152423,
+      "promptTokens": 2700,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r3",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 152519,
+      "promptTokens": 2711,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "5m-r1",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 300001,
+      "promptTokens": 2686,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "5m-r2",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 300013,
+      "promptTokens": 2658,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "5m-r3",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 302068,
+      "promptTokens": 2692,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "7.5m-r1",
+      "targetAgeMs": 450000,
+      "actualAgeMs": 450003,
+      "promptTokens": 2701,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "7.5m-r2",
+      "targetAgeMs": 450000,
+      "actualAgeMs": 452053,
+      "promptTokens": 2660,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "7.5m-r3",
+      "targetAgeMs": 450000,
+      "actualAgeMs": 452414,
+      "promptTokens": 2699,
+      "cachedTokens": 2560,
+      "warm": true
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 2705,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 2705,
+      "cachedTokens": 2560
+    },
+    "warm": true
+  }
+}

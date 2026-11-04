@@ -1,0 +1,44 @@
+{
+  "probeVersion": "0.1.0",
+  "label": "O8",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "probe-o8",
+  "runSalt": "i4q7lx91",
+  "replicas": 3,
+  "plannedAges": [
+    150000,
+    300000,
+    450000,
+    600000,
+    900000,
+    1200000,
+    1500000,
+    1800000,
+    2400000,
+    3000000,
+    3600000,
+    4500000,
+    5400000,
+    7200000,
+    14400000,
+    28800000,
+    43200000
+  ],
+  "startedAt": "2026-11-04T18:02:11.184Z",
+  "status": "failed",
+  "checks": [],
+  "control": {
+    "prime": {
+      "promptTokens": 2522,
+      "cachedTokens": 2003
+    },
+    "check": {
+      "promptTokens": 2522,
+      "cachedTokens": 2298
+    },
+    "warm": true
+  },
+  "error": "HTTP 402: {\"error\":{\"message\":\"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.\",\"code\":402,\"metadata\":{\"reason\":\"in_flight_budget_exhausted\",\"limit_source\":\"openrouter_in_flight_budget\",\"remedy_hint\":\"Retry after yo",
+  "finishedAt": "2026-11-04T18:02:26.656Z"
+}
