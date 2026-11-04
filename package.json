@@ -1,0 +1,17 @@
+{
+  "name": "cache-ttl-probe",
+  "version": "0.1.0",
+  "description": "Measure how long LLM prompt caches really live, per endpoint, model and route",
+  "type": "module",
+  "license": "MIT",
+  "author": "Gabriel Voicu",
+  "repository": { "type": "git", "url": "git+https://github.com/ngvoicu/cache-ttl-probe.git" },
+  "bin": { "cache-ttl-probe": "src/cli.ts" },
+  "files": ["src", "README.md", "LICENSE"],
+  "engines": { "node": ">=22.19" },
+  "scripts": {
+    "test": "node --test \"test/*.test.ts\"",
+    "probe": "node src/cli.ts"
+  },
+  "keywords": ["llm", "prompt-cache", "ttl", "anthropic", "openai", "measurement"]
+}
