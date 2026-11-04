@@ -36,6 +36,7 @@ Options:
   --warm-fraction <f>     share of the prompt that must be cached for a warm check (default: 0.5)
   --stream                use streaming responses
   --no-cache-key          don't send a per-sample prompt_cache_key (sent by default on chat/responses)
+  --session-id            send a per-sample session_id (OpenRouter sticky routing)
   --concurrency <n>       parallel priming requests (default: 4)
   --label <text>          run label used in file names and the report (default: <model>-<format>)
   --salt <text>           run salt (default: random)
@@ -74,6 +75,7 @@ const { values } = parseArgs({
     "warm-fraction": { type: "string" },
     stream: { type: "boolean", default: false },
     "cache-key": { type: "boolean", default: true },
+    "session-id": { type: "boolean", default: false },
     concurrency: { type: "string" },
     label: { type: "string" },
     salt: { type: "string" },
@@ -136,6 +138,7 @@ const opts: RunOptions = {
   concurrency: int(values.concurrency, "concurrency", 4),
   label,
   cacheKey: values["cache-key"],
+  sessionId: values["session-id"],
   warmFraction: values["warm-fraction"] === undefined ? 0.5 : Number(values["warm-fraction"]),
 };
 if (!(opts.warmFraction! > 0 && opts.warmFraction! <= 1)) fail("--warm-fraction must be in (0, 1]");
