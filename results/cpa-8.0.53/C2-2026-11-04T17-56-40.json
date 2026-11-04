@@ -26,7 +26,7 @@
     43200000
   ],
   "startedAt": "2026-11-04T17:56:40.981Z",
-  "status": "running",
+  "status": "stopped-early",
   "checks": [
     {
       "sampleId": "2.5m-r1",
@@ -75,6 +75,30 @@
       "promptTokens": 2727,
       "cachedTokens": 0,
       "warm": false
+    },
+    {
+      "sampleId": "7.5m-r1",
+      "targetAgeMs": 450000,
+      "actualAgeMs": 450003,
+      "promptTokens": 2720,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "7.5m-r2",
+      "targetAgeMs": 450000,
+      "actualAgeMs": 451435,
+      "promptTokens": 2693,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "7.5m-r3",
+      "targetAgeMs": 450000,
+      "actualAgeMs": 452327,
+      "promptTokens": 2702,
+      "cachedTokens": 0,
+      "warm": false
     }
   ],
   "control": {
@@ -87,5 +111,6 @@
       "cachedTokens": 2560
     },
     "warm": true
-  }
+  },
+  "finishedAt": "2026-11-04T18:04:41.328Z"
 }
