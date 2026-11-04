@@ -23,6 +23,8 @@ export interface RunOptions {
   warmFraction?: number;
   /** Send a per-sample `prompt_cache_key` (chat/responses). Default true. */
   cacheKey?: boolean;
+  /** Send a per-sample `session_id` (OpenRouter sticky routing). Default false. */
+  sessionId?: boolean;
 }
 
 export interface SendResult {
@@ -90,6 +92,7 @@ function retryable(err: unknown): boolean {
 async function call(o: RunOptions, deps: Deps, prefix: string, sampleId: string): Promise<{ usage: Usage; startedAt: number }> {
   const req = buildRequest(o.format, {
     cacheKey: o.cacheKey === false ? undefined : `cache-ttl-probe-${o.runSalt}-${sampleId}`,
+    sessionId: o.sessionId ? `cache-ttl-probe-${o.runSalt}-${sampleId}` : undefined,
     model: o.model,
     prefix,
     ttl: o.ttl,

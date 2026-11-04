@@ -68,3 +68,9 @@ test("prompt_cache_key on chat/responses only", () => {
   assert.equal(buildRequest("messages", { ...base, cacheKey: "k1" }).body.prompt_cache_key, undefined);
   assert.equal(buildRequest("responses", base).body.prompt_cache_key, undefined);
 });
+
+test("session_id when requested", () => {
+  assert.equal(buildRequest("chat", { ...base, sessionId: "s1" }).body.session_id, "s1");
+  assert.equal(buildRequest("messages", { ...base, sessionId: "s1" }).body.session_id, "s1");
+  assert.equal(buildRequest("responses", base).body.session_id, undefined);
+});

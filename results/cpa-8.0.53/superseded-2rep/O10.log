@@ -1,0 +1,10 @@
+[18:30:42] control: O10
+[18:30:42]   retry in 2s: HTTP 503: {"error":{"message":"auth_unavailable: no auth available (providers=openai-compatible-openrouter, model=probe-o10; last upstream error: 402: This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.)","type":"server
+[18:30:44]   retry in 5s: HTTP 503: {"error":{"message":"auth_unavailable: no auth available (providers=openai-compatible-openrouter, model=probe-o10; last upstream error: 402: This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.)","type":"server
+[18:30:49]   retry in 15s: HTTP 503: {"error":{"message":"auth_unavailable: no auth available (providers=openai-compatible-openrouter, model=probe-o10; last upstream error: 402: This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.)","type":"server
+[18:31:04]   retry in 30s: HTTP 503: {"error":{"message":"auth_unavailable: no auth available (providers=openai-compatible-openrouter, model=probe-o10; last upstream error: 402: This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.)","type":"server
+[18:31:34]   retry in 60s: HTTP 503: {"error":{"message":"auth_unavailable: no auth available (providers=openai-compatible-openrouter, model=probe-o10; last upstream error: 402: This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.)","type":"server
+[18:32:40]   control warm (cached 2548/2635)
+[18:32:40] priming 28 samples
+[18:35:13]   2.5m r1: warm (2548/2615)
+[18:35:14]   2.5m r2: warm (2548/2651)

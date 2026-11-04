@@ -18,6 +18,8 @@ export interface BuildOptions {
    * cache; real clients (Codex, pi) send one per conversation, so the probe sends one per sample.
    */
   cacheKey?: string;
+  /** OpenRouter-style `session_id` (sticky routing key) for chat/responses/messages. */
+  sessionId?: string;
 }
 
 export interface ProbeRequest {
@@ -95,6 +97,7 @@ export function buildRequest(format: Format, o: BuildOptions): ProbeRequest {
       break;
   }
   if (o.cacheKey && format !== "messages") req.body.prompt_cache_key = o.cacheKey;
+  if (o.sessionId) req.body.session_id = o.sessionId;
   if (o.bodyExtra) Object.assign(req.body, o.bodyExtra);
   return req;
 }
