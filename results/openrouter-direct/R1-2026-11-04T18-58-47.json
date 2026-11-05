@@ -1,0 +1,90 @@
+{
+  "probeVersion": "0.1.0",
+  "label": "R1",
+  "baseUrl": "https://openrouter.ai/api/v1",
+  "format": "responses",
+  "model": "anthropic/claude-opus-5.5",
+  "runSalt": "pp1gaiu8",
+  "replicas": 3,
+  "cacheKey": true,
+  "plannedAges": [
+    150000,
+    300000,
+    450000,
+    600000,
+    900000,
+    1200000,
+    1500000,
+    1800000,
+    2400000,
+    3000000,
+    3600000,
+    4500000,
+    5400000,
+    7200000
+  ],
+  "startedAt": "2026-11-04T18:58:47.325Z",
+  "status": "stopped-early",
+  "checks": [
+    {
+      "sampleId": "2.5m-r1",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 397789,
+      "promptTokens": 4351,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "2.5m-r2",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 397983,
+      "promptTokens": 4331,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "2.5m-r3",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 396061,
+      "promptTokens": 4317,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "5m-r1",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 400610,
+      "promptTokens": 4283,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "5m-r2",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 400676,
+      "promptTokens": 4313,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "5m-r3",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 400470,
+      "promptTokens": 4326,
+      "cachedTokens": 0,
+      "warm": false
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 4311,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 4311,
+      "cachedTokens": 4307
+    },
+    "warm": true
+  },
+  "finishedAt": "2026-11-04T19:05:48.797Z"
+}

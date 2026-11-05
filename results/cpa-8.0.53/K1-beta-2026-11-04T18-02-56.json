@@ -1,0 +1,103 @@
+{
+  "probeVersion": "0.1.0",
+  "label": "K1-beta",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "messages",
+  "model": "probe-k1",
+  "ttl": "1h",
+  "runSalt": "znh9e45k",
+  "replicas": 3,
+  "plannedAges": [
+    600000,
+    1800000,
+    3900000
+  ],
+  "startedAt": "2026-11-04T18:02:56.216Z",
+  "status": "completed",
+  "checks": [
+    {
+      "sampleId": "10m-r1",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600003,
+      "promptTokens": 4345,
+      "cachedTokens": 4329,
+      "warm": true
+    },
+    {
+      "sampleId": "10m-r2",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 601231,
+      "promptTokens": 4336,
+      "cachedTokens": 4320,
+      "warm": true
+    },
+    {
+      "sampleId": "10m-r3",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 601672,
+      "promptTokens": 4298,
+      "cachedTokens": 4282,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r1",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800004,
+      "promptTokens": 4289,
+      "cachedTokens": 4273,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r2",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800001,
+      "promptTokens": 4308,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "30m-r3",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1801841,
+      "promptTokens": 4313,
+      "cachedTokens": 4297,
+      "warm": true
+    },
+    {
+      "sampleId": "65m-r1",
+      "targetAgeMs": 3900000,
+      "actualAgeMs": 3900004,
+      "promptTokens": 4330,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "65m-r2",
+      "targetAgeMs": 3900000,
+      "actualAgeMs": 3901277,
+      "promptTokens": 4345,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "65m-r3",
+      "targetAgeMs": 3900000,
+      "actualAgeMs": 3902261,
+      "promptTokens": 4314,
+      "cachedTokens": 0,
+      "warm": false
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 4356,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 4356,
+      "cachedTokens": 4340
+    },
+    "warm": true
+  },
+  "finishedAt": "2026-11-04T19:08:12.428Z"
+}

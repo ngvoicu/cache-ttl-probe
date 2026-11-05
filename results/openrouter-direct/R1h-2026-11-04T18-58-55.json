@@ -1,0 +1,95 @@
+{
+  "probeVersion": "0.1.0",
+  "label": "R1h",
+  "baseUrl": "https://openrouter.ai/api/v1",
+  "format": "responses",
+  "model": "anthropic/claude-opus-5.5",
+  "runSalt": "g925i2wq",
+  "replicas": 3,
+  "cacheKey": true,
+  "plannedAges": [
+    600000,
+    1800000,
+    3900000
+  ],
+  "startedAt": "2026-11-04T18:58:55.335Z",
+  "status": "completed",
+  "checks": [
+    {
+      "sampleId": "10m-r1",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600002,
+      "promptTokens": 4273,
+      "cachedTokens": 4269,
+      "warm": true
+    },
+    {
+      "sampleId": "10m-r2",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600391,
+      "promptTokens": 4295,
+      "cachedTokens": 4291,
+      "warm": true
+    },
+    {
+      "sampleId": "10m-r3",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600001,
+      "promptTokens": 4348,
+      "cachedTokens": 4344,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r1",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800004,
+      "promptTokens": 4322,
+      "cachedTokens": 4318,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r2",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800328,
+      "promptTokens": 4300,
+      "cachedTokens": 4296,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r3",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800185,
+      "promptTokens": 4294,
+      "cachedTokens": 4290,
+      "warm": true
+    },
+    {
+      "sampleId": "65m-r2",
+      "targetAgeMs": 3900000,
+      "actualAgeMs": 3900004,
+      "promptTokens": 4307,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "65m-r3",
+      "targetAgeMs": 3900000,
+      "actualAgeMs": 3900279,
+      "promptTokens": 4314,
+      "cachedTokens": 0,
+      "warm": false
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 4284,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 4284,
+      "cachedTokens": 4280
+    },
+    "warm": true
+  },
+  "finishedAt": "2026-11-04T20:09:29.095Z"
+}
