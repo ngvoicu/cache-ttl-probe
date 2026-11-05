@@ -1,0 +1,456 @@
+{
+  "probeVersion": "0.1.0",
+  "label": "C1",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "probe-c1",
+  "runSalt": "jbw4aref",
+  "replicas": 3,
+  "cacheKey": true,
+  "plannedAges": [
+    150000,
+    300000,
+    450000,
+    600000,
+    900000,
+    1200000,
+    1500000,
+    1800000,
+    2400000,
+    3000000,
+    3600000,
+    4500000,
+    5400000,
+    7200000,
+    14400000,
+    28800000,
+    43200000
+  ],
+  "startedAt": "2026-11-04T18:07:32.646Z",
+  "status": "completed",
+  "checks": [
+    {
+      "sampleId": "2.5m-r1",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 150002,
+      "promptTokens": 2670,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r2",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 151882,
+      "promptTokens": 2688,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r3",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 151832,
+      "promptTokens": 2696,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "5m-r1",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 300003,
+      "promptTokens": 2653,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "5m-r2",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 300463,
+      "promptTokens": 2708,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "5m-r3",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 301496,
+      "promptTokens": 2646,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "7.5m-r1",
+      "targetAgeMs": 450000,
+      "actualAgeMs": 450001,
+      "promptTokens": 2697,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "7.5m-r2",
+      "targetAgeMs": 450000,
+      "actualAgeMs": 450492,
+      "promptTokens": 2686,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "7.5m-r3",
+      "targetAgeMs": 450000,
+      "actualAgeMs": 451392,
+      "promptTokens": 2682,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "10m-r1",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600003,
+      "promptTokens": 2703,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "10m-r2",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600265,
+      "promptTokens": 2683,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "10m-r3",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 602753,
+      "promptTokens": 2663,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "15m-r1",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 900001,
+      "promptTokens": 2687,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "15m-r2",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 901718,
+      "promptTokens": 2715,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "15m-r3",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 902330,
+      "promptTokens": 2680,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "20m-r1",
+      "targetAgeMs": 1200000,
+      "actualAgeMs": 1200002,
+      "promptTokens": 2695,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "20m-r2",
+      "targetAgeMs": 1200000,
+      "actualAgeMs": 1200410,
+      "promptTokens": 2659,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "20m-r3",
+      "targetAgeMs": 1200000,
+      "actualAgeMs": 1201341,
+      "promptTokens": 2677,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "25m-r1",
+      "targetAgeMs": 1500000,
+      "actualAgeMs": 1500002,
+      "promptTokens": 2659,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "25m-r2",
+      "targetAgeMs": 1500000,
+      "actualAgeMs": 1500601,
+      "promptTokens": 2678,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "25m-r3",
+      "targetAgeMs": 1500000,
+      "actualAgeMs": 1501845,
+      "promptTokens": 2696,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r1",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800001,
+      "promptTokens": 2696,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r2",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800477,
+      "promptTokens": 2665,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r3",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800902,
+      "promptTokens": 2723,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "40m-r1",
+      "targetAgeMs": 2400000,
+      "actualAgeMs": 2400003,
+      "promptTokens": 2702,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "40m-r2",
+      "targetAgeMs": 2400000,
+      "actualAgeMs": 2401116,
+      "promptTokens": 2693,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "40m-r3",
+      "targetAgeMs": 2400000,
+      "actualAgeMs": 2402874,
+      "promptTokens": 2698,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "50m-r1",
+      "targetAgeMs": 3000000,
+      "actualAgeMs": 3000001,
+      "promptTokens": 2674,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "50m-r2",
+      "targetAgeMs": 3000000,
+      "actualAgeMs": 3003749,
+      "promptTokens": 2676,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "50m-r3",
+      "targetAgeMs": 3000000,
+      "actualAgeMs": 3012359,
+      "promptTokens": 2668,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "1h-r1",
+      "targetAgeMs": 3600000,
+      "actualAgeMs": 3600002,
+      "promptTokens": 2688,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "1h-r2",
+      "targetAgeMs": 3600000,
+      "actualAgeMs": 3601099,
+      "promptTokens": 2667,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "1h-r3",
+      "targetAgeMs": 3600000,
+      "actualAgeMs": 3602654,
+      "promptTokens": 2688,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "75m-r1",
+      "targetAgeMs": 4500000,
+      "actualAgeMs": 4500002,
+      "promptTokens": 2670,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "75m-r2",
+      "targetAgeMs": 4500000,
+      "actualAgeMs": 4501636,
+      "promptTokens": 2670,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "75m-r3",
+      "targetAgeMs": 4500000,
+      "actualAgeMs": 4501526,
+      "promptTokens": 2699,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "90m-r1",
+      "targetAgeMs": 5400000,
+      "actualAgeMs": 5400003,
+      "promptTokens": 2699,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "90m-r2",
+      "targetAgeMs": 5400000,
+      "actualAgeMs": 5400377,
+      "promptTokens": 2699,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "90m-r3",
+      "targetAgeMs": 5400000,
+      "actualAgeMs": 5402406,
+      "promptTokens": 2678,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "2h-r1",
+      "targetAgeMs": 7200000,
+      "actualAgeMs": 7200003,
+      "promptTokens": 2682,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "2h-r2",
+      "targetAgeMs": 7200000,
+      "actualAgeMs": 7201669,
+      "promptTokens": 2687,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "2h-r3",
+      "targetAgeMs": 7200000,
+      "actualAgeMs": 7202253,
+      "promptTokens": 2674,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "4h-r1",
+      "targetAgeMs": 14400000,
+      "actualAgeMs": 14400002,
+      "promptTokens": 2676,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "4h-r2",
+      "targetAgeMs": 14400000,
+      "actualAgeMs": 14401209,
+      "promptTokens": 2664,
+      "cachedTokens": 2432,
+      "warm": true
+    },
+    {
+      "sampleId": "4h-r3",
+      "targetAgeMs": 14400000,
+      "actualAgeMs": 14402372,
+      "promptTokens": 2689,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "8h-r1",
+      "error": "HTTP 500: {\"error\":{\"message\":\"Post \\\"https://chatgpt.com/backend-api/codex/responses\\\": utls: dial upstream: dial tcp: lookup chatgpt.com: no such host\",\"type\":\"server_error\",\"code\":\"internal_server_error\"}}",
+      "targetAgeMs": 28800000,
+      "actualAgeMs": 29332142,
+      "promptTokens": 0,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "8h-r2",
+      "error": "HTTP 500: {\"error\":{\"message\":\"Post \\\"https://chatgpt.com/backend-api/codex/responses\\\": utls: dial upstream: dial tcp: lookup chatgpt.com: no such host\",\"type\":\"server_error\",\"code\":\"internal_server_error\"}}",
+      "targetAgeMs": 28800000,
+      "actualAgeMs": 29864057,
+      "promptTokens": 0,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "8h-r3",
+      "error": "HTTP 500: {\"error\":{\"message\":\"Post \\\"https://chatgpt.com/backend-api/codex/responses\\\": utls: dial upstream: dial tcp: lookup chatgpt.com: no such host\",\"type\":\"server_error\",\"code\":\"internal_server_error\"}}",
+      "targetAgeMs": 28800000,
+      "actualAgeMs": 30394422,
+      "promptTokens": 0,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "12h-r1",
+      "targetAgeMs": 43200000,
+      "actualAgeMs": 43200003,
+      "promptTokens": 2668,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "12h-r2",
+      "targetAgeMs": 43200000,
+      "actualAgeMs": 43203021,
+      "promptTokens": 2679,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "12h-r3",
+      "targetAgeMs": 43200000,
+      "actualAgeMs": 43202877,
+      "promptTokens": 2694,
+      "cachedTokens": 0,
+      "warm": false
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 2670,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 2670,
+      "cachedTokens": 2432
+    },
+    "warm": true
+  },
+  "finishedAt": "2026-11-05T06:08:36.578Z"
+}
