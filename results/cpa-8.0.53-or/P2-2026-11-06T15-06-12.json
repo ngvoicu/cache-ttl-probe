@@ -1,0 +1,104 @@
+{
+  "probeVersion": "0.1.0",
+  "label": "P2",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "messages",
+  "model": "anthropic/claude-haiku-5.5",
+  "ttl": "1h",
+  "runSalt": "h7smul4y",
+  "replicas": 3,
+  "cacheKey": true,
+  "plannedAges": [
+    600000,
+    1800000,
+    3900000
+  ],
+  "startedAt": "2026-11-06T15:06:12.952Z",
+  "status": "completed",
+  "checks": [
+    {
+      "sampleId": "10m-r1",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600002,
+      "promptTokens": 4318,
+      "cachedTokens": 4314,
+      "warm": true
+    },
+    {
+      "sampleId": "10m-r2",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 601122,
+      "promptTokens": 4338,
+      "cachedTokens": 4334,
+      "warm": true
+    },
+    {
+      "sampleId": "10m-r3",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 601479,
+      "promptTokens": 4300,
+      "cachedTokens": 4296,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r1",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800005,
+      "promptTokens": 4314,
+      "cachedTokens": 4310,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r2",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800448,
+      "promptTokens": 4317,
+      "cachedTokens": 4313,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r3",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1801389,
+      "promptTokens": 4308,
+      "cachedTokens": 4304,
+      "warm": true
+    },
+    {
+      "sampleId": "65m-r1",
+      "targetAgeMs": 3900000,
+      "actualAgeMs": 3900006,
+      "promptTokens": 4273,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "65m-r2",
+      "targetAgeMs": 3900000,
+      "actualAgeMs": 3901524,
+      "promptTokens": 4319,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "65m-r3",
+      "targetAgeMs": 3900000,
+      "actualAgeMs": 3901824,
+      "promptTokens": 4323,
+      "cachedTokens": 0,
+      "warm": false
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 4326,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 4326,
+      "cachedTokens": 4322
+    },
+    "warm": true
+  },
+  "finishedAt": "2026-11-06T16:11:24.762Z"
+}

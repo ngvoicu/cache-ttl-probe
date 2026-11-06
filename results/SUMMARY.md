@@ -44,6 +44,17 @@ Known values were not measured: Claude subscription through CLIProxyAPI (CPA set
 
 Not measured: A1/A2 (not offered on the Antigravity account), M2 (404).
 
+## OpenRouter through CLIProxyAPI with built-in OpenRouter support
+
+CLIProxyAPI 8.0.53 plus router-for-me/CLIProxyAPI#7284 (cache markers, session id, reasoning levels), 2026-11-06,
+real OpenRouter model ids through an `openai-compatibility` entry. Files in `cpa-8.0.53-or/`.
+
+| Row | Model | Request | Lifetime | Notes |
+|---|---|---|---|---|
+| P1 | `anthropic/claude-haiku-5.5` | messages, no ttl | **5 – 7.5 min** | was "no cache" (O1) before #7284 |
+| P2 | same | messages, `ttl: "1h"` | **30 – 65 min** | the client's 1-hour request reaches Anthropic |
+| P3 | `openai/gpt-6.1-sol` | responses, `prompt_cache_options.ttl: "12h"` | warm at 30 min, cold at 1 h | the 12 h request is dropped: CPA's Responses → Chat Completions translation doesn't carry `prompt_cache_options`, so this is the 30-min default |
+
 ## Straight to OpenRouter
 
 | Row | Model | Lifetime | Notes |
@@ -65,8 +76,11 @@ Not measured: A1/A2 (not offered on the Antigravity account), M2 (404).
 - **Claude through CLIProxyAPI caches** on every route except OpenRouter via `openai-compatibility`: subscriptions (1 h,
   set by CPA), API keys (5 min, or 1 h when the client asks), Devin (≥ 2 h). A client that warms every ~4.5 min keeps
   any of them warm.
-- **OpenRouter via `openai-compatibility` never caches Claude**, because CPA adds no `cache_control`. Direct OpenRouter
-  does (R1h). Fixing this belongs in CPA, not in clients.
+- **OpenRouter via `openai-compatibility` never caches Claude** on CPA without #7284, because CPA adds no
+  `cache_control`. Direct OpenRouter does (R1h). With #7284 it does: 5 – 7.5 min by default (P1), 30 – 65 min when the
+  client asks for 1 h (P2).
+- **OpenAI's 12-hour lifetime doesn't pass through CPA to OpenRouter** yet (P3): the option is dropped when CPA
+  translates Responses to Chat Completions.
 - **Codex keeps the cache for hours when a cache key is sent** (C1). Without a key (C2) checks land on other cache
   nodes and look cold within minutes.
 - **GPT-6.1 elsewhere lasts 30–40 min**, matching OpenAI's documented ≥ 30 min, through CPA or not.
