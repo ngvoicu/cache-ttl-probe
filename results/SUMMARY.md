@@ -10,6 +10,7 @@ the same age) mean the provider spreads requests over cache nodes or evicts earl
 - `cpa-8.0.53/`: through a local [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) 8.0.53, each row pinned to
   one account by a temporary alias (removed afterwards).
 - `openrouter-direct/`: straight to OpenRouter, no proxy. This is the baseline for what the upstream itself does.
+- `openrouter-direct-v0.2/`: R1 measured again with probe 0.2.0 (R1b).
 
 Known values were not measured: Claude subscription through CLIProxyAPI (CPA sets a 1 h cache) and a Claude API key
 (5 min default).
@@ -59,7 +60,8 @@ real OpenRouter model ids through an `openai-compatibility` entry. Files in `cpa
 
 | Row | Model | Lifetime | Notes |
 |---|---|---|---|
-| R1 | `anthropic/claude-opus-5.5`, top-level `cache_control` + `session_id` | cold at 2.5 min | warm control; under investigation |
+| R1 | `anthropic/claude-opus-5.5`, top-level `cache_control` + `session_id` | ~~cold at 2.5 min~~ | **probe error**: priming stalled ~6 min on retries, so the "2.5 min" and "5 min" checks ran at 6.6 and 6.7 min. Replaced by R1b |
+| R1b | `anthropic/claude-haiku-5.5`, same request, probe 0.2.0 | **5 – 7.5 min** | every check within 3 s of its age; Anthropic's 5-minute tier, as through CPA (P1) |
 | R1h | same, explicit `ttl: "1h"` | 30 – 65 min | |
 | R2, R3 | `openai/gpt-6.1-sol`, `-terra` | 30 – 40 min | |
 | R4 | `google/gemini-4-argon` | 5 – 7.5 min | |

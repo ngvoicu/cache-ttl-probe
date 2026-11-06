@@ -1,0 +1,106 @@
+{
+  "probeVersion": "0.1.0",
+  "label": "P3",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "openai/gpt-6.1-sol",
+  "runSalt": "c2389us8",
+  "replicas": 3,
+  "cacheKey": true,
+  "plannedAges": [
+    1800000,
+    3600000,
+    7200000,
+    14400000,
+    28800000,
+    43200000
+  ],
+  "startedAt": "2026-11-06T15:06:32.967Z",
+  "status": "stopped-early",
+  "checks": [
+    {
+      "sampleId": "30m-r1",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800004,
+      "promptTokens": 2381,
+      "cachedTokens": 2378,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r2",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1801526,
+      "promptTokens": 2416,
+      "cachedTokens": 2413,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r3",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1801358,
+      "promptTokens": 2391,
+      "cachedTokens": 2388,
+      "warm": true
+    },
+    {
+      "sampleId": "1h-r1",
+      "targetAgeMs": 3600000,
+      "actualAgeMs": 3600003,
+      "promptTokens": 2372,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "1h-r2",
+      "targetAgeMs": 3600000,
+      "actualAgeMs": 3600290,
+      "promptTokens": 2373,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "1h-r3",
+      "targetAgeMs": 3600000,
+      "actualAgeMs": 3602093,
+      "promptTokens": 2384,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "2h-r1",
+      "targetAgeMs": 7200000,
+      "actualAgeMs": 7200002,
+      "promptTokens": 2427,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "2h-r2",
+      "targetAgeMs": 7200000,
+      "actualAgeMs": 7201489,
+      "promptTokens": 2398,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "2h-r3",
+      "targetAgeMs": 7200000,
+      "actualAgeMs": 7201703,
+      "promptTokens": 2388,
+      "cachedTokens": 0,
+      "warm": false
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 2352,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 2352,
+      "cachedTokens": 2349
+    },
+    "warm": true
+  },
+  "finishedAt": "2026-11-06T17:06:52.265Z"
+}
