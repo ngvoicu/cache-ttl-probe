@@ -22,7 +22,7 @@ export interface Summary {
 export function summarize(result: RunResult): Summary {
   const byAge = new Map<number, AgeRow>();
   for (const c of result.checks) {
-    if (c.error) continue;
+    if (c.error || c.late) continue;
     const row = byAge.get(c.targetAgeMs) ?? { ageMs: c.targetAgeMs, warm: 0, total: 0 };
     row.total++;
     if (c.warm) row.warm++;
@@ -63,5 +63,9 @@ export function renderMarkdown(result: RunResult): string {
   }
   lines.push("", `**Lifetime: ${bracket(s)}**`, "", "| Age | Warm | Checks |", "|---|---|---|");
   for (const r of s.rows) lines.push(`| ${formatDuration(r.ageMs)} | ${r.warm} | ${r.total} |`);
+  const late = result.checks.filter((c) => c.late && !c.error);
+  if (late.length) {
+    lines.push("", `Left out, ran late: ${late.map((c) => `${formatDuration(c.targetAgeMs)} at ${formatDuration(c.actualAgeMs)} ${c.warm ? "warm" : "cold"}`).join(", ")}.`);
+  }
   return lines.join("\n") + "\n";
 }

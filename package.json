@@ -1,6 +1,6 @@
 {
   "name": "cache-ttl-probe",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Measure how long LLM prompt caches really live, per endpoint, model and route",
   "type": "module",
   "license": "MIT",

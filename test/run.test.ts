@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { type Deps, type RunOptions, runProbe } from "../src/run.ts";
+import { type Deps, lateAfterMs, type RunOptions, runProbe } from "../src/run.ts";
 import { bracket, renderMarkdown, summarize } from "../src/report.ts";
 
 // A fake upstream with an idle-timeout cache, driven by a fake clock (no wall-clock sleeps).
@@ -109,4 +109,44 @@ test("warm fraction is configurable", async () => {
   assert.equal(strict.status, "no-observable-cache");
   const loose = await runProbe({ ...opts([5 * MIN], 1), runSalt: "t2", warmFraction: 0.3 }, deps);
   assert.equal(loose.status, "completed");
+});
+
+test("slow priming doesn't push checks past their age (R1, 2026-11-04)", async () => {
+  // A 5-minute cache. Priming the 12 samples takes 40 s each (R1 lost minutes to retries), so the 2.5-minute samples,
+  // primed first, would be checked at ~8 minutes and look cold.
+  const { deps } = fakeUpstream(5 * MIN);
+  const send = deps.send;
+  let n = 0;
+  const lines: string[] = [];
+  deps.log = (l) => lines.push(l);
+  deps.send = async (url, headers, body) => {
+    const r = await send(url, headers, body);
+    if (++n > 2 && n <= 14) await deps.sleep(40_000);
+    return r;
+  };
+  const r = await runProbe(opts([2.5 * MIN, 5 * MIN, 7.5 * MIN, 10 * MIN]), deps);
+  assert.ok(lines.some((l) => /overdue, priming again/.test(l)), "overdue samples are primed again");
+  for (const c of r.checks) assert.ok(c.actualAgeMs - c.targetAgeMs <= lateAfterMs(c.targetAgeMs), `${c.sampleId} on time`);
+  const s = summarize(r);
+  assert.equal(s.lastAllWarmMs, 2.5 * MIN);
+  assert.equal(s.allColdMs, 5 * MIN);
+});
+
+test("a check that still runs late is left out of the result", async () => {
+  // Every request after the control round takes 4 minutes, re-primes included: after two re-primes the check
+  // runs late and doesn't count.
+  const { deps } = fakeUpstream(60 * MIN);
+  const send = deps.send;
+  let n = 0;
+  deps.send = async (url, headers, body) => {
+    n++;
+    const r = await send(url, headers, body);
+    if (n > 2) await deps.sleep(4 * MIN);
+    return r;
+  };
+  const r = await runProbe(opts([1 * MIN], 1), deps);
+  assert.equal(r.checks.length, 1);
+  assert.equal(r.checks[0].late, true);
+  assert.equal(summarize(r).rows.length, 0);
+  assert.match(renderMarkdown(r), /Left out, ran late: 1m at /);
 });

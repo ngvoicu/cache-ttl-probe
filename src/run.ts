@@ -48,6 +48,8 @@ export interface Check {
   error?: string;
   targetAgeMs: number;
   actualAgeMs: number;
+  /** Set when the check ran too long after its planned age; such checks count neither warm nor cold. */
+  late?: boolean;
   promptTokens: number;
   cachedTokens: number;
   warm: boolean;
@@ -72,7 +74,14 @@ export interface RunResult {
   checks: Check[];
 }
 
-export const PROBE_VERSION = "0.1.0";
+export const PROBE_VERSION = "0.2.0";
+
+/** How long after its planned age a check may still run: 30 s, or 10 % of the age when longer. */
+export function lateAfterMs(ageMs: number): number {
+  return Math.max(30_000, Math.round(ageMs * 0.1));
+}
+/** A sample found overdue is primed again (with a fresh prompt) at most this often, then checked late. */
+const MAX_REPRIMES = 2;
 const RETRY_DELAYS_MS = [2_000, 5_000, 15_000, 30_000, 60_000, 60_000, 120_000];
 
 export class HttpError extends Error {
@@ -90,6 +99,7 @@ function retryable(err: unknown): boolean {
 
 /** Sends one request for a prefix and returns its usage, retrying transient failures. */
 async function call(o: RunOptions, deps: Deps, prefix: string, sampleId: string): Promise<{ usage: Usage; startedAt: number }> {
+  // sampleId also keys the prompt cache and the session, so a re-primed sample (id~2) starts on fresh keys.
   const req = buildRequest(o.format, {
     cacheKey: o.cacheKey === false ? undefined : `cache-ttl-probe-${o.runSalt}-${sampleId}`,
     sessionId: o.sessionId ? `cache-ttl-probe-${o.runSalt}-${sampleId}` : undefined,
@@ -179,6 +189,8 @@ export async function runProbe(o: RunOptions, deps: Deps): Promise<RunResult> {
     // Prime every sample once.
     const samples = planSamples(o.ages, o.replicas);
     const primedAt = new Map<string, number>();
+    // The prompt (and cache key) a sample is checked with: its own id, or id~n after being primed again.
+    const prefixId = new Map<string, string>(samples.map((s) => [s.id, s.id]));
     deps.log(`priming ${samples.length} samples`);
     await pool(samples, o.concurrency, async (s) => {
       try {
@@ -192,22 +204,41 @@ export async function runProbe(o: RunOptions, deps: Deps): Promise<RunResult> {
     if (!primedAt.size) throw new Error("every priming request failed");
     deps.onProgress?.(result);
 
-    // Check each sample exactly once, when it reaches its age.
+    // Check each sample exactly once, when it reaches its age. Priming every sample first can take long (slow or
+    // retried requests): a sample whose check is already overdue is primed again with a fresh prompt and checked
+    // at its age from then, so no check runs at an age it wasn't planned for.
     const due = samples
       .filter((s) => primedAt.has(s.id))
-      .map((s) => ({ s, at: (primedAt.get(s.id) as number) + s.ageMs }))
-      .sort((a, b) => a.at - b.at);
+      .map((s) => ({ s, at: (primedAt.get(s.id) as number) + s.ageMs, reprimes: 0 }));
     const byAge = new Map<number, boolean[]>();
-    for (const { s, at } of due) {
+    while (due.length) {
+      due.sort((a, b) => a.at - b.at);
+      const item = due.shift() as (typeof due)[number];
+      const { s, at } = item;
       if (shouldStop(o.ages, byAge, o.replicas)) {
         deps.log("two consecutive ages fully cold: stopping");
         return finish("stopped-early");
       }
       const wait = at - deps.now();
       if (wait > 0) await deps.sleep(wait);
+      const overdue = deps.now() - at;
+      if (overdue > lateAfterMs(s.ageMs) && item.reprimes < MAX_REPRIMES) {
+        const id = `${s.id}~${item.reprimes + 2}`;
+        deps.log(`  ${formatDuration(s.ageMs)} r${s.replica}: ${formatDuration(overdue)} overdue, priming again`);
+        try {
+          const { startedAt } = await call(o, deps, makePrefix(o.runSalt, id, o.prefixTokens), id);
+          primedAt.set(s.id, startedAt);
+          prefixId.set(s.id, id);
+          due.push({ s, at: startedAt + s.ageMs, reprimes: item.reprimes + 1 });
+        } catch (err) {
+          deps.log(`  priming ${id} failed, sample dropped: ${(err as Error).message.slice(0, 160)}`);
+        }
+        continue;
+      }
+      const pid = prefixId.get(s.id) as string;
       let got: { usage: Usage; startedAt: number };
       try {
-        got = await call(o, deps, makePrefix(o.runSalt, s.id, o.prefixTokens), s.id);
+        got = await call(o, deps, makePrefix(o.runSalt, pid, o.prefixTokens), pid);
       } catch (err) {
         const message = (err as Error).message.slice(0, 300);
         result.checks.push({ sampleId: s.id, error: message, targetAgeMs: s.ageMs, actualAgeMs: deps.now() - (primedAt.get(s.id) as number), promptTokens: 0, cachedTokens: 0, warm: false });
@@ -218,19 +249,24 @@ export async function runProbe(o: RunOptions, deps: Deps): Promise<RunResult> {
         continue;
       }
       const { usage, startedAt } = got;
+      const actualAgeMs = startedAt - (primedAt.get(s.id) as number);
+      const late = actualAgeMs - s.ageMs > lateAfterMs(s.ageMs);
       const c: Check = {
-        sampleId: s.id,
+        sampleId: pid,
         targetAgeMs: s.ageMs,
-        actualAgeMs: startedAt - (primedAt.get(s.id) as number),
+        actualAgeMs,
+        ...(late ? { late: true } : {}),
         promptTokens: usage.promptTokens,
         cachedTokens: usage.cachedTokens,
         warm: warmOf(usage),
       };
       result.checks.push(c);
       const list = byAge.get(s.ageMs) ?? [];
-      list.push(c.warm);
+      // A late check completes its age for the stop rule but never counts as cold.
+      list.push(late ? true : c.warm);
       byAge.set(s.ageMs, list);
-      deps.log(`  ${formatDuration(s.ageMs)} r${s.replica}: ${c.warm ? "warm" : "cold"} (${c.cachedTokens}/${c.promptTokens})`);
+      deps.log(`  ${formatDuration(s.ageMs)} r${s.replica}: ${c.warm ? "warm" : "cold"} (${c.cachedTokens}/${c.promptTokens})` +
+        (late ? `, LATE at ${formatDuration(actualAgeMs)}: left out` : ""));
       deps.onProgress?.(result);
     }
     return finish("completed");
