@@ -1,0 +1,7 @@
+{"event": "start", "harness": "pi", "model": "devin/claude-haiku-5-5", "ages": "1m", "replicas": 1, "words": 3000, "effort": "low", "salt": "20dab933", "at": "2026-11-08T18:27:07+00:00"}
+{"event": "baseline", "usage": {"total": 6501, "cached": 0, "write": 6501, "api": "anthropic-messages"}, "at": "2026-11-08T18:27:09+00:00"}
+{"event": "prime", "age": "control", "rep": 0, "handle": "hp-b5d67b4306c5", "usage": {"total": 17094, "cached": 6413, "write": 10681, "api": "anthropic-messages"}, "at": "2026-11-08T18:27:11+00:00"}
+{"event": "prime", "age": "1m", "rep": 0, "handle": "hp-c2d1fca4306f", "usage": {"total": 17227, "cached": 6413, "write": 10814, "api": "anthropic-messages"}, "at": "2026-11-08T18:27:13+00:00"}
+{"event": "check", "age": "control", "ageSec": 30.0, "realAgeSec": 33, "late": false, "warm": true, "usage": {"total": 17116, "cached": 17094, "write": 22, "api": "anthropic-messages"}, "prime": {"total": 17094, "cached": 6413, "write": 10681, "api": "anthropic-messages"}, "unique": 10593, "handle": "hp-b5d67b4306c5", "at": "2026-11-08T18:27:44+00:00"}
+{"event": "check", "age": "1m", "ageSec": 60.0, "realAgeSec": 63, "late": false, "warm": true, "usage": {"total": 17249, "cached": 17227, "write": 22, "api": "anthropic-messages"}, "prime": {"total": 17227, "cached": 6413, "write": 10814, "api": "anthropic-messages"}, "unique": 10726, "handle": "hp-c2d1fca4306f", "at": "2026-11-08T18:28:16+00:00"}
+{"event": "done", "at": "2026-11-08T18:28:16+00:00"}

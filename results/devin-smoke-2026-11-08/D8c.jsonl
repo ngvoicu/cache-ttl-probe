@@ -1,0 +1,7 @@
+{"event": "start", "harness": "devin", "model": "deepseek-v4-1-flash-1017-low", "ages": "1m", "replicas": 1, "words": 3000, "effort": "low", "salt": "c6762e8a", "at": "2026-11-08T18:31:00+00:00"}
+{"event": "baseline", "usage": {"total": 16248, "cached": 2304, "write": 0, "model": "deepseek-v4-1-flash-1017-low"}, "at": "2026-11-08T18:31:01+00:00"}
+{"event": "prime", "age": "control", "rep": 0, "handle": "chambray-catamaran", "usage": {"total": 24150, "cached": 3712, "write": 0, "model": "deepseek-v4-1-flash-1017-low"}, "at": "2026-11-08T18:31:03+00:00"}
+{"event": "prime", "age": "1m", "rep": 0, "handle": "sunny-turquoise", "usage": {"total": 24255, "cached": 13184, "write": 0, "model": "deepseek-v4-1-flash-1017-low"}, "at": "2026-11-08T18:31:05+00:00"}
+{"event": "check", "age": "control", "ageSec": 30.0, "realAgeSec": 33, "late": false, "warm": true, "usage": {"total": 24167, "cached": 23936, "write": 0, "model": "deepseek-v4-1-flash-1017-low"}, "prime": {"total": 24150, "cached": 3712, "write": 0, "model": "deepseek-v4-1-flash-1017-low"}, "unique": 7902, "handle": "chambray-catamaran", "at": "2026-11-08T18:31:36+00:00"}
+{"event": "check", "age": "1m", "ageSec": 60.0, "realAgeSec": 63, "late": false, "warm": true, "usage": {"total": 24272, "cached": 24064, "write": 0, "model": "deepseek-v4-1-flash-1017-low"}, "prime": {"total": 24255, "cached": 13184, "write": 0, "model": "deepseek-v4-1-flash-1017-low"}, "unique": 8007, "handle": "sunny-turquoise", "at": "2026-11-08T18:32:08+00:00"}
+{"event": "done", "at": "2026-11-08T18:32:08+00:00"}

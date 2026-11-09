@@ -1,0 +1,7 @@
+{"event": "start", "harness": "devin", "model": "nemotron-3-5-super-none", "ages": "1m", "replicas": 1, "words": 3000, "effort": "low", "salt": "f5459515", "at": "2026-11-08T18:31:06+00:00"}
+{"event": "baseline", "usage": {"total": 17051, "cached": 0, "write": 0, "model": "nemotron-3-5-super-none"}, "at": "2026-11-08T18:31:08+00:00"}
+{"event": "prime", "age": "control", "rep": 0, "handle": "cedar-soda", "usage": {"total": 24698, "cached": 8832, "write": 0, "model": "nemotron-3-5-super-none"}, "at": "2026-11-08T18:31:10+00:00"}
+{"event": "prime", "age": "1m", "rep": 0, "handle": "workable-number", "usage": {"total": 24720, "cached": 8832, "write": 0, "model": "nemotron-3-5-super-none"}, "at": "2026-11-08T18:31:13+00:00"}
+{"event": "check", "age": "control", "ageSec": 30.0, "realAgeSec": 34, "late": false, "warm": true, "usage": {"total": 24723, "cached": 24672, "write": 0, "model": "nemotron-3-5-super-none"}, "prime": {"total": 24698, "cached": 8832, "write": 0, "model": "nemotron-3-5-super-none"}, "unique": 7647, "handle": "cedar-soda", "at": "2026-11-08T18:31:44+00:00"}
+{"event": "check", "age": "1m", "ageSec": 60.0, "realAgeSec": 63, "late": false, "warm": true, "usage": {"total": 24745, "cached": 24704, "write": 0, "model": "nemotron-3-5-super-none"}, "prime": {"total": 24720, "cached": 8832, "write": 0, "model": "nemotron-3-5-super-none"}, "unique": 7669, "handle": "workable-number", "at": "2026-11-08T18:32:16+00:00"}
+{"event": "done", "at": "2026-11-08T18:32:16+00:00"}

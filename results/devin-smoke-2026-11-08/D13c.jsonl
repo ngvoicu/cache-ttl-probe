@@ -1,0 +1,7 @@
+{"event": "start", "harness": "devin", "model": "kimi-k3-1-pro-low", "ages": "1m", "replicas": 1, "words": 3000, "effort": "low", "salt": "df60f792", "at": "2026-11-08T18:31:10+00:00"}
+{"event": "baseline", "usage": {"total": 15137, "cached": 1216, "write": 0, "model": "kimi-k3-1-pro-low"}, "at": "2026-11-08T18:31:12+00:00"}
+{"event": "prime", "age": "control", "rep": 0, "handle": "creative-figure", "usage": {"total": 23246, "cached": 7936, "write": 0, "model": "kimi-k3-1-pro-low"}, "at": "2026-11-08T18:31:14+00:00"}
+{"event": "prime", "age": "1m", "rep": 0, "handle": "free-liver", "usage": {"total": 23183, "cached": 7936, "write": 0, "model": "kimi-k3-1-pro-low"}, "at": "2026-11-08T18:31:17+00:00"}
+{"event": "check", "age": "control", "ageSec": 30.0, "realAgeSec": 34, "late": false, "warm": true, "usage": {"total": 23323, "cached": 23232, "write": 0, "model": "kimi-k3-1-pro-low"}, "prime": {"total": 23246, "cached": 7936, "write": 0, "model": "kimi-k3-1-pro-low"}, "unique": 8109, "handle": "creative-figure", "at": "2026-11-08T18:31:49+00:00"}
+{"event": "check", "age": "1m", "ageSec": 60.0, "realAgeSec": 64, "late": false, "warm": false, "usage": {"total": 23262, "cached": 12160, "write": 0, "model": "kimi-k3-1-pro-low"}, "prime": {"total": 23183, "cached": 7936, "write": 0, "model": "kimi-k3-1-pro-low"}, "unique": 8046, "handle": "free-liver", "at": "2026-11-08T18:32:21+00:00"}
+{"event": "done", "at": "2026-11-08T18:32:21+00:00"}

@@ -1,0 +1,99 @@
+{
+  "probeVersion": "0.2.0",
+  "label": "L2",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "moonshotai/kimi-k3.1-pro",
+  "runSalt": "1xci3r4n",
+  "replicas": 2,
+  "cacheKey": true,
+  "plannedAges": [
+    150000,
+    300000,
+    600000,
+    900000,
+    1800000,
+    3600000,
+    7200000
+  ],
+  "startedAt": "2026-11-06T21:52:34.729Z",
+  "status": "stopped-early",
+  "checks": [
+    {
+      "sampleId": "2.5m-r1",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 150002,
+      "promptTokens": 2677,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r2",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 151195,
+      "promptTokens": 2706,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "5m-r1",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 300003,
+      "promptTokens": 2725,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "5m-r2",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 301182,
+      "promptTokens": 2666,
+      "cachedTokens": 64,
+      "warm": false
+    },
+    {
+      "sampleId": "10m-r1",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600001,
+      "promptTokens": 2666,
+      "cachedTokens": 64,
+      "warm": false
+    },
+    {
+      "sampleId": "10m-r2",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 601174,
+      "promptTokens": 2697,
+      "cachedTokens": 64,
+      "warm": false
+    },
+    {
+      "sampleId": "15m-r1",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 900003,
+      "promptTokens": 2707,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "15m-r2",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 901458,
+      "promptTokens": 2659,
+      "cachedTokens": 64,
+      "warm": false
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 2676,
+      "cachedTokens": 64
+    },
+    "check": {
+      "promptTokens": 2676,
+      "cachedTokens": 2624
+    },
+    "warm": true
+  },
+  "finishedAt": "2026-11-06T22:07:46.256Z"
+}

@@ -1,0 +1,7 @@
+{"event": "start", "harness": "pi", "model": "devin/nemotron-3-5-super", "ages": "1m", "replicas": 1, "words": 3000, "effort": "low", "salt": "b5983c01", "at": "2026-11-08T18:31:06+00:00"}
+{"event": "baseline", "usage": {"total": 6274, "cached": 0, "write": 0, "api": "cliproxyapi-codex-responses"}, "at": "2026-11-08T18:31:07+00:00"}
+{"event": "prime", "age": "control", "rep": 0, "handle": "hp-6a8e91ff48cb", "usage": {"total": 13964, "cached": 0, "write": 0, "api": "cliproxyapi-codex-responses"}, "at": "2026-11-08T18:31:09+00:00"}
+{"event": "prime", "age": "1m", "rep": 0, "handle": "hp-0937fa112bd8", "usage": {"total": 13941, "cached": 0, "write": 0, "api": "cliproxyapi-codex-responses"}, "at": "2026-11-08T18:31:10+00:00"}
+{"event": "check", "age": "control", "ageSec": 30.0, "realAgeSec": 33, "late": false, "warm": false, "usage": {"total": 13989, "cached": 8832, "write": 0, "api": "cliproxyapi-codex-responses"}, "prime": {"total": 13964, "cached": 0, "write": 0, "api": "cliproxyapi-codex-responses"}, "unique": 7690, "handle": "hp-6a8e91ff48cb", "at": "2026-11-08T18:31:41+00:00"}
+{"event": "check", "age": "1m", "ageSec": 60.0, "realAgeSec": 62, "late": false, "warm": false, "usage": {"total": 13966, "cached": 8832, "write": 0, "api": "cliproxyapi-codex-responses"}, "prime": {"total": 13941, "cached": 0, "write": 0, "api": "cliproxyapi-codex-responses"}, "unique": 7667, "handle": "hp-0937fa112bd8", "at": "2026-11-08T18:32:13+00:00"}
+{"event": "done", "at": "2026-11-08T18:32:13+00:00"}

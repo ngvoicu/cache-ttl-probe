@@ -1,0 +1,7 @@
+{"event": "start", "harness": "devin", "model": "gemini-4-argon-low", "ages": "1m", "replicas": 1, "words": 3000, "effort": "low", "salt": "d8430f1c", "at": "2026-11-08T18:30:56+00:00"}
+{"event": "baseline", "usage": {"total": 15889, "cached": 0, "write": 0, "model": "gemini-4-argon-low"}, "at": "2026-11-08T18:31:00+00:00"}
+{"event": "prime", "age": "control", "rep": 0, "handle": "spectrum-chartreuse", "usage": {"total": 23099, "cached": 0, "write": 0, "model": "gemini-4-argon-low"}, "at": "2026-11-08T18:31:06+00:00"}
+{"event": "prime", "age": "1m", "rep": 0, "handle": "foremost-homegrown", "usage": {"total": 23163, "cached": 0, "write": 0, "model": "gemini-4-argon-low"}, "at": "2026-11-08T18:31:24+00:00"}
+{"event": "check", "age": "control", "ageSec": 30.0, "realAgeSec": 40, "late": false, "warm": true, "usage": {"total": 23125, "cached": 21045, "write": 0, "model": "gemini-4-argon-low"}, "prime": {"total": 23099, "cached": 0, "write": 0, "model": "gemini-4-argon-low"}, "unique": 7210, "handle": "spectrum-chartreuse", "at": "2026-11-08T18:31:46+00:00"}
+{"event": "check", "age": "1m", "ageSec": 60.0, "realAgeSec": 67, "late": false, "warm": true, "usage": {"total": 23189, "cached": 21109, "write": 0, "model": "gemini-4-argon-low"}, "prime": {"total": 23163, "cached": 0, "write": 0, "model": "gemini-4-argon-low"}, "unique": 7274, "handle": "foremost-homegrown", "at": "2026-11-08T18:32:31+00:00"}
+{"event": "done", "at": "2026-11-08T18:32:31+00:00"}

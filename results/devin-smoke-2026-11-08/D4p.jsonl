@@ -1,0 +1,7 @@
+{"event": "start", "harness": "pi", "model": "devin/gpt-6-1-sol", "ages": "1m", "replicas": 1, "words": 3000, "effort": "low", "salt": "f8fbb45d", "at": "2026-11-08T18:30:52+00:00"}
+{"event": "baseline", "usage": {"total": 3, "cached": 0, "write": 0, "api": "cliproxyapi-codex-responses"}, "at": "2026-11-08T18:30:54+00:00"}
+{"event": "prime", "age": "control", "rep": 0, "handle": "hp-7bbb4fc1d83f", "usage": {"total": 3, "cached": 0, "write": 0, "api": "cliproxyapi-codex-responses"}, "at": "2026-11-08T18:30:56+00:00"}
+{"event": "prime", "age": "1m", "rep": 0, "handle": "hp-154432a77ab1", "usage": {"total": 3, "cached": 0, "write": 0, "api": "cliproxyapi-codex-responses"}, "at": "2026-11-08T18:30:59+00:00"}
+{"event": "check", "age": "control", "ageSec": 30.0, "realAgeSec": 35, "late": false, "warm": true, "usage": {"total": 11603, "cached": 11600, "write": 0, "api": "cliproxyapi-codex-responses"}, "prime": {"total": 3, "cached": 0, "write": 0, "api": "cliproxyapi-codex-responses"}, "unique": 1, "handle": "hp-7bbb4fc1d83f", "at": "2026-11-08T18:31:31+00:00"}
+{"event": "check", "age": "1m", "ageSec": 60.0, "realAgeSec": 64, "late": false, "warm": true, "usage": {"total": 11628, "cached": 11625, "write": 0, "api": "cliproxyapi-codex-responses"}, "prime": {"total": 3, "cached": 0, "write": 0, "api": "cliproxyapi-codex-responses"}, "unique": 1, "handle": "hp-154432a77ab1", "at": "2026-11-08T18:32:02+00:00"}
+{"event": "done", "at": "2026-11-08T18:32:02+00:00"}

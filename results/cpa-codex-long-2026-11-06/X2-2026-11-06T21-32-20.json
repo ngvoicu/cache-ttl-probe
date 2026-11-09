@@ -1,0 +1,87 @@
+{
+  "probeVersion": "0.2.0",
+  "label": "X2",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "probe/gpt-6.1-terra",
+  "runSalt": "oc3q2sk4",
+  "replicas": 3,
+  "cacheKey": true,
+  "plannedAges": [
+    300000,
+    900000,
+    1800000,
+    3600000,
+    7200000,
+    10800000,
+    14400000,
+    21600000,
+    28800000,
+    36000000,
+    43200000
+  ],
+  "startedAt": "2026-11-06T21:32:20.966Z",
+  "status": "stopped-early",
+  "checks": [
+    {
+      "sampleId": "5m-r1",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 300003,
+      "promptTokens": 2703,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "5m-r2",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 301234,
+      "promptTokens": 2700,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "5m-r3",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 301628,
+      "promptTokens": 2681,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "15m-r1",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 900002,
+      "promptTokens": 2690,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "15m-r2",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 900261,
+      "promptTokens": 2709,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "15m-r3",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 901685,
+      "promptTokens": 2701,
+      "cachedTokens": 0,
+      "warm": false
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 2657,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 2657,
+      "cachedTokens": 2432
+    },
+    "warm": true
+  },
+  "finishedAt": "2026-11-06T21:47:34.226Z"
+}

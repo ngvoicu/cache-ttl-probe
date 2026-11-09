@@ -1,0 +1,99 @@
+{
+  "probeVersion": "0.2.0",
+  "label": "L1b",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "google/gemini-4-argon",
+  "runSalt": "27tqftez",
+  "replicas": 2,
+  "cacheKey": true,
+  "plannedAges": [
+    150000,
+    300000,
+    600000,
+    900000,
+    1800000,
+    3600000,
+    7200000
+  ],
+  "startedAt": "2026-11-06T21:54:40.888Z",
+  "status": "stopped-early",
+  "checks": [
+    {
+      "sampleId": "2.5m-r1",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 150002,
+      "promptTokens": 7487,
+      "cachedTokens": 5433,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r2",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 154751,
+      "promptTokens": 7481,
+      "cachedTokens": 5427,
+      "warm": true
+    },
+    {
+      "sampleId": "5m-r1",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 300004,
+      "promptTokens": 7453,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "5m-r2",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 304415,
+      "promptTokens": 7515,
+      "cachedTokens": 5461,
+      "warm": true
+    },
+    {
+      "sampleId": "10m-r1",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 600001,
+      "promptTokens": 7491,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "10m-r2",
+      "targetAgeMs": 600000,
+      "actualAgeMs": 604565,
+      "promptTokens": 7517,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "15m-r1",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 900004,
+      "promptTokens": 7483,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "15m-r2",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 903021,
+      "promptTokens": 7480,
+      "cachedTokens": 0,
+      "warm": false
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 7461,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 7461,
+      "cachedTokens": 5407
+    },
+    "warm": true
+  },
+  "finishedAt": "2026-11-06T22:10:16.489Z"
+}

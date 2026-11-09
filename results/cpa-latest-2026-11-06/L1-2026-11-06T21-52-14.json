@@ -1,0 +1,35 @@
+{
+  "probeVersion": "0.2.0",
+  "label": "L1",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "google/gemini-4-argon",
+  "runSalt": "dgjk7egm",
+  "replicas": 2,
+  "cacheKey": true,
+  "plannedAges": [
+    150000,
+    300000,
+    600000,
+    900000,
+    1800000,
+    3600000,
+    7200000
+  ],
+  "startedAt": "2026-11-06T21:52:14.701Z",
+  "status": "no-observable-cache",
+  "checks": [],
+  "control": {
+    "prime": {
+      "promptTokens": 2334,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 2334,
+      "cachedTokens": 0
+    },
+    "warm": false
+  },
+  "error": "an immediate re-send was not served from cache",
+  "finishedAt": "2026-11-06T21:52:44.098Z"
+}

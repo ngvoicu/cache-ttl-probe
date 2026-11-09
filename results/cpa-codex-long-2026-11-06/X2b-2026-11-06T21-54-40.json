@@ -1,0 +1,178 @@
+{
+  "probeVersion": "0.2.0",
+  "label": "X2b",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "probe/gpt-6.1-terra",
+  "runSalt": "9sxm5l9k",
+  "replicas": 3,
+  "cacheKey": true,
+  "plannedAges": [
+    60000,
+    120000,
+    180000,
+    240000,
+    300000,
+    450000
+  ],
+  "startedAt": "2026-11-06T21:54:40.887Z",
+  "status": "completed",
+  "checks": [
+    {
+      "sampleId": "1m-r1",
+      "targetAgeMs": 60000,
+      "actualAgeMs": 60002,
+      "promptTokens": 2670,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "1m-r2",
+      "targetAgeMs": 60000,
+      "actualAgeMs": 61504,
+      "promptTokens": 2676,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "1m-r3",
+      "targetAgeMs": 60000,
+      "actualAgeMs": 62484,
+      "promptTokens": 2683,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "2m-r1",
+      "targetAgeMs": 120000,
+      "actualAgeMs": 120002,
+      "promptTokens": 2684,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "2m-r2",
+      "targetAgeMs": 120000,
+      "actualAgeMs": 120002,
+      "promptTokens": 2685,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "2m-r3",
+      "targetAgeMs": 120000,
+      "actualAgeMs": 120846,
+      "promptTokens": 2680,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "3m-r1",
+      "targetAgeMs": 180000,
+      "actualAgeMs": 180001,
+      "promptTokens": 2690,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "3m-r2",
+      "targetAgeMs": 180000,
+      "actualAgeMs": 181205,
+      "promptTokens": 2682,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "3m-r3",
+      "targetAgeMs": 180000,
+      "actualAgeMs": 180933,
+      "promptTokens": 2700,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "4m-r1",
+      "targetAgeMs": 240000,
+      "actualAgeMs": 240002,
+      "promptTokens": 2674,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "4m-r2",
+      "targetAgeMs": 240000,
+      "actualAgeMs": 240722,
+      "promptTokens": 2717,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "4m-r3",
+      "targetAgeMs": 240000,
+      "actualAgeMs": 243021,
+      "promptTokens": 2678,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "5m-r1",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 300001,
+      "promptTokens": 2688,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "5m-r2",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 301276,
+      "promptTokens": 2659,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "5m-r3",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 301583,
+      "promptTokens": 2675,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "7.5m-r1",
+      "targetAgeMs": 450000,
+      "actualAgeMs": 450002,
+      "promptTokens": 2703,
+      "cachedTokens": 2560,
+      "warm": true
+    },
+    {
+      "sampleId": "7.5m-r2",
+      "targetAgeMs": 450000,
+      "actualAgeMs": 450001,
+      "promptTokens": 2673,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "7.5m-r3",
+      "targetAgeMs": 450000,
+      "actualAgeMs": 451131,
+      "promptTokens": 2727,
+      "cachedTokens": 0,
+      "warm": false
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 2674,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 2674,
+      "cachedTokens": 2432
+    },
+    "warm": true
+  },
+  "finishedAt": "2026-11-06T22:02:45.036Z"
+}

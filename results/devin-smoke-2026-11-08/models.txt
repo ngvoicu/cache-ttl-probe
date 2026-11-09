@@ -1,0 +1,13 @@
+D1 claude-haiku-5-5-low devin/claude-haiku-5-5
+D2 claude-sonnet-5-5-low devin/claude-sonnet-5-5
+D3 claude-fable-5-1-low devin/claude-fable-5-1
+D4 gpt-6-1-sol-low devin/gpt-6-1-sol
+D5 gpt-6-astra-low devin/gpt-6-astra
+D6 gemini-4-argon-low devin/gemini-4-argon
+D7 muse-wonder-1-0-low devin/muse-wonder-1-0
+D8 deepseek-v4-1-flash-1017-low devin/deepseek-v4-1-flash-1017
+D9 glm-5-3-low devin/glm-5-3
+D10 grok-4-7-low devin/grok-4-7
+D11 nemotron-3-5-super-none devin/nemotron-3-5-super
+D12 swe-2-medium devin/swe-2
+D13 kimi-k3-1-pro-low -

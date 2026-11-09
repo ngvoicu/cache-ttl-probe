@@ -1,0 +1,7 @@
+{"event": "start", "harness": "devin", "model": "claude-sonnet-5-5-low", "ages": "1m", "replicas": 1, "words": 3000, "effort": "low", "salt": "bd7c24e9", "at": "2026-11-08T18:30:48+00:00"}
+{"event": "baseline", "usage": {"total": 23845, "cached": 12704, "write": 6683, "model": "claude-sonnet-5-5-low"}, "at": "2026-11-08T18:30:50+00:00"}
+{"event": "prime", "age": "control", "rep": 0, "handle": "befitting-department", "usage": {"total": 34440, "cached": 18718, "write": 11264, "model": "claude-sonnet-5-5-low"}, "at": "2026-11-08T18:30:53+00:00"}
+{"event": "prime", "age": "1m", "rep": 0, "handle": "piquant-sternum", "usage": {"total": 34512, "cached": 18718, "write": 11336, "model": "claude-sonnet-5-5-low"}, "at": "2026-11-08T18:30:56+00:00"}
+{"event": "check", "age": "control", "ageSec": 30.0, "realAgeSec": 36, "late": false, "warm": true, "usage": {"total": 34462, "cached": 29982, "write": 4476, "model": "claude-sonnet-5-5-low"}, "prime": {"total": 34440, "cached": 18718, "write": 11264, "model": "claude-sonnet-5-5-low"}, "unique": 10595, "handle": "befitting-department", "at": "2026-11-08T18:31:29+00:00"}
+{"event": "check", "age": "1m", "ageSec": 60.0, "realAgeSec": 65, "late": false, "warm": true, "usage": {"total": 34534, "cached": 30054, "write": 4476, "model": "claude-sonnet-5-5-low"}, "prime": {"total": 34512, "cached": 18718, "write": 11336, "model": "claude-sonnet-5-5-low"}, "unique": 10667, "handle": "piquant-sternum", "at": "2026-11-08T18:32:01+00:00"}
+{"event": "done", "at": "2026-11-08T18:32:01+00:00"}

@@ -3,3 +3,4 @@ results/**/*.partial.json
 .DS_Store
 dist/
 results/**/logs/
+harness/__pycache__/

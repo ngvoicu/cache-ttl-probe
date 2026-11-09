@@ -1,0 +1,7 @@
+{"event": "start", "harness": "devin", "model": "gpt-6-astra-low", "ages": "1m", "replicas": 1, "words": 3000, "effort": "low", "salt": "7f9dbf43", "at": "2026-11-08T18:30:54+00:00"}
+{"event": "baseline", "usage": {"total": 11608, "cached": 0, "write": 11605, "model": "gpt-6-astra-low"}, "at": "2026-11-08T18:30:57+00:00"}
+{"event": "prime", "age": "control", "rep": 0, "handle": "crimson-steed", "usage": {"total": 18794, "cached": 0, "write": 18791, "model": "gpt-6-astra-low"}, "at": "2026-11-08T18:31:00+00:00"}
+{"event": "prime", "age": "1m", "rep": 0, "handle": "brash-headstand", "usage": {"total": 18716, "cached": 0, "write": 18713, "model": "gpt-6-astra-low"}, "at": "2026-11-08T18:31:04+00:00"}
+{"event": "check", "age": "control", "ageSec": 30.0, "realAgeSec": 37, "late": false, "warm": false, "usage": {"total": 18816, "cached": 0, "write": 18813, "model": "gpt-6-astra-low"}, "prime": {"total": 18794, "cached": 0, "write": 18791, "model": "gpt-6-astra-low"}, "unique": 7186, "handle": "crimson-steed", "at": "2026-11-08T18:31:37+00:00"}
+{"event": "check", "age": "1m", "ageSec": 60.0, "realAgeSec": 66, "late": false, "warm": false, "usage": {"total": 18738, "cached": 0, "write": 18735, "model": "gpt-6-astra-low"}, "prime": {"total": 18716, "cached": 0, "write": 18713, "model": "gpt-6-astra-low"}, "unique": 7108, "handle": "brash-headstand", "at": "2026-11-08T18:32:10+00:00"}
+{"event": "done", "at": "2026-11-08T18:32:10+00:00"}

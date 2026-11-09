@@ -1,0 +1,7 @@
+{"event": "start", "harness": "pi", "model": "devin/glm-5-3", "ages": "1m", "replicas": 1, "words": 3000, "effort": "low", "salt": "35d58ac4", "at": "2026-11-08T18:31:02+00:00"}
+{"event": "baseline", "usage": {"total": 5407, "cached": 0, "write": 0, "api": "cliproxyapi-codex-responses"}, "at": "2026-11-08T18:31:03+00:00"}
+{"event": "prime", "age": "control", "rep": 0, "handle": "hp-51dc54fbdaad", "usage": {"total": 13283, "cached": 5312, "write": 0, "api": "cliproxyapi-codex-responses"}, "at": "2026-11-08T18:31:04+00:00"}
+{"event": "prime", "age": "1m", "rep": 0, "handle": "hp-b05ea0d5ede8", "usage": {"total": 13422, "cached": 5312, "write": 0, "api": "cliproxyapi-codex-responses"}, "at": "2026-11-08T18:31:05+00:00"}
+{"event": "check", "age": "control", "ageSec": 30.0, "realAgeSec": 32, "late": false, "warm": true, "usage": {"total": 13299, "cached": 13184, "write": 0, "api": "cliproxyapi-codex-responses"}, "prime": {"total": 13283, "cached": 5312, "write": 0, "api": "cliproxyapi-codex-responses"}, "unique": 7876, "handle": "hp-51dc54fbdaad", "at": "2026-11-08T18:31:36+00:00"}
+{"event": "check", "age": "1m", "ageSec": 60.0, "realAgeSec": 62, "late": false, "warm": true, "usage": {"total": 13438, "cached": 13312, "write": 0, "api": "cliproxyapi-codex-responses"}, "prime": {"total": 13422, "cached": 5312, "write": 0, "api": "cliproxyapi-codex-responses"}, "unique": 8015, "handle": "hp-b05ea0d5ede8", "at": "2026-11-08T18:32:07+00:00"}
+{"event": "done", "at": "2026-11-08T18:32:07+00:00"}
