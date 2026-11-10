@@ -78,8 +78,9 @@ real OpenRouter model ids through an `openai-compatibility` entry. Files in `cpa
 - `harness-2026-11-07/`: vendor CLIs (Codex CLI, Muse Code, Devin CLI) vs pi through CLIProxyAPI, same accounts.
   Muse Wonder 1.0 through pi → CLIProxyAPI → Meta (H6) was warm in every check to 2 h.
 - `devin-harness-2026-11-08/`, `devin-cache-investigation-2026-11-09/`: Devin models.
-- `ember-2026-11-10/`: Muse Ember 1.0 through pi → CLIProxyAPI → Meta: 5 min 2/2, 30 min 1/2, 1 h 0/2, 2 h 1/2
-  (random eviction at default retention; see its README).
+- `ember-2026-11-10/`: Muse Ember 1.0 through pi → CLIProxyAPI → Meta. At default retention (E1): 5 min 2/2, 30 min
+  1/2, 1 h 0/2, 2 h 1/2 (random eviction). With `prompt_cache_retention: "24h"` (E2): 16/16 warm, 5 min to 4 h. See
+  its README.
 
 ## What this means
 
