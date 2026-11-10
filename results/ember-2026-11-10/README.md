@@ -7,7 +7,7 @@ reported cached tokens cover the harness prompt and at least half the block. Eff
 
 - **E1, default retention**: no `prompt_cache_retention` is sent (CLIProxyAPI's Meta executor removes it).
 - **E2, 24h retention**: same route and method, with `prompt_cache_retention: "24h"` added to every Muse request by a
-  CLIProxyAPI config rule (`payload.override`, models `muse-*`, protocol `meta`; payload rules run after the executor
+  CLIProxyAPI config rule (`requests.payload.override`, models `muse-*`, protocol `meta`; payload rules run after the executor
   removes the field). The value reaches Meta: an invalid one is rejected with "expected `in_memory` or `24h`".
 
 | Age | Muse Ember 1.0, default (E1) | Muse Ember 1.0, 24h (E2) | Muse Wonder 1.0, default (H6, 2026-11-07) |
