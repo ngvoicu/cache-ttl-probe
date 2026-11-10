@@ -73,6 +73,14 @@ real OpenRouter model ids through an `openai-compatibility` entry. Files in `cpa
 | R10 | `meta/muse-wonder` | 2.5 – 30 min | all warm but one check through 25 min |
 | R11 | `mistralai/mistral-large-4-0` | 7.5 – 15 min | |
 
+## Later runs (pi and vendor harnesses, one folder each)
+
+- `harness-2026-11-07/`: vendor CLIs (Codex CLI, Muse Code, Devin CLI) vs pi through CLIProxyAPI, same accounts.
+  Muse Wonder 1.0 through pi → CLIProxyAPI → Meta (H6) was warm in every check to 2 h.
+- `devin-harness-2026-11-08/`, `devin-cache-investigation-2026-11-09/`: Devin models.
+- `ember-2026-11-10/`: Muse Ember 1.0 through pi → CLIProxyAPI → Meta: 5 min 2/2, 30 min 1/2, 1 h 0/2, 2 h 1/2
+  (random eviction at default retention; see its README).
+
 ## What this means
 
 - **Claude through CLIProxyAPI caches** on every route except OpenRouter via `openai-compatibility`: subscriptions (1 h,
