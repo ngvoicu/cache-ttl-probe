@@ -81,6 +81,9 @@ real OpenRouter model ids through an `openai-compatibility` entry. Files in `cpa
 - `ember-2026-11-10/`: Muse Ember 1.0 through pi → CLIProxyAPI → Meta. At default retention (E1): 5 min 2/2, 30 min
   1/2, 1 h 0/2, 2 h 1/2 (random eviction). With `prompt_cache_retention: "24h"` (E2): 16/16 warm, 5 min to 4 h. See
   its README.
+- `devin-repeat-2026-11-10/`: four Devin open-weight routes again, 5 samples per age (5 min – 2 h), pi → CLIProxyAPI →
+  Devin. DeepSeek V4.1 Flash 25/25 warm (≥ 2 h); GLM-5.3 warm at 5 min, 30 min and 1 h, cold at 15 min and 2 h (whole
+  batches); Gemini 4 Argon 3/5 at 5 min, then cold; Grok 4.7 4/10 through 15 min, then cold. See its README.
 
 ## What this means
 
