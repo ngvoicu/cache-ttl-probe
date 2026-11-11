@@ -64,6 +64,40 @@ are visible.
 Options: `--schedule std|long|quick`, `--ages 10m,30m`, `--replicas 3`, `--prefix-tokens 2500`, `--max-output 16`,
 `--stream`, `--ttl`, `--beta`, `--header k:v`, `--body-extra '<json>'`, `--label`, `--salt`, `--out`. See `--help`.
 
+## observed.json
+
+Everything measured so far, in one file: [`observed.json`](observed.json). Raw results are in `results/`
+(see [`results/SUMMARY.md`](results/SUMMARY.md) for the story of each run).
+
+```bash
+curl -s https://raw.githubusercontent.com/ngvoicu/cache-ttl-probe/main/observed.json
+```
+
+It holds what catalogs such as [models.dev](https://models.dev) can't: values **as measured**, including
+subscription routes that have no public API (a ChatGPT plan through Codex, Devin, a Claude login, a Muse Code key).
+
+- **`cache`**: one entry per run. `route` (whose account), `client` (what sent the requests), `model` (the id on that
+  route), `options` (anything that changes caching: an explicit ttl, a retention setting, reasoning level) and
+  `checks`, the raw counts per age: `{ "age": "30m", "age_s": 1800, "warm": 3, "total": 3 }`.
+- Three numbers summarise a run, all in seconds, `null` when there is none:
+  `all_warm_through_s` (every age up to here was fully warm: **the safe value**), `last_warm_s` (the oldest age with
+  any warm check) and `first_all_cold_s` (the youngest age with none). When `last_warm_s` is past
+  `first_all_cold_s`, the route misses at random rather than by age.
+- `control` is an immediate re-send; `0/1` means the route showed no cache at all. `late_excluded` counts checks
+  that ran too long after their age and were left out.
+- `latest` marks the newest run for the same route, client, model and options. Older runs stay in the file.
+- `models_dev` is the matching entry in models.dev (`provider/model`) when that route exists there, and
+  `base_model` is the model's id in its `models/` folder; either can be `null`.
+- **`limits`**: context and output limits found by sending requests of growing size, each backed by a row of the raw
+  file named in `source`.
+- **`excluded`**: runs left out, and why.
+
+Small samples (2 to 5 per age), one account per route, dated: treat them as observations, not guarantees.
+
+To add a run: publish its files under `results/`, add it to [`observed/manifest.json`](observed/manifest.json)
+(route, model, options: nothing that is a result), then run `python3 scripts/build_observed.py`. CI fails when
+`observed.json` doesn't match the raw files.
+
 ## Pitfalls
 
 - **Minimum cacheable length.** Below it, nothing is ever cached (OpenAI 1,024 tokens; Anthropic 512–4,096 depending on

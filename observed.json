@@ -1,0 +1,5343 @@
+{
+ "schema": 1,
+ "repository": "https://github.com/ngvoicu/cache-ttl-probe",
+ "about": "Prompt-cache lifetimes and limits as measured, not as documented. Built from results/ by scripts/build_observed.py; see README.md, section 'observed.json'.",
+ "routes": {
+  "anthropic-api": "Anthropic API key",
+  "claude-subscription": "Claude Pro/Max login (the Claude Code subscription)",
+  "codex-subscription": "ChatGPT plan through the Codex login",
+  "devin": "Devin subscription",
+  "meta-subscription": "Muse Code subscription key on Meta's Model API",
+  "openrouter": "OpenRouter API key",
+  "antigravity": "Google Antigravity login"
+ },
+ "clients": {
+  "pi+cliproxyapi": "the pi coding agent through CLIProxyAPI: real sessions, resumed once (harness/probe.py)",
+  "cliproxyapi": "plain HTTP requests through CLIProxyAPI (the TypeScript probe)",
+  "direct": "plain HTTP requests straight to the vendor (the TypeScript probe)",
+  "codex-cli": "OpenAI's Codex CLI (harness/probe.py)",
+  "devin-cli": "the Devin CLI (harness/probe.py)",
+  "muse-code": "Meta's Muse Code CLI (harness/probe.py)"
+ },
+ "cache": [
+  {
+   "id": "cpa-8.0.53/K1-beta",
+   "route": "anthropic-api",
+   "client": "cliproxyapi",
+   "model": "claude-opus-5-5",
+   "models_dev": "anthropic/claude-opus-5-5",
+   "base_model": "anthropic/claude-opus-5-5",
+   "options": {
+    "format": "messages",
+    "ttl": "1h",
+    "beta": "extended-cache-ttl-2025-04-11"
+   },
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/K1-beta-2026-11-04T18-02-56.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "65m",
+     "age_s": 3900,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 600,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 3900,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/K1-nobeta",
+   "route": "anthropic-api",
+   "client": "cliproxyapi",
+   "model": "claude-opus-5-5",
+   "models_dev": "anthropic/claude-opus-5-5",
+   "base_model": "anthropic/claude-opus-5-5",
+   "options": {
+    "format": "messages",
+    "ttl": "1h"
+   },
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/K1-nobeta-2026-11-04T18-02-41.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "65m",
+     "age_s": 3900,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 3900,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/A3",
+   "route": "antigravity",
+   "client": "cliproxyapi",
+   "model": "gemini-3.8-flash-high",
+   "models_dev": null,
+   "base_model": "google/gemini-3.8-flash",
+   "options": {
+    "prefix_tokens": 5000
+   },
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/A3-2026-11-04T17-59-41.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 150,
+   "last_warm_s": 600,
+   "first_all_cold_s": 900,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/C1",
+   "route": "codex-subscription",
+   "client": "cliproxyapi",
+   "model": "gpt-6.1-sol",
+   "models_dev": null,
+   "base_model": "openai/gpt-6.1-sol",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/C1-2026-11-04T18-07-32.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "75m",
+     "age_s": 4500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "90m",
+     "age_s": 5400,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "12h",
+     "age_s": 43200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 150,
+   "last_warm_s": 14400,
+   "first_all_cold_s": 43200,
+   "note": "8 h checks lost to a network outage",
+   "latest": false
+  },
+  {
+   "id": "cpa-codex-long-2026-11-06/X1",
+   "route": "codex-subscription",
+   "client": "cliproxyapi",
+   "model": "gpt-6.1-sol",
+   "models_dev": null,
+   "base_model": "openai/gpt-6.1-sol",
+   "options": {},
+   "date": "2026-11-06",
+   "source": "results/cpa-codex-long-2026-11-06/X1-2026-11-06T21-31-50.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "3h",
+     "age_s": 10800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "6h",
+     "age_s": 21600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "8h",
+     "age_s": 28800,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "10h",
+     "age_s": 36000,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "12h",
+     "age_s": 43200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 36000,
+   "first_all_cold_s": 43200,
+   "latest": true
+  },
+  {
+   "id": "harness-2026-11-07/H1",
+   "route": "codex-subscription",
+   "client": "codex-cli",
+   "model": "gpt-6.1-sol",
+   "models_dev": null,
+   "base_model": "openai/gpt-6.1-sol",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-07",
+   "source": "results/harness-2026-11-07/H1.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "6h",
+     "age_s": 21600,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "8h",
+     "age_s": 28800,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "10h",
+     "age_s": 36000,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "12h",
+     "age_s": 43200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 36000,
+   "first_all_cold_s": 43200,
+   "latest": true
+  },
+  {
+   "id": "harness-2026-11-07/H2",
+   "route": "codex-subscription",
+   "client": "pi+cliproxyapi",
+   "model": "gpt-6.1-sol",
+   "models_dev": null,
+   "base_model": "openai/gpt-6.1-sol",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-07",
+   "source": "results/harness-2026-11-07/H2.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "6h",
+     "age_s": 21600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "8h",
+     "age_s": 28800,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "10h",
+     "age_s": 36000,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "12h",
+     "age_s": 43200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 36000,
+   "first_all_cold_s": 43200,
+   "latest": true
+  },
+  {
+   "id": "cpa-codex-long-2026-11-06/X2",
+   "route": "codex-subscription",
+   "client": "cliproxyapi",
+   "model": "gpt-6.1-terra",
+   "models_dev": null,
+   "base_model": "openai/gpt-6.1-terra",
+   "options": {},
+   "date": "2026-11-06",
+   "source": "results/cpa-codex-long-2026-11-06/X2-2026-11-06T21-32-20.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": 300,
+   "latest": false
+  },
+  {
+   "id": "cpa-codex-long-2026-11-06/X2b",
+   "route": "codex-subscription",
+   "client": "cliproxyapi",
+   "model": "gpt-6.1-terra",
+   "models_dev": null,
+   "base_model": "openai/gpt-6.1-terra",
+   "options": {},
+   "date": "2026-11-06",
+   "source": "results/cpa-codex-long-2026-11-06/X2b-2026-11-06T21-54-40.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "1m",
+     "age_s": 60,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "2m",
+     "age_s": 120,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "3m",
+     "age_s": 180,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "4m",
+     "age_s": 240,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 1,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 450,
+   "first_all_cold_s": 240,
+   "note": "finer ages after X2 was cold at 5 min",
+   "latest": true
+  },
+  {
+   "id": "harness-2026-11-07/H3",
+   "route": "codex-subscription",
+   "client": "codex-cli",
+   "model": "gpt-6.1-terra",
+   "models_dev": null,
+   "base_model": "openai/gpt-6.1-terra",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-07",
+   "source": "results/harness-2026-11-07/H3.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "6h",
+     "age_s": 21600,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "8h",
+     "age_s": 28800,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "10h",
+     "age_s": 36000,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "12h",
+     "age_s": 43200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 7200,
+   "first_all_cold_s": 14400,
+   "latest": true
+  },
+  {
+   "id": "harness-2026-11-07/H4",
+   "route": "codex-subscription",
+   "client": "pi+cliproxyapi",
+   "model": "gpt-6.1-terra",
+   "models_dev": null,
+   "base_model": "openai/gpt-6.1-terra",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-07",
+   "source": "results/harness-2026-11-07/H4.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "6h",
+     "age_s": 21600,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "8h",
+     "age_s": 28800,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "10h",
+     "age_s": 36000,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "12h",
+     "age_s": 43200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 900,
+   "last_warm_s": 7200,
+   "first_all_cold_s": 14400,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D1c",
+   "route": "devin",
+   "client": "devin-cli",
+   "model": "claude-haiku-5-5",
+   "models_dev": null,
+   "base_model": "anthropic/claude-haiku-5-5",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D1c.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 300,
+   "first_all_cold_s": 900,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D1p",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "claude-haiku-5-5",
+   "models_dev": null,
+   "base_model": "anthropic/claude-haiku-5-5",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D1p.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 300,
+   "first_all_cold_s": 900,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/D1",
+   "route": "devin",
+   "client": "cliproxyapi",
+   "model": "claude-opus-5-5",
+   "models_dev": null,
+   "base_model": "anthropic/claude-opus-5-5",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/D1-2026-11-04T17-56-55.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "75m",
+     "age_s": 4500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "90m",
+     "age_s": 5400,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 3,
+     "total": 3
+    }
+   ],
+   "late_excluded": 1,
+   "all_warm_through_s": 2400,
+   "last_warm_s": 7200,
+   "first_all_cold_s": null,
+   "note": "warm to 2 h here; later runs (H7, H8) did not reproduce it",
+   "latest": true
+  },
+  {
+   "id": "harness-2026-11-07/H7",
+   "route": "devin",
+   "client": "devin-cli",
+   "model": "claude-opus-5-5",
+   "models_dev": null,
+   "base_model": "anthropic/claude-opus-5-5",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-07",
+   "source": "results/harness-2026-11-07/H7.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "6h",
+     "age_s": 21600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "8h",
+     "age_s": 28800,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 300,
+   "first_all_cold_s": 1800,
+   "latest": true
+  },
+  {
+   "id": "harness-2026-11-07/H8",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "claude-opus-5-5",
+   "models_dev": null,
+   "base_model": "anthropic/claude-opus-5-5",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-07",
+   "source": "results/harness-2026-11-07/H8.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "6h",
+     "age_s": 21600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "8h",
+     "age_s": 28800,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 300,
+   "first_all_cold_s": 1800,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D2c",
+   "route": "devin",
+   "client": "devin-cli",
+   "model": "claude-sonnet-5-5",
+   "models_dev": null,
+   "base_model": "anthropic/claude-sonnet-5-5",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D2c.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 300,
+   "first_all_cold_s": 900,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D2p",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "claude-sonnet-5-5",
+   "models_dev": null,
+   "base_model": "anthropic/claude-sonnet-5-5",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D2p.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 300,
+   "first_all_cold_s": 900,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D8c",
+   "route": "devin",
+   "client": "devin-cli",
+   "model": "deepseek-v4-1-flash-1017",
+   "models_dev": null,
+   "base_model": "deepseek/deepseek-v4.1-flash-1017",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D8c.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 2,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 7200,
+   "first_all_cold_s": null,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D8p",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "deepseek-v4-1-flash-1017",
+   "models_dev": null,
+   "base_model": "deepseek/deepseek-v4.1-flash-1017",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D8p.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 1,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 7200,
+   "first_all_cold_s": 900,
+   "latest": false
+  },
+  {
+   "id": "devin-repeat-2026-11-10/D8r",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "deepseek-v4-1-flash-1017",
+   "models_dev": null,
+   "base_model": "deepseek/deepseek-v4.1-flash-1017",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-10",
+   "source": "results/devin-repeat-2026-11-10/D8r.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 5,
+     "total": 5
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 5,
+     "total": 5
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 5,
+     "total": 5
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 5,
+     "total": 5
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 5,
+     "total": 5
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 7200,
+   "last_warm_s": 7200,
+   "first_all_cold_s": null,
+   "note": "5 samples per age, primed and checked within seconds of each other, so they are not independent",
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/D9",
+   "route": "devin",
+   "client": "cliproxyapi",
+   "model": "deepseek-v4-pro",
+   "models_dev": null,
+   "base_model": "deepseek/deepseek-v4-pro",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/D9-2026-11-04T18-04-59.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 450,
+   "first_all_cold_s": 150,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/D5",
+   "route": "devin",
+   "client": "cliproxyapi",
+   "model": "gemini-4-argon",
+   "models_dev": null,
+   "base_model": "google/gemini-4-argon",
+   "options": {
+    "prefix_tokens": 5000
+   },
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/D5-2026-11-04T17-58-41.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 150,
+   "last_warm_s": 600,
+   "first_all_cold_s": 900,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D6c",
+   "route": "devin",
+   "client": "devin-cli",
+   "model": "gemini-4-argon",
+   "models_dev": null,
+   "base_model": "google/gemini-4-argon",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D6c.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 900,
+   "first_all_cold_s": 1800,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D6p",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "gemini-4-argon",
+   "models_dev": null,
+   "base_model": "google/gemini-4-argon",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D6p.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": 300,
+   "latest": false
+  },
+  {
+   "id": "devin-repeat-2026-11-10/D6r",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "gemini-4-argon",
+   "models_dev": null,
+   "base_model": "google/gemini-4-argon",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-10",
+   "source": "results/devin-repeat-2026-11-10/D6r.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 5
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 5
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 5
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 5
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 5
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 300,
+   "first_all_cold_s": 900,
+   "note": "5 samples per age, primed and checked within seconds of each other, so they are not independent",
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/D7",
+   "route": "devin",
+   "client": "cliproxyapi",
+   "model": "glm-5-3",
+   "models_dev": null,
+   "base_model": "zhipuai/glm-5.3",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/D7-2026-11-04T17-58-11.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 2400,
+   "first_all_cold_s": 1800,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D9c",
+   "route": "devin",
+   "client": "devin-cli",
+   "model": "glm-5-3",
+   "models_dev": null,
+   "base_model": "zhipuai/glm-5.3",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D9c.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 2,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 7200,
+   "last_warm_s": 7200,
+   "first_all_cold_s": null,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D9p",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "glm-5-3",
+   "models_dev": null,
+   "base_model": "zhipuai/glm-5.3",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D9p.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 900,
+   "last_warm_s": 3600,
+   "first_all_cold_s": 1800,
+   "latest": false
+  },
+  {
+   "id": "devin-repeat-2026-11-10/D9r",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "glm-5-3",
+   "models_dev": null,
+   "base_model": "zhipuai/glm-5.3",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-10",
+   "source": "results/devin-repeat-2026-11-10/D9r.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 5,
+     "total": 5
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 5
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 5,
+     "total": 5
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 5,
+     "total": 5
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 5
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 3600,
+   "first_all_cold_s": 900,
+   "note": "5 samples per age, primed and checked within seconds of each other, so they are not independent",
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/D2",
+   "route": "devin",
+   "client": "cliproxyapi",
+   "model": "gpt-6-1-sol",
+   "models_dev": null,
+   "base_model": "openai/gpt-6.1-sol",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/D2-2026-11-04T17-57-10.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 2400,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D4p",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "gpt-6-1-sol",
+   "models_dev": null,
+   "base_model": "openai/gpt-6.1-sol",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D4p.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 3600,
+   "latest": true
+  },
+  {
+   "id": "harness-2026-11-07/H9",
+   "route": "devin",
+   "client": "devin-cli",
+   "model": "gpt-6-1-terra",
+   "models_dev": null,
+   "base_model": "openai/gpt-6.1-terra",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-07",
+   "source": "results/harness-2026-11-07/H9.jsonl",
+   "control": {
+    "warm": 0,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "45m",
+     "age_s": 2700,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": 300,
+   "note": "Devin CLI reports 0 cached tokens for this model even at 30 s",
+   "latest": true
+  },
+  {
+   "id": "harness-2026-11-07/H10",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "gpt-6-1-terra",
+   "models_dev": null,
+   "base_model": "openai/gpt-6.1-terra",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-07",
+   "source": "results/harness-2026-11-07/H10.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "45m",
+     "age_s": 2700,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 2700,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D5p",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "gpt-6-astra",
+   "models_dev": null,
+   "base_model": "openai/gpt-6-astra",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D5p.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 3600,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/D8",
+   "route": "devin",
+   "client": "cliproxyapi",
+   "model": "grok-4-7",
+   "models_dev": null,
+   "base_model": "xai/grok-4.7",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/D8-2026-11-04T17-58-26.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 600,
+   "first_all_cold_s": 900,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D10c",
+   "route": "devin",
+   "client": "devin-cli",
+   "model": "grok-4-7",
+   "models_dev": null,
+   "base_model": "xai/grok-4.7",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D10c.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 900,
+   "last_warm_s": 900,
+   "first_all_cold_s": 1800,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D10p",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "grok-4-7",
+   "models_dev": null,
+   "base_model": "xai/grok-4.7",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D10p.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 1,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 7200,
+   "first_all_cold_s": 3600,
+   "latest": false
+  },
+  {
+   "id": "devin-repeat-2026-11-10/D10r",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "grok-4-7",
+   "models_dev": null,
+   "base_model": "xai/grok-4.7",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-10",
+   "source": "results/devin-repeat-2026-11-10/D10r.jsonl",
+   "control": {
+    "warm": 0,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 5
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 5
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 5
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 5
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 5
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 900,
+   "first_all_cold_s": 1800,
+   "note": "5 samples per age, primed and checked within seconds of each other, so they are not independent",
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/D6",
+   "route": "devin",
+   "client": "cliproxyapi",
+   "model": "kimi-k3",
+   "models_dev": null,
+   "base_model": "moonshotai/kimi-k3",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/D6-2026-11-04T17-57-56.json",
+   "control": {
+    "warm": 0,
+    "total": 1
+   },
+   "checks": [],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": null,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D13c",
+   "route": "devin",
+   "client": "devin-cli",
+   "model": "kimi-k3-1-pro",
+   "models_dev": null,
+   "base_model": "moonshotai/kimi-k3.1-pro",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D13c.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 1,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 3600,
+   "last_warm_s": 7200,
+   "first_all_cold_s": null,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D7p",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "muse-wonder-1-0",
+   "models_dev": null,
+   "base_model": "meta/muse-wonder-1.0",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D7p.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 3600,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D11c",
+   "route": "devin",
+   "client": "devin-cli",
+   "model": "nemotron-3-5-super",
+   "models_dev": null,
+   "base_model": "nvidia/nemotron-3.5-super-120b-a12b",
+   "options": {
+    "reasoning": "none"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D11c.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 2,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 7200,
+   "last_warm_s": 7200,
+   "first_all_cold_s": null,
+   "latest": true
+  },
+  {
+   "id": "devin-cache-investigation-2026-11-09/N1c",
+   "route": "devin",
+   "client": "devin-cli",
+   "model": "nemotron-3-5-super",
+   "models_dev": null,
+   "base_model": "nvidia/nemotron-3.5-super-120b-a12b",
+   "options": {
+    "reasoning": "medium"
+   },
+   "date": "2026-11-09",
+   "source": "results/devin-cache-investigation-2026-11-09/N1c.jsonl",
+   "control": {
+    "warm": 0,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2m",
+     "age_s": 120,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": 120,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D11p",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "nemotron-3-5-super",
+   "models_dev": null,
+   "base_model": "nvidia/nemotron-3.5-super-120b-a12b",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D11p.jsonl",
+   "control": {
+    "warm": 0,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": 300,
+   "note": "with reasoning on, this model resumes only from an earlier cache checkpoint",
+   "latest": true
+  },
+  {
+   "id": "devin-cache-investigation-2026-11-09/N1p",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "nemotron-3-5-super",
+   "models_dev": null,
+   "base_model": "nvidia/nemotron-3.5-super-120b-a12b",
+   "options": {
+    "reasoning": "none"
+   },
+   "date": "2026-11-09",
+   "source": "results/devin-cache-investigation-2026-11-09/N1p.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2m",
+     "age_s": 120,
+     "warm": 2,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 120,
+   "last_warm_s": 120,
+   "first_all_cold_s": null,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/D3",
+   "route": "devin",
+   "client": "cliproxyapi",
+   "model": "swe-2",
+   "models_dev": null,
+   "base_model": null,
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/D3-2026-11-04T17-57-26.json",
+   "control": {
+    "warm": 0,
+    "total": 1
+   },
+   "checks": [],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": null,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D12c",
+   "route": "devin",
+   "client": "devin-cli",
+   "model": "swe-2",
+   "models_dev": null,
+   "base_model": null,
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D12c.jsonl",
+   "control": {
+    "warm": 0,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": 300,
+   "latest": true
+  },
+  {
+   "id": "devin-harness-2026-11-08/D12p",
+   "route": "devin",
+   "client": "pi+cliproxyapi",
+   "model": "swe-2",
+   "models_dev": null,
+   "base_model": null,
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-08",
+   "source": "results/devin-harness-2026-11-08/D12p.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": 300,
+   "latest": true
+  },
+  {
+   "id": "ember-2026-11-10/E1",
+   "route": "meta-subscription",
+   "client": "pi+cliproxyapi",
+   "model": "muse-ember-1.0",
+   "models_dev": "meta/muse-ember-1.0",
+   "base_model": "meta/muse-ember-1.0",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-10",
+   "source": "results/ember-2026-11-10/E1.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 1,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 7200,
+   "first_all_cold_s": 3600,
+   "latest": true
+  },
+  {
+   "id": "ember-2026-11-10/E2",
+   "route": "meta-subscription",
+   "client": "pi+cliproxyapi",
+   "model": "muse-ember-1.0",
+   "models_dev": "meta/muse-ember-1.0",
+   "base_model": "meta/muse-ember-1.0",
+   "options": {
+    "prompt_cache_retention": "24h",
+    "reasoning": "low"
+   },
+   "date": "2026-11-10",
+   "source": "results/ember-2026-11-10/E2.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 3,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 14400,
+   "last_warm_s": 14400,
+   "first_all_cold_s": null,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/M3",
+   "route": "meta-subscription",
+   "client": "cliproxyapi",
+   "model": "muse-spark-1.3",
+   "models_dev": "meta/muse-spark-1.3",
+   "base_model": "meta/muse-spark-1.3",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/M3-2026-11-04T18-08-02.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 450,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 2400,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/M1",
+   "route": "meta-subscription",
+   "client": "cliproxyapi",
+   "model": "muse-wonder-1.0",
+   "models_dev": "meta/muse-wonder-1.0",
+   "base_model": "meta/muse-wonder-1.0",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/M1-2026-11-04T18-07-52.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "75m",
+     "age_s": 4500,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "90m",
+     "age_s": 5400,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 150,
+   "last_warm_s": 5400,
+   "first_all_cold_s": 7200,
+   "latest": false
+  },
+  {
+   "id": "cpa-latest-2026-11-06/L4",
+   "route": "meta-subscription",
+   "client": "cliproxyapi",
+   "model": "muse-wonder-1.0",
+   "models_dev": "meta/muse-wonder-1.0",
+   "base_model": "meta/muse-wonder-1.0",
+   "options": {},
+   "date": "2026-11-06",
+   "source": "results/cpa-latest-2026-11-06/L4-2026-11-06T21-53-14.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 2,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 600,
+   "last_warm_s": 7200,
+   "first_all_cold_s": 3600,
+   "latest": true
+  },
+  {
+   "id": "harness-2026-11-07/H5",
+   "route": "meta-subscription",
+   "client": "muse-code",
+   "model": "muse-wonder-1.0",
+   "models_dev": "meta/muse-wonder-1.0",
+   "base_model": "meta/muse-wonder-1.0",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-07",
+   "source": "results/harness-2026-11-07/H5.jsonl",
+   "control": {
+    "warm": 0,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": 150,
+   "note": "Muse Code caches its own system prompt but never the conversation",
+   "latest": true
+  },
+  {
+   "id": "harness-2026-11-07/H6",
+   "route": "meta-subscription",
+   "client": "pi+cliproxyapi",
+   "model": "muse-wonder-1.0",
+   "models_dev": "meta/muse-wonder-1.0",
+   "base_model": "meta/muse-wonder-1.0",
+   "options": {
+    "reasoning": "low"
+   },
+   "date": "2026-11-07",
+   "source": "results/harness-2026-11-07/H6.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 3,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 7200,
+   "last_warm_s": 7200,
+   "first_all_cold_s": null,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53-or/P1",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "anthropic/claude-haiku-5.5",
+   "models_dev": "openrouter/anthropic/claude-haiku-5.5",
+   "base_model": "anthropic/claude-haiku-5-5",
+   "options": {
+    "format": "messages"
+   },
+   "date": "2026-11-06",
+   "source": "results/cpa-8.0.53-or/P1-2026-11-06T15-05-52.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 300,
+   "first_all_cold_s": 450,
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53-or/P2",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "anthropic/claude-haiku-5.5",
+   "models_dev": "openrouter/anthropic/claude-haiku-5.5",
+   "base_model": "anthropic/claude-haiku-5-5",
+   "options": {
+    "format": "messages",
+    "ttl": "1h"
+   },
+   "date": "2026-11-06",
+   "source": "results/cpa-8.0.53-or/P2-2026-11-06T15-06-12.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "65m",
+     "age_s": 3900,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 3900,
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "openrouter-direct-v0.2/R1b",
+   "route": "openrouter",
+   "client": "direct",
+   "model": "anthropic/claude-haiku-5.5",
+   "models_dev": "openrouter/anthropic/claude-haiku-5.5",
+   "base_model": "anthropic/claude-haiku-5-5",
+   "options": {
+    "cache_control": "top-level",
+    "session_id": true
+   },
+   "date": "2026-11-06",
+   "source": "results/openrouter-direct-v0.2/R1b-2026-11-06T18-21-26.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 300,
+   "first_all_cold_s": 450,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/O1",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "anthropic/claude-opus-5.5",
+   "models_dev": "openrouter/anthropic/claude-opus-5.5",
+   "base_model": "anthropic/claude-opus-5-5",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/O1-2026-11-04T17-59-56.json",
+   "control": {
+    "warm": 0,
+    "total": 1
+   },
+   "checks": [],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": null,
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "openrouter-direct/R1h",
+   "route": "openrouter",
+   "client": "direct",
+   "model": "anthropic/claude-opus-5.5",
+   "models_dev": "openrouter/anthropic/claude-opus-5.5",
+   "base_model": "anthropic/claude-opus-5-5",
+   "options": {
+    "cache_control": "top-level",
+    "session_id": true,
+    "ttl": "1h"
+   },
+   "date": "2026-11-04",
+   "source": "results/openrouter-direct/R1h-2026-11-04T18-58-55.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "65m",
+     "age_s": 3900,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 3900,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/O8",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "deepseek/deepseek-v4-pro",
+   "models_dev": "openrouter/deepseek/deepseek-v4-pro",
+   "base_model": "deepseek/deepseek-v4-pro",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/O8-2026-11-04T18-37-06.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "75m",
+     "age_s": 4500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "90m",
+     "age_s": 5400,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "12h",
+     "age_s": 43200,
+     "warm": 1,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 600,
+   "last_warm_s": 43200,
+   "first_all_cold_s": 14400,
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "openrouter-direct/R8",
+   "route": "openrouter",
+   "client": "direct",
+   "model": "deepseek/deepseek-v4-pro",
+   "models_dev": "openrouter/deepseek/deepseek-v4-pro",
+   "base_model": "deepseek/deepseek-v4-pro",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/openrouter-direct/R8-2026-11-04T18-59-51.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "75m",
+     "age_s": 4500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "90m",
+     "age_s": 5400,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 2,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 150,
+   "last_warm_s": 7200,
+   "first_all_cold_s": null,
+   "latest": true
+  },
+  {
+   "id": "cpa-latest-2026-11-06/L3",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "deepseek/deepseek-v4.1-flash",
+   "models_dev": "openrouter/deepseek/deepseek-v4.1-flash",
+   "base_model": "deepseek/deepseek-v4.1-flash-1017",
+   "options": {},
+   "date": "2026-11-06",
+   "source": "results/cpa-latest-2026-11-06/L3-2026-11-06T21-52-54.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 1,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 7200,
+   "first_all_cold_s": null,
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/O5",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "google/gemini-3.8-flash",
+   "models_dev": "openrouter/google/gemini-3.8-flash",
+   "base_model": "google/gemini-3.8-flash",
+   "options": {
+    "prefix_tokens": 5000
+   },
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/O5-2026-11-04T18-36-36.json",
+   "control": {
+    "warm": 0,
+    "total": 1
+   },
+   "checks": [],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": null,
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "openrouter-direct/R5",
+   "route": "openrouter",
+   "client": "direct",
+   "model": "google/gemini-3.8-flash",
+   "models_dev": "openrouter/google/gemini-3.8-flash",
+   "base_model": "google/gemini-3.8-flash",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/openrouter-direct/R5-2026-11-04T18-59-27.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": 150,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/O4",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "google/gemini-4-argon",
+   "models_dev": "openrouter/google/gemini-4-argon",
+   "base_model": "google/gemini-4-argon",
+   "options": {
+    "prefix_tokens": 5000
+   },
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/O4-2026-11-04T18-36-26.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 450,
+   "first_all_cold_s": 600,
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "cpa-latest-2026-11-06/L1b",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "google/gemini-4-argon",
+   "models_dev": "openrouter/google/gemini-4-argon",
+   "base_model": "google/gemini-4-argon",
+   "options": {
+    "prefix_tokens": 8000
+   },
+   "date": "2026-11-06",
+   "source": "results/cpa-latest-2026-11-06/L1b-2026-11-06T21-54-40.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 150,
+   "last_warm_s": 300,
+   "first_all_cold_s": 600,
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "openrouter-direct/R4",
+   "route": "openrouter",
+   "client": "direct",
+   "model": "google/gemini-4-argon",
+   "models_dev": "openrouter/google/gemini-4-argon",
+   "base_model": "google/gemini-4-argon",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/openrouter-direct/R4-2026-11-04T18-59-19.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 300,
+   "first_all_cold_s": 450,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/O10",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "meta/muse-wonder",
+   "models_dev": "openrouter/meta/muse-wonder",
+   "base_model": "meta/muse-wonder-1.0",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/O10-2026-11-04T18-37-26.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 150,
+   "last_warm_s": 300,
+   "first_all_cold_s": 450,
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "openrouter-direct/R10",
+   "route": "openrouter",
+   "client": "direct",
+   "model": "meta/muse-wonder",
+   "models_dev": "openrouter/meta/muse-wonder",
+   "base_model": "meta/muse-wonder-1.0",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/openrouter-direct/R10-2026-11-04T19-00-07.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 150,
+   "last_warm_s": 1500,
+   "first_all_cold_s": 1800,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/O11",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "mistralai/mistral-large-4-0",
+   "models_dev": "openrouter/mistralai/mistral-large-4-0",
+   "base_model": "mistral/mistral-large-4",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/O11-2026-11-04T18-37-36.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 2,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 450,
+   "last_warm_s": 600,
+   "first_all_cold_s": null,
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "openrouter-direct/R11",
+   "route": "openrouter",
+   "client": "direct",
+   "model": "mistralai/mistral-large-4-0",
+   "models_dev": "openrouter/mistralai/mistral-large-4-0",
+   "base_model": "mistral/mistral-large-4",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/openrouter-direct/R11-2026-11-04T19-00-15.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 450,
+   "last_warm_s": 600,
+   "first_all_cold_s": 900,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/O7",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "moonshotai/kimi-k3.1-pro",
+   "models_dev": "openrouter/moonshotai/kimi-k3.1-pro",
+   "base_model": "moonshotai/kimi-k3.1-pro",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/O7-2026-11-04T18-36-56.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": null,
+   "first_all_cold_s": 150,
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "latest": false
+  },
+  {
+   "id": "cpa-latest-2026-11-06/L2",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "moonshotai/kimi-k3.1-pro",
+   "models_dev": "openrouter/moonshotai/kimi-k3.1-pro",
+   "base_model": "moonshotai/kimi-k3.1-pro",
+   "options": {},
+   "date": "2026-11-06",
+   "source": "results/cpa-latest-2026-11-06/L2-2026-11-06T21-52-34.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 2,
+     "total": 2
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 1,
+     "total": 2
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 0,
+     "total": 2
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 2
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 150,
+   "last_warm_s": 300,
+   "first_all_cold_s": 600,
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "openrouter-direct/R7",
+   "route": "openrouter",
+   "client": "direct",
+   "model": "moonshotai/kimi-k3.1-pro",
+   "models_dev": "openrouter/moonshotai/kimi-k3.1-pro",
+   "base_model": "moonshotai/kimi-k3.1-pro",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/openrouter-direct/R7-2026-11-04T18-59-43.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "75m",
+     "age_s": 4500,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 3000,
+   "first_all_cold_s": 3600,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/O2",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "openai/gpt-6.1-sol",
+   "models_dev": "openrouter/openai/gpt-6.1-sol",
+   "base_model": "openai/gpt-6.1-sol",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/O2-2026-11-04T18-36-06.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 2400,
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "openrouter-direct/R2",
+   "route": "openrouter",
+   "client": "direct",
+   "model": "openai/gpt-6.1-sol",
+   "models_dev": "openrouter/openai/gpt-6.1-sol",
+   "base_model": "openai/gpt-6.1-sol",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/openrouter-direct/R2-2026-11-04T18-59-03.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 2400,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/O3",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "openai/gpt-6.1-terra",
+   "models_dev": "openrouter/openai/gpt-6.1-terra",
+   "base_model": "openai/gpt-6.1-terra",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/O3-2026-11-04T18-36-16.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 2400,
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "openrouter-direct/R3",
+   "route": "openrouter",
+   "client": "direct",
+   "model": "openai/gpt-6.1-terra",
+   "models_dev": "openrouter/openai/gpt-6.1-terra",
+   "base_model": "openai/gpt-6.1-terra",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/openrouter-direct/R3-2026-11-04T18-59-11.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 1800,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 2400,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/O6",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "x-ai/grok-4.7",
+   "models_dev": "openrouter/x-ai/grok-4.7",
+   "base_model": "xai/grok-4.7",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/O6-2026-11-04T18-36-46.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 600,
+   "first_all_cold_s": 900,
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "openrouter-direct/R6",
+   "route": "openrouter",
+   "client": "direct",
+   "model": "x-ai/grok-4.7",
+   "models_dev": "openrouter/x-ai/grok-4.7",
+   "base_model": "xai/grok-4.7",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/openrouter-direct/R6-2026-11-04T18-59-35.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 150,
+   "last_warm_s": 600,
+   "first_all_cold_s": 900,
+   "latest": true
+  },
+  {
+   "id": "cpa-8.0.53/O9",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "z-ai/glm-5.3",
+   "models_dev": "openrouter/z-ai/glm-5.3",
+   "base_model": "zhipuai/glm-5.3",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/cpa-8.0.53/O9-2026-11-04T18-37-16.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "75m",
+     "age_s": 4500,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "90m",
+     "age_s": 5400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 4500,
+   "first_all_cold_s": 900,
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "latest": true
+  },
+  {
+   "id": "openrouter-direct/R9",
+   "route": "openrouter",
+   "client": "direct",
+   "model": "z-ai/glm-5.3",
+   "models_dev": "openrouter/z-ai/glm-5.3",
+   "base_model": "zhipuai/glm-5.3",
+   "options": {},
+   "date": "2026-11-04",
+   "source": "results/openrouter-direct/R9-2026-11-04T18-59-59.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "20m",
+     "age_s": 1200,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "25m",
+     "age_s": 1500,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "50m",
+     "age_s": 3000,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "75m",
+     "age_s": 4500,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "90m",
+     "age_s": 5400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 150,
+   "last_warm_s": 4500,
+   "first_all_cold_s": 3600,
+   "latest": true
+  }
+ ],
+ "limits": [
+  {
+   "route": "claude-subscription",
+   "client": "cliproxyapi",
+   "model": "claude-haiku-5-5",
+   "base_model": "anthropic/claude-haiku-5-5",
+   "context": 1000000,
+   "output": 128000,
+   "models_dev": null,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "claude-subscription",
+   "client": "cliproxyapi",
+   "model": "claude-opus-5-5",
+   "base_model": "anthropic/claude-opus-5-5",
+   "context": 1000000,
+   "output": 128000,
+   "models_dev": null,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "claude-subscription",
+   "client": "cliproxyapi",
+   "model": "claude-sonnet-5-5",
+   "base_model": "anthropic/claude-sonnet-5-5",
+   "context": 1000000,
+   "output": 128000,
+   "models_dev": null,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "codex-subscription",
+   "client": "cliproxyapi",
+   "model": "gpt-6.1-terra",
+   "base_model": "openai/gpt-6.1-terra",
+   "input_accepted": 920870,
+   "input_refused": 921875,
+   "note": "the limit is on input; official catalogs list a 272k window for this route",
+   "models_dev": null,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "devin",
+   "client": "cliproxyapi",
+   "model": "gpt-6-1-sol",
+   "base_model": "openai/gpt-6.1-sol",
+   "input_accepted": 915390,
+   "input_refused": 925000,
+   "note": "Devin's own model list says 1,000,000",
+   "models_dev": null,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "meta-subscription",
+   "client": "cliproxyapi",
+   "model": "muse-wonder-1.0",
+   "base_model": "meta/muse-wonder-1.0",
+   "models_dev": "meta/muse-wonder-1.0",
+   "context": 1048576,
+   "input_accepted": 1047604,
+   "output_accepted": 1000000,
+   "note": "one window shared by input and output; no separate output cap was found",
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "anthropic/claude-haiku-5.5",
+   "base_model": "anthropic/claude-haiku-5-5",
+   "models_dev": "openrouter/anthropic/claude-haiku-5.5",
+   "context": 1000000,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "anthropic/claude-opus-5.5",
+   "base_model": "anthropic/claude-opus-5-5",
+   "models_dev": "openrouter/anthropic/claude-opus-5.5",
+   "context": 1000000,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "anthropic/claude-sonnet-5.5",
+   "base_model": "anthropic/claude-sonnet-5-5",
+   "models_dev": "openrouter/anthropic/claude-sonnet-5.5",
+   "context": 1000000,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "deepseek/deepseek-v4.1-flash",
+   "base_model": "deepseek/deepseek-v4.1-flash-1017",
+   "models_dev": "openrouter/deepseek/deepseek-v4.1-flash",
+   "context": 1048576,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "google/gemini-4-argon",
+   "base_model": "google/gemini-4-argon",
+   "models_dev": "openrouter/google/gemini-4-argon",
+   "context": 1048576,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "meta/muse-wonder",
+   "base_model": "meta/muse-wonder-1.0",
+   "models_dev": "openrouter/meta/muse-wonder",
+   "context": 1048576,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "moonshotai/kimi-k3.1-pro",
+   "base_model": "moonshotai/kimi-k3.1-pro",
+   "models_dev": "openrouter/moonshotai/kimi-k3.1-pro",
+   "context": 1048576,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "openai/gpt-6.1-sol",
+   "base_model": "openai/gpt-6.1-sol",
+   "models_dev": "openrouter/openai/gpt-6.1-sol",
+   "context": 1050000,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "openai/gpt-6.1-terra",
+   "base_model": "openai/gpt-6.1-terra",
+   "models_dev": "openrouter/openai/gpt-6.1-terra",
+   "context": 1050000,
+   "source": "results/limits-2026-11-08/limits.jsonl"
+  }
+ ],
+ "excluded": [
+  {
+   "id": "cpa-8.0.53/C2",
+   "reason": "ran before the probe sent a per-conversation cache key"
+  },
+  {
+   "id": "cpa-8.0.53/D4",
+   "reason": "the route reported no usage at all, so nothing was measured"
+  },
+  {
+   "id": "cpa-8.0.53/D9 (first file)",
+   "reason": "aborted before any check"
+  },
+  {
+   "id": "cpa-8.0.53/no-cache-key, superseded-2rep, failed-402",
+   "reason": "early attempts kept for the record"
+  },
+  {
+   "id": "cpa-8.0.53-or/P3",
+   "reason": "CLIProxyAPI dropped the 12h option at the time, so it did not measure what its label says"
+  },
+  {
+   "id": "cpa-latest-2026-11-06/L1",
+   "reason": "the ~2.3k-token prefix is below Gemini's minimum cacheable size; repeated as L1b"
+  },
+  {
+   "id": "openrouter-direct/R1",
+   "reason": "probe error: priming stalled, so every check ran late; repeated as R1b"
+  },
+  {
+   "id": "devin-smoke-2026-11-08/*",
+   "reason": "smoke test before the real run"
+  }
+ ]
+}

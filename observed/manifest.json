@@ -1,0 +1,1043 @@
+{
+ "comment": "Hand-kept list of the published runs that go into observed.json. scripts/build_observed.py reads the raw files; nothing here is a result.",
+ "limits_file": "results/limits-2026-11-08/limits.jsonl",
+ "runs": [
+  {
+   "id": "cpa-8.0.53/C1",
+   "file": "results/cpa-8.0.53/C1-2026-11-04T18-07-32.json",
+   "route": "codex-subscription",
+   "model": "gpt-6.1-sol",
+   "client": "cliproxyapi",
+   "base_model": "openai/gpt-6.1-sol",
+   "note": "8 h checks lost to a network outage"
+  },
+  {
+   "id": "cpa-8.0.53/D1",
+   "file": "results/cpa-8.0.53/D1-2026-11-04T17-56-55.json",
+   "route": "devin",
+   "model": "claude-opus-5-5",
+   "client": "cliproxyapi",
+   "base_model": "anthropic/claude-opus-5-5",
+   "note": "warm to 2 h here; later runs (H7, H8) did not reproduce it"
+  },
+  {
+   "id": "cpa-8.0.53/D2",
+   "file": "results/cpa-8.0.53/D2-2026-11-04T17-57-10.json",
+   "route": "devin",
+   "model": "gpt-6-1-sol",
+   "client": "cliproxyapi",
+   "base_model": "openai/gpt-6.1-sol"
+  },
+  {
+   "id": "cpa-8.0.53/D3",
+   "file": "results/cpa-8.0.53/D3-2026-11-04T17-57-26.json",
+   "route": "devin",
+   "model": "swe-2",
+   "client": "cliproxyapi"
+  },
+  {
+   "id": "cpa-8.0.53/D5",
+   "file": "results/cpa-8.0.53/D5-2026-11-04T17-58-41.json",
+   "route": "devin",
+   "model": "gemini-4-argon",
+   "client": "cliproxyapi",
+   "base_model": "google/gemini-4-argon",
+   "options": {
+    "prefix_tokens": 5000
+   }
+  },
+  {
+   "id": "cpa-8.0.53/D6",
+   "file": "results/cpa-8.0.53/D6-2026-11-04T17-57-56.json",
+   "route": "devin",
+   "model": "kimi-k3",
+   "client": "cliproxyapi",
+   "base_model": "moonshotai/kimi-k3"
+  },
+  {
+   "id": "cpa-8.0.53/D7",
+   "file": "results/cpa-8.0.53/D7-2026-11-04T17-58-11.json",
+   "route": "devin",
+   "model": "glm-5-3",
+   "client": "cliproxyapi",
+   "base_model": "zhipuai/glm-5.3"
+  },
+  {
+   "id": "cpa-8.0.53/D8",
+   "file": "results/cpa-8.0.53/D8-2026-11-04T17-58-26.json",
+   "route": "devin",
+   "model": "grok-4-7",
+   "client": "cliproxyapi",
+   "base_model": "xai/grok-4.7"
+  },
+  {
+   "id": "cpa-8.0.53/D9",
+   "file": "results/cpa-8.0.53/D9-2026-11-04T18-04-59.json",
+   "route": "devin",
+   "model": "deepseek-v4-pro",
+   "client": "cliproxyapi",
+   "base_model": "deepseek/deepseek-v4-pro"
+  },
+  {
+   "id": "cpa-8.0.53/M1",
+   "file": "results/cpa-8.0.53/M1-2026-11-04T18-07-52.json",
+   "route": "meta-subscription",
+   "model": "muse-wonder-1.0",
+   "client": "cliproxyapi",
+   "models_dev": "meta/muse-wonder-1.0",
+   "base_model": "meta/muse-wonder-1.0"
+  },
+  {
+   "id": "cpa-8.0.53/M3",
+   "file": "results/cpa-8.0.53/M3-2026-11-04T18-08-02.json",
+   "route": "meta-subscription",
+   "model": "muse-spark-1.3",
+   "client": "cliproxyapi",
+   "models_dev": "meta/muse-spark-1.3",
+   "base_model": "meta/muse-spark-1.3"
+  },
+  {
+   "id": "cpa-8.0.53/A3",
+   "file": "results/cpa-8.0.53/A3-2026-11-04T17-59-41.json",
+   "route": "antigravity",
+   "model": "gemini-3.8-flash-high",
+   "client": "cliproxyapi",
+   "base_model": "google/gemini-3.8-flash",
+   "options": {
+    "prefix_tokens": 5000
+   }
+  },
+  {
+   "id": "cpa-8.0.53/O1",
+   "file": "results/cpa-8.0.53/O1-2026-11-04T17-59-56.json",
+   "route": "openrouter",
+   "model": "anthropic/claude-opus-5.5",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/anthropic/claude-opus-5.5",
+   "base_model": "anthropic/claude-opus-5-5",
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-8.0.53/O2",
+   "file": "results/cpa-8.0.53/O2-2026-11-04T18-36-06.json",
+   "route": "openrouter",
+   "model": "openai/gpt-6.1-sol",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/openai/gpt-6.1-sol",
+   "base_model": "openai/gpt-6.1-sol",
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-8.0.53/O3",
+   "file": "results/cpa-8.0.53/O3-2026-11-04T18-36-16.json",
+   "route": "openrouter",
+   "model": "openai/gpt-6.1-terra",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/openai/gpt-6.1-terra",
+   "base_model": "openai/gpt-6.1-terra",
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-8.0.53/O4",
+   "file": "results/cpa-8.0.53/O4-2026-11-04T18-36-26.json",
+   "route": "openrouter",
+   "model": "google/gemini-4-argon",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/google/gemini-4-argon",
+   "base_model": "google/gemini-4-argon",
+   "options": {
+    "prefix_tokens": 5000
+   },
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-8.0.53/O5",
+   "file": "results/cpa-8.0.53/O5-2026-11-04T18-36-36.json",
+   "route": "openrouter",
+   "model": "google/gemini-3.8-flash",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/google/gemini-3.8-flash",
+   "base_model": "google/gemini-3.8-flash",
+   "options": {
+    "prefix_tokens": 5000
+   },
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-8.0.53/O6",
+   "file": "results/cpa-8.0.53/O6-2026-11-04T18-36-46.json",
+   "route": "openrouter",
+   "model": "x-ai/grok-4.7",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/x-ai/grok-4.7",
+   "base_model": "xai/grok-4.7",
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-8.0.53/O7",
+   "file": "results/cpa-8.0.53/O7-2026-11-04T18-36-56.json",
+   "route": "openrouter",
+   "model": "moonshotai/kimi-k3.1-pro",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/moonshotai/kimi-k3.1-pro",
+   "base_model": "moonshotai/kimi-k3.1-pro",
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-8.0.53/O8",
+   "file": "results/cpa-8.0.53/O8-2026-11-04T18-37-06.json",
+   "route": "openrouter",
+   "model": "deepseek/deepseek-v4-pro",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/deepseek/deepseek-v4-pro",
+   "base_model": "deepseek/deepseek-v4-pro",
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-8.0.53/O9",
+   "file": "results/cpa-8.0.53/O9-2026-11-04T18-37-16.json",
+   "route": "openrouter",
+   "model": "z-ai/glm-5.3",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/z-ai/glm-5.3",
+   "base_model": "zhipuai/glm-5.3",
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-8.0.53/O10",
+   "file": "results/cpa-8.0.53/O10-2026-11-04T18-37-26.json",
+   "route": "openrouter",
+   "model": "meta/muse-wonder",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/meta/muse-wonder",
+   "base_model": "meta/muse-wonder-1.0",
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-8.0.53/O11",
+   "file": "results/cpa-8.0.53/O11-2026-11-04T18-37-36.json",
+   "route": "openrouter",
+   "model": "mistralai/mistral-large-4-0",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/mistralai/mistral-large-4-0",
+   "base_model": "mistral/mistral-large-4",
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-8.0.53/K1-nobeta",
+   "file": "results/cpa-8.0.53/K1-nobeta-2026-11-04T18-02-41.json",
+   "route": "anthropic-api",
+   "model": "claude-opus-5-5",
+   "client": "cliproxyapi",
+   "models_dev": "anthropic/claude-opus-5-5",
+   "base_model": "anthropic/claude-opus-5-5",
+   "options": {
+    "format": "messages",
+    "ttl": "1h"
+   }
+  },
+  {
+   "id": "cpa-8.0.53/K1-beta",
+   "file": "results/cpa-8.0.53/K1-beta-2026-11-04T18-02-56.json",
+   "route": "anthropic-api",
+   "model": "claude-opus-5-5",
+   "client": "cliproxyapi",
+   "models_dev": "anthropic/claude-opus-5-5",
+   "base_model": "anthropic/claude-opus-5-5",
+   "options": {
+    "format": "messages",
+    "ttl": "1h",
+    "beta": "extended-cache-ttl-2025-04-11"
+   }
+  },
+  {
+   "id": "openrouter-direct/R1h",
+   "file": "results/openrouter-direct/R1h-2026-11-04T18-58-55.json",
+   "route": "openrouter",
+   "model": "anthropic/claude-opus-5.5",
+   "client": "direct",
+   "models_dev": "openrouter/anthropic/claude-opus-5.5",
+   "base_model": "anthropic/claude-opus-5-5",
+   "options": {
+    "cache_control": "top-level",
+    "session_id": true,
+    "ttl": "1h"
+   }
+  },
+  {
+   "id": "openrouter-direct/R2",
+   "file": "results/openrouter-direct/R2-2026-11-04T18-59-03.json",
+   "route": "openrouter",
+   "model": "openai/gpt-6.1-sol",
+   "client": "direct",
+   "models_dev": "openrouter/openai/gpt-6.1-sol",
+   "base_model": "openai/gpt-6.1-sol"
+  },
+  {
+   "id": "openrouter-direct/R3",
+   "file": "results/openrouter-direct/R3-2026-11-04T18-59-11.json",
+   "route": "openrouter",
+   "model": "openai/gpt-6.1-terra",
+   "client": "direct",
+   "models_dev": "openrouter/openai/gpt-6.1-terra",
+   "base_model": "openai/gpt-6.1-terra"
+  },
+  {
+   "id": "openrouter-direct/R4",
+   "file": "results/openrouter-direct/R4-2026-11-04T18-59-19.json",
+   "route": "openrouter",
+   "model": "google/gemini-4-argon",
+   "client": "direct",
+   "models_dev": "openrouter/google/gemini-4-argon",
+   "base_model": "google/gemini-4-argon"
+  },
+  {
+   "id": "openrouter-direct/R5",
+   "file": "results/openrouter-direct/R5-2026-11-04T18-59-27.json",
+   "route": "openrouter",
+   "model": "google/gemini-3.8-flash",
+   "client": "direct",
+   "models_dev": "openrouter/google/gemini-3.8-flash",
+   "base_model": "google/gemini-3.8-flash"
+  },
+  {
+   "id": "openrouter-direct/R6",
+   "file": "results/openrouter-direct/R6-2026-11-04T18-59-35.json",
+   "route": "openrouter",
+   "model": "x-ai/grok-4.7",
+   "client": "direct",
+   "models_dev": "openrouter/x-ai/grok-4.7",
+   "base_model": "xai/grok-4.7"
+  },
+  {
+   "id": "openrouter-direct/R7",
+   "file": "results/openrouter-direct/R7-2026-11-04T18-59-43.json",
+   "route": "openrouter",
+   "model": "moonshotai/kimi-k3.1-pro",
+   "client": "direct",
+   "models_dev": "openrouter/moonshotai/kimi-k3.1-pro",
+   "base_model": "moonshotai/kimi-k3.1-pro"
+  },
+  {
+   "id": "openrouter-direct/R8",
+   "file": "results/openrouter-direct/R8-2026-11-04T18-59-51.json",
+   "route": "openrouter",
+   "model": "deepseek/deepseek-v4-pro",
+   "client": "direct",
+   "models_dev": "openrouter/deepseek/deepseek-v4-pro",
+   "base_model": "deepseek/deepseek-v4-pro"
+  },
+  {
+   "id": "openrouter-direct/R9",
+   "file": "results/openrouter-direct/R9-2026-11-04T18-59-59.json",
+   "route": "openrouter",
+   "model": "z-ai/glm-5.3",
+   "client": "direct",
+   "models_dev": "openrouter/z-ai/glm-5.3",
+   "base_model": "zhipuai/glm-5.3"
+  },
+  {
+   "id": "openrouter-direct/R10",
+   "file": "results/openrouter-direct/R10-2026-11-04T19-00-07.json",
+   "route": "openrouter",
+   "model": "meta/muse-wonder",
+   "client": "direct",
+   "models_dev": "openrouter/meta/muse-wonder",
+   "base_model": "meta/muse-wonder-1.0"
+  },
+  {
+   "id": "openrouter-direct/R11",
+   "file": "results/openrouter-direct/R11-2026-11-04T19-00-15.json",
+   "route": "openrouter",
+   "model": "mistralai/mistral-large-4-0",
+   "client": "direct",
+   "models_dev": "openrouter/mistralai/mistral-large-4-0",
+   "base_model": "mistral/mistral-large-4"
+  },
+  {
+   "id": "openrouter-direct-v0.2/R1b",
+   "file": "results/openrouter-direct-v0.2/R1b-2026-11-06T18-21-26.json",
+   "route": "openrouter",
+   "model": "anthropic/claude-haiku-5.5",
+   "client": "direct",
+   "models_dev": "openrouter/anthropic/claude-haiku-5.5",
+   "base_model": "anthropic/claude-haiku-5-5",
+   "options": {
+    "cache_control": "top-level",
+    "session_id": true
+   }
+  },
+  {
+   "id": "cpa-8.0.53-or/P1",
+   "file": "results/cpa-8.0.53-or/P1-2026-11-06T15-05-52.json",
+   "route": "openrouter",
+   "model": "anthropic/claude-haiku-5.5",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/anthropic/claude-haiku-5.5",
+   "base_model": "anthropic/claude-haiku-5-5",
+   "options": {
+    "format": "messages"
+   },
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-8.0.53-or/P2",
+   "file": "results/cpa-8.0.53-or/P2-2026-11-06T15-06-12.json",
+   "route": "openrouter",
+   "model": "anthropic/claude-haiku-5.5",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/anthropic/claude-haiku-5.5",
+   "base_model": "anthropic/claude-haiku-5-5",
+   "options": {
+    "format": "messages",
+    "ttl": "1h"
+   },
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-codex-long-2026-11-06/X1",
+   "file": "results/cpa-codex-long-2026-11-06/X1-2026-11-06T21-31-50.json",
+   "route": "codex-subscription",
+   "model": "gpt-6.1-sol",
+   "client": "cliproxyapi",
+   "base_model": "openai/gpt-6.1-sol"
+  },
+  {
+   "id": "cpa-codex-long-2026-11-06/X2",
+   "file": "results/cpa-codex-long-2026-11-06/X2-2026-11-06T21-32-20.json",
+   "route": "codex-subscription",
+   "model": "gpt-6.1-terra",
+   "client": "cliproxyapi",
+   "base_model": "openai/gpt-6.1-terra"
+  },
+  {
+   "id": "cpa-codex-long-2026-11-06/X2b",
+   "file": "results/cpa-codex-long-2026-11-06/X2b-2026-11-06T21-54-40.json",
+   "route": "codex-subscription",
+   "model": "gpt-6.1-terra",
+   "client": "cliproxyapi",
+   "base_model": "openai/gpt-6.1-terra",
+   "note": "finer ages after X2 was cold at 5 min"
+  },
+  {
+   "id": "cpa-latest-2026-11-06/L1b",
+   "file": "results/cpa-latest-2026-11-06/L1b-2026-11-06T21-54-40.json",
+   "route": "openrouter",
+   "model": "google/gemini-4-argon",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/google/gemini-4-argon",
+   "base_model": "google/gemini-4-argon",
+   "options": {
+    "prefix_tokens": 8000
+   },
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-latest-2026-11-06/L2",
+   "file": "results/cpa-latest-2026-11-06/L2-2026-11-06T21-52-34.json",
+   "route": "openrouter",
+   "model": "moonshotai/kimi-k3.1-pro",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/moonshotai/kimi-k3.1-pro",
+   "base_model": "moonshotai/kimi-k3.1-pro",
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-latest-2026-11-06/L3",
+   "file": "results/cpa-latest-2026-11-06/L3-2026-11-06T21-52-54.json",
+   "route": "openrouter",
+   "model": "deepseek/deepseek-v4.1-flash",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/deepseek/deepseek-v4.1-flash",
+   "base_model": "deepseek/deepseek-v4.1-flash-1017",
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+  },
+  {
+   "id": "cpa-latest-2026-11-06/L4",
+   "file": "results/cpa-latest-2026-11-06/L4-2026-11-06T21-53-14.json",
+   "route": "meta-subscription",
+   "model": "muse-wonder-1.0",
+   "client": "cliproxyapi",
+   "models_dev": "meta/muse-wonder-1.0",
+   "base_model": "meta/muse-wonder-1.0"
+  },
+  {
+   "id": "harness-2026-11-07/H1",
+   "file": "results/harness-2026-11-07/H1.jsonl",
+   "route": "codex-subscription",
+   "model": "gpt-6.1-sol",
+   "base_model": "openai/gpt-6.1-sol"
+  },
+  {
+   "id": "harness-2026-11-07/H2",
+   "file": "results/harness-2026-11-07/H2.jsonl",
+   "route": "codex-subscription",
+   "model": "gpt-6.1-sol",
+   "base_model": "openai/gpt-6.1-sol"
+  },
+  {
+   "id": "harness-2026-11-07/H3",
+   "file": "results/harness-2026-11-07/H3.jsonl",
+   "route": "codex-subscription",
+   "model": "gpt-6.1-terra",
+   "base_model": "openai/gpt-6.1-terra"
+  },
+  {
+   "id": "harness-2026-11-07/H4",
+   "file": "results/harness-2026-11-07/H4.jsonl",
+   "route": "codex-subscription",
+   "model": "gpt-6.1-terra",
+   "base_model": "openai/gpt-6.1-terra"
+  },
+  {
+   "id": "harness-2026-11-07/H5",
+   "file": "results/harness-2026-11-07/H5.jsonl",
+   "route": "meta-subscription",
+   "model": "muse-wonder-1.0",
+   "models_dev": "meta/muse-wonder-1.0",
+   "base_model": "meta/muse-wonder-1.0",
+   "note": "Muse Code caches its own system prompt but never the conversation"
+  },
+  {
+   "id": "harness-2026-11-07/H6",
+   "file": "results/harness-2026-11-07/H6.jsonl",
+   "route": "meta-subscription",
+   "model": "muse-wonder-1.0",
+   "models_dev": "meta/muse-wonder-1.0",
+   "base_model": "meta/muse-wonder-1.0"
+  },
+  {
+   "id": "harness-2026-11-07/H7",
+   "file": "results/harness-2026-11-07/H7.jsonl",
+   "route": "devin",
+   "model": "claude-opus-5-5",
+   "base_model": "anthropic/claude-opus-5-5"
+  },
+  {
+   "id": "harness-2026-11-07/H8",
+   "file": "results/harness-2026-11-07/H8.jsonl",
+   "route": "devin",
+   "model": "claude-opus-5-5",
+   "base_model": "anthropic/claude-opus-5-5"
+  },
+  {
+   "id": "harness-2026-11-07/H9",
+   "file": "results/harness-2026-11-07/H9.jsonl",
+   "route": "devin",
+   "model": "gpt-6-1-terra",
+   "base_model": "openai/gpt-6.1-terra",
+   "note": "Devin CLI reports 0 cached tokens for this model even at 30 s"
+  },
+  {
+   "id": "harness-2026-11-07/H10",
+   "file": "results/harness-2026-11-07/H10.jsonl",
+   "route": "devin",
+   "model": "gpt-6-1-terra",
+   "base_model": "openai/gpt-6.1-terra"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D1c",
+   "file": "results/devin-harness-2026-11-08/D1c.jsonl",
+   "route": "devin",
+   "model": "claude-haiku-5-5",
+   "base_model": "anthropic/claude-haiku-5-5"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D1p",
+   "file": "results/devin-harness-2026-11-08/D1p.jsonl",
+   "route": "devin",
+   "model": "claude-haiku-5-5",
+   "base_model": "anthropic/claude-haiku-5-5"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D2c",
+   "file": "results/devin-harness-2026-11-08/D2c.jsonl",
+   "route": "devin",
+   "model": "claude-sonnet-5-5",
+   "base_model": "anthropic/claude-sonnet-5-5"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D2p",
+   "file": "results/devin-harness-2026-11-08/D2p.jsonl",
+   "route": "devin",
+   "model": "claude-sonnet-5-5",
+   "base_model": "anthropic/claude-sonnet-5-5"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D4p",
+   "file": "results/devin-harness-2026-11-08/D4p.jsonl",
+   "route": "devin",
+   "model": "gpt-6-1-sol",
+   "base_model": "openai/gpt-6.1-sol"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D5p",
+   "file": "results/devin-harness-2026-11-08/D5p.jsonl",
+   "route": "devin",
+   "model": "gpt-6-astra",
+   "base_model": "openai/gpt-6-astra"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D6c",
+   "file": "results/devin-harness-2026-11-08/D6c.jsonl",
+   "route": "devin",
+   "model": "gemini-4-argon",
+   "base_model": "google/gemini-4-argon"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D6p",
+   "file": "results/devin-harness-2026-11-08/D6p.jsonl",
+   "route": "devin",
+   "model": "gemini-4-argon",
+   "base_model": "google/gemini-4-argon"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D7p",
+   "file": "results/devin-harness-2026-11-08/D7p.jsonl",
+   "route": "devin",
+   "model": "muse-wonder-1-0",
+   "base_model": "meta/muse-wonder-1.0"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D8c",
+   "file": "results/devin-harness-2026-11-08/D8c.jsonl",
+   "route": "devin",
+   "model": "deepseek-v4-1-flash-1017",
+   "base_model": "deepseek/deepseek-v4.1-flash-1017"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D8p",
+   "file": "results/devin-harness-2026-11-08/D8p.jsonl",
+   "route": "devin",
+   "model": "deepseek-v4-1-flash-1017",
+   "base_model": "deepseek/deepseek-v4.1-flash-1017"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D9c",
+   "file": "results/devin-harness-2026-11-08/D9c.jsonl",
+   "route": "devin",
+   "model": "glm-5-3",
+   "base_model": "zhipuai/glm-5.3"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D9p",
+   "file": "results/devin-harness-2026-11-08/D9p.jsonl",
+   "route": "devin",
+   "model": "glm-5-3",
+   "base_model": "zhipuai/glm-5.3"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D10c",
+   "file": "results/devin-harness-2026-11-08/D10c.jsonl",
+   "route": "devin",
+   "model": "grok-4-7",
+   "base_model": "xai/grok-4.7"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D10p",
+   "file": "results/devin-harness-2026-11-08/D10p.jsonl",
+   "route": "devin",
+   "model": "grok-4-7",
+   "base_model": "xai/grok-4.7"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D11c",
+   "file": "results/devin-harness-2026-11-08/D11c.jsonl",
+   "route": "devin",
+   "model": "nemotron-3-5-super",
+   "base_model": "nvidia/nemotron-3.5-super-120b-a12b",
+   "options": {
+    "reasoning": "none"
+   }
+  },
+  {
+   "id": "devin-harness-2026-11-08/D11p",
+   "file": "results/devin-harness-2026-11-08/D11p.jsonl",
+   "route": "devin",
+   "model": "nemotron-3-5-super",
+   "base_model": "nvidia/nemotron-3.5-super-120b-a12b",
+   "note": "with reasoning on, this model resumes only from an earlier cache checkpoint"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D12c",
+   "file": "results/devin-harness-2026-11-08/D12c.jsonl",
+   "route": "devin",
+   "model": "swe-2"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D12p",
+   "file": "results/devin-harness-2026-11-08/D12p.jsonl",
+   "route": "devin",
+   "model": "swe-2"
+  },
+  {
+   "id": "devin-harness-2026-11-08/D13c",
+   "file": "results/devin-harness-2026-11-08/D13c.jsonl",
+   "route": "devin",
+   "model": "kimi-k3-1-pro",
+   "base_model": "moonshotai/kimi-k3.1-pro"
+  },
+  {
+   "id": "devin-cache-investigation-2026-11-09/N1c",
+   "file": "results/devin-cache-investigation-2026-11-09/N1c.jsonl",
+   "route": "devin",
+   "model": "nemotron-3-5-super",
+   "base_model": "nvidia/nemotron-3.5-super-120b-a12b",
+   "options": {
+    "reasoning": "medium"
+   }
+  },
+  {
+   "id": "devin-cache-investigation-2026-11-09/N1p",
+   "file": "results/devin-cache-investigation-2026-11-09/N1p.jsonl",
+   "route": "devin",
+   "model": "nemotron-3-5-super",
+   "base_model": "nvidia/nemotron-3.5-super-120b-a12b",
+   "options": {
+    "reasoning": "none"
+   }
+  },
+  {
+   "id": "devin-repeat-2026-11-10/D6r",
+   "file": "results/devin-repeat-2026-11-10/D6r.jsonl",
+   "route": "devin",
+   "model": "gemini-4-argon",
+   "base_model": "google/gemini-4-argon",
+   "note": "5 samples per age, primed and checked within seconds of each other, so they are not independent"
+  },
+  {
+   "id": "devin-repeat-2026-11-10/D8r",
+   "file": "results/devin-repeat-2026-11-10/D8r.jsonl",
+   "route": "devin",
+   "model": "deepseek-v4-1-flash-1017",
+   "base_model": "deepseek/deepseek-v4.1-flash-1017",
+   "note": "5 samples per age, primed and checked within seconds of each other, so they are not independent"
+  },
+  {
+   "id": "devin-repeat-2026-11-10/D9r",
+   "file": "results/devin-repeat-2026-11-10/D9r.jsonl",
+   "route": "devin",
+   "model": "glm-5-3",
+   "base_model": "zhipuai/glm-5.3",
+   "note": "5 samples per age, primed and checked within seconds of each other, so they are not independent"
+  },
+  {
+   "id": "devin-repeat-2026-11-10/D10r",
+   "file": "results/devin-repeat-2026-11-10/D10r.jsonl",
+   "route": "devin",
+   "model": "grok-4-7",
+   "base_model": "xai/grok-4.7",
+   "note": "5 samples per age, primed and checked within seconds of each other, so they are not independent"
+  },
+  {
+   "id": "ember-2026-11-10/E1",
+   "file": "results/ember-2026-11-10/E1.jsonl",
+   "route": "meta-subscription",
+   "model": "muse-ember-1.0",
+   "models_dev": "meta/muse-ember-1.0",
+   "base_model": "meta/muse-ember-1.0"
+  },
+  {
+   "id": "ember-2026-11-10/E2",
+   "file": "results/ember-2026-11-10/E2.jsonl",
+   "route": "meta-subscription",
+   "model": "muse-ember-1.0",
+   "models_dev": "meta/muse-ember-1.0",
+   "base_model": "meta/muse-ember-1.0",
+   "options": {
+    "prompt_cache_retention": "24h"
+   }
+  }
+ ],
+ "excluded": [
+  {
+   "id": "cpa-8.0.53/C2",
+   "reason": "ran before the probe sent a per-conversation cache key"
+  },
+  {
+   "id": "cpa-8.0.53/D4",
+   "reason": "the route reported no usage at all, so nothing was measured"
+  },
+  {
+   "id": "cpa-8.0.53/D9 (first file)",
+   "reason": "aborted before any check"
+  },
+  {
+   "id": "cpa-8.0.53/no-cache-key, superseded-2rep, failed-402",
+   "reason": "early attempts kept for the record"
+  },
+  {
+   "id": "cpa-8.0.53-or/P3",
+   "reason": "CLIProxyAPI dropped the 12h option at the time, so it did not measure what its label says"
+  },
+  {
+   "id": "cpa-latest-2026-11-06/L1",
+   "reason": "the ~2.3k-token prefix is below Gemini's minimum cacheable size; repeated as L1b"
+  },
+  {
+   "id": "openrouter-direct/R1",
+   "reason": "probe error: priming stalled, so every check ran late; repeated as R1b"
+  },
+  {
+   "id": "devin-smoke-2026-11-08/*",
+   "reason": "smoke test before the real run"
+  }
+ ],
+ "limits": [
+  {
+   "route": "claude-subscription",
+   "client": "cliproxyapi",
+   "model": "claude-opus-5-5",
+   "base_model": "anthropic/claude-opus-5-5",
+   "context": 1000000,
+   "output": 128000,
+   "evidence": [
+    {
+     "row_model": "sub/claude-opus-5-5",
+     "accepted": 998953
+    },
+    {
+     "row_model": "sub/claude-opus-5-5",
+     "message_has": "> 1000000 maximum"
+    },
+    {
+     "row_model": "sub/claude-opus-5-5",
+     "message_has": "> 128000, which is the maximum allowed number of output tokens"
+    }
+   ]
+  },
+  {
+   "route": "claude-subscription",
+   "client": "cliproxyapi",
+   "model": "claude-sonnet-5-5",
+   "base_model": "anthropic/claude-sonnet-5-5",
+   "context": 1000000,
+   "output": 128000,
+   "evidence": [
+    {
+     "row_model": "probe-claude-sonnet-5-5",
+     "accepted": 998953
+    },
+    {
+     "row_model": "probe-claude-sonnet-5-5",
+     "message_has": "> 1000000 maximum"
+    },
+    {
+     "row_model": "probe-claude-sonnet-5-5",
+     "message_has": "> 128000, which is the maximum allowed number of output tokens"
+    }
+   ]
+  },
+  {
+   "route": "claude-subscription",
+   "client": "cliproxyapi",
+   "model": "claude-haiku-5-5",
+   "base_model": "anthropic/claude-haiku-5-5",
+   "context": 1000000,
+   "output": 128000,
+   "evidence": [
+    {
+     "row_model": "sub/claude-haiku-5-5",
+     "accepted": 998953
+    },
+    {
+     "row_model": "sub/claude-haiku-5-5",
+     "message_has": "> 1000000 maximum"
+    },
+    {
+     "row_model": "sub/claude-haiku-5-5",
+     "message_has": "> 128000, which is the maximum allowed number of output tokens"
+    }
+   ]
+  },
+  {
+   "route": "codex-subscription",
+   "client": "cliproxyapi",
+   "model": "gpt-6.1-terra",
+   "base_model": "openai/gpt-6.1-terra",
+   "input_accepted": 920870,
+   "input_refused": 921875,
+   "note": "the limit is on input; official catalogs list a 272k window for this route",
+   "evidence": [
+    {
+     "row_model": "probe-codex-gpt-6.1-terra",
+     "accepted": 920870
+    },
+    {
+     "row_model": "probe-codex-gpt-6.1-terra",
+     "refused_n": 921875
+    }
+   ]
+  },
+  {
+   "route": "devin",
+   "client": "cliproxyapi",
+   "model": "gpt-6-1-sol",
+   "base_model": "openai/gpt-6.1-sol",
+   "input_accepted": 915390,
+   "input_refused": 925000,
+   "note": "Devin's own model list says 1,000,000",
+   "evidence": [
+    {
+     "row_model": "probe-devin-gpt-6-1-sol",
+     "accepted": 915390
+    },
+    {
+     "row_model": "probe-devin-gpt-6-1-sol",
+     "refused_kind": "devin-gpt-925000"
+    }
+   ]
+  },
+  {
+   "route": "meta-subscription",
+   "client": "cliproxyapi",
+   "model": "muse-wonder-1.0",
+   "base_model": "meta/muse-wonder-1.0",
+   "models_dev": "meta/muse-wonder-1.0",
+   "context": 1048576,
+   "input_accepted": 1047604,
+   "output_accepted": 1000000,
+   "note": "one window shared by input and output; no separate output cap was found",
+   "evidence": [
+    {
+     "row_model": "muse-wonder-1.0",
+     "accepted": 1047604
+    },
+    {
+     "row_model": "muse-wonder-1.0",
+     "message_has": "context window of 1048576 tokens"
+    },
+    {
+     "row_model": "muse-wonder-1.0",
+     "output_step": 1000000
+    }
+   ]
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "openai/gpt-6.1-sol",
+   "base_model": "openai/gpt-6.1-sol",
+   "models_dev": "openrouter/openai/gpt-6.1-sol",
+   "context": 1050000,
+   "evidence": [
+    {
+     "row_model": "openai/gpt-6.1-sol",
+     "ctx_message_has": "maximum context length is 1050000 tokens"
+    }
+   ]
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "openai/gpt-6.1-terra",
+   "base_model": "openai/gpt-6.1-terra",
+   "models_dev": "openrouter/openai/gpt-6.1-terra",
+   "context": 1050000,
+   "evidence": [
+    {
+     "row_model": "openai/gpt-6.1-terra",
+     "ctx_message_has": "maximum context length is 1050000 tokens"
+    }
+   ]
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "anthropic/claude-opus-5.5",
+   "base_model": "anthropic/claude-opus-5-5",
+   "models_dev": "openrouter/anthropic/claude-opus-5.5",
+   "context": 1000000,
+   "evidence": [
+    {
+     "row_model": "anthropic/claude-opus-5.5",
+     "ctx_message_has": "maximum context length is 1000000 tokens"
+    }
+   ]
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "anthropic/claude-sonnet-5.5",
+   "base_model": "anthropic/claude-sonnet-5-5",
+   "models_dev": "openrouter/anthropic/claude-sonnet-5.5",
+   "context": 1000000,
+   "evidence": [
+    {
+     "row_model": "anthropic/claude-sonnet-5.5",
+     "ctx_message_has": "maximum context length is 1000000 tokens"
+    }
+   ]
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "anthropic/claude-haiku-5.5",
+   "base_model": "anthropic/claude-haiku-5-5",
+   "models_dev": "openrouter/anthropic/claude-haiku-5.5",
+   "context": 1000000,
+   "evidence": [
+    {
+     "row_model": "anthropic/claude-haiku-5.5",
+     "ctx_message_has": "maximum context length is 1000000 tokens"
+    }
+   ]
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "google/gemini-4-argon",
+   "base_model": "google/gemini-4-argon",
+   "models_dev": "openrouter/google/gemini-4-argon",
+   "context": 1048576,
+   "evidence": [
+    {
+     "row_model": "google/gemini-4-argon",
+     "ctx_message_has": "maximum context length is 1048576 tokens"
+    }
+   ]
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "moonshotai/kimi-k3.1-pro",
+   "base_model": "moonshotai/kimi-k3.1-pro",
+   "models_dev": "openrouter/moonshotai/kimi-k3.1-pro",
+   "context": 1048576,
+   "evidence": [
+    {
+     "row_model": "moonshotai/kimi-k3.1-pro",
+     "ctx_message_has": "maximum context length is 1048576 tokens"
+    }
+   ]
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "deepseek/deepseek-v4.1-flash",
+   "base_model": "deepseek/deepseek-v4.1-flash-1017",
+   "models_dev": "openrouter/deepseek/deepseek-v4.1-flash",
+   "context": 1048576,
+   "evidence": [
+    {
+     "row_model": "deepseek/deepseek-v4.1-flash",
+     "ctx_message_has": "maximum context length is 1048576 tokens"
+    }
+   ]
+  },
+  {
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "meta/muse-wonder",
+   "base_model": "meta/muse-wonder-1.0",
+   "models_dev": "openrouter/meta/muse-wonder",
+   "context": 1048576,
+   "evidence": [
+    {
+     "row_model": "meta/muse-wonder",
+     "ctx_message_has": "maximum context length is 1048576 tokens"
+    }
+   ]
+  }
+ ]
+}
