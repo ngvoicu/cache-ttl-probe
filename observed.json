@@ -5323,6 +5323,35 @@
    "source": "results/limits-2026-11-08/limits.jsonl"
   }
  ],
+ "known": [
+  {
+   "route": "claude-subscription",
+   "client": "cliproxyapi",
+   "model": "*",
+   "ttl_s": 3600,
+   "basis": "CLIProxyAPI places the cache markers on requests from Claude logins itself and asks Anthropic for the 1-hour cache.",
+   "source": "https://github.com/router-for-me/CLIProxyAPI/blob/dev/internal/runtime/executor/claude_executor_execute.go"
+  },
+  {
+   "route": "anthropic-api",
+   "client": "cliproxyapi",
+   "model": "*",
+   "ttl_s": 300,
+   "basis": "A Claude API key gets Anthropic's default 5-minute cache; the 1-hour cache only when the client asks for it.",
+   "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+  },
+  {
+   "route": "anthropic-api",
+   "client": "cliproxyapi",
+   "model": "*",
+   "when": {
+    "fingerprint-profile": "claude-code-cli"
+   },
+   "ttl_s": 3600,
+   "basis": "A Claude API key with the claude-code-cli fingerprint profile is treated like a login: CLIProxyAPI asks for the 1-hour cache.",
+   "source": "https://github.com/router-for-me/CLIProxyAPI/blob/dev/internal/runtime/executor/claude_executor_execute.go"
+  }
+ ],
  "excluded": [
   {
    "id": "cpa-8.0.53/C2",

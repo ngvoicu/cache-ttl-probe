@@ -92,6 +92,10 @@ subscription routes that have no public API (a ChatGPT plan through Codex, Devin
   `base_model` is the model's id in its `models/` folder; either can be `null`.
 - **`limits`**: context and output limits found by sending requests of growing size, each backed by a row of the raw
   file named in `source`.
+- **`known`**: lifetimes that were **not measured** but follow from how a client or proxy builds its requests
+  (for example CLIProxyAPI asking Anthropic for the 1-hour cache on Claude logins). Each has `ttl_s`, a `basis` in
+  words and a `source`; `model` is `*` when it holds for every model of the route, and `when` narrows it to a
+  setting.
 - **`excluded`**: runs left out, and why.
 
 Small samples (2 to 5 per age), one account per route, dated: treat them as observations, not guarantees.

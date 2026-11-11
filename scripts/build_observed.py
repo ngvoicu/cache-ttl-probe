@@ -209,6 +209,18 @@ def build_limits(manifest):
     return out
 
 
+def build_known(manifest):
+    """Lifetimes that follow from how requests are built (not measured): passed through after a shape check."""
+    out = []
+    for item in manifest.get("known", []):
+        if item.get("route") not in ROUTES or item.get("client") not in CLIENTS:
+            raise SystemExit(f"known: unknown route or client in {item}")
+        if not isinstance(item.get("ttl_s"), int) or not item.get("basis") or not item.get("source") or not item.get("model"):
+            raise SystemExit(f"known: ttl_s, model, basis and source are required in {item}")
+        out.append(item)
+    return out
+
+
 def build():
     manifest = json.load(open(os.path.join(ROOT, MANIFEST)))
     return {
@@ -220,6 +232,7 @@ def build():
         "clients": CLIENTS,
         "cache": build_cache(manifest),
         "limits": build_limits(manifest),
+        "known": build_known(manifest),
         "excluded": manifest["excluded"],
     }
 
