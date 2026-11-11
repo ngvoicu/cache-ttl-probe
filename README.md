@@ -86,6 +86,8 @@ subscription routes that have no public API (a ChatGPT plan through Codex, Devin
 - `control` is an immediate re-send; `0/1` means the route showed no cache at all. `late_excluded` counts checks
   that ran too long after their age and were left out.
 - `latest` marks the newest run for the same route, client, model and options. Older runs stay in the file.
+- `continues` names an earlier run that this one extends with older ages (same route, client, model and options).
+  Its three summary numbers then cover both runs' checks; its `checks` list holds only its own.
 - `requires` / `lacks` name a CLIProxyAPI change the run had or did not have yet (for OpenRouter, the cache markers
   and session id of router-for-me/CLIProxyAPI#7284). A reader on a build with that change should skip `lacks` runs.
 - `models_dev` is the matching entry in models.dev (`provider/model`) when that route exists there, and

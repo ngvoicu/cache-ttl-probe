@@ -3224,6 +3224,50 @@
    "all_warm_through_s": 14400,
    "last_warm_s": 14400,
    "first_all_cold_s": null,
+   "latest": false
+  },
+  {
+   "id": "meta-24h-2026-11-10/M1",
+   "route": "meta-subscription",
+   "client": "pi+cliproxyapi",
+   "model": "muse-ember-1.0",
+   "models_dev": "meta/muse-ember-1.0",
+   "base_model": "meta/muse-ember-1.0",
+   "options": {
+    "prompt_cache_retention": "24h",
+    "reasoning": "low"
+   },
+   "date": "2026-11-10",
+   "source": "results/meta-24h-2026-11-10/M1.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "8h",
+     "age_s": 28800,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "12h",
+     "age_s": 43200,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "24h",
+     "age_s": 86400,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 14400,
+   "last_warm_s": 14400,
+   "first_all_cold_s": 28800,
+   "continues": "ember-2026-11-10/E2",
    "latest": true
   },
   {
@@ -3306,6 +3350,55 @@
    "all_warm_through_s": 450,
    "last_warm_s": 1800,
    "first_all_cold_s": 2400,
+   "latest": true
+  },
+  {
+   "id": "meta-24h-2026-11-10/M3",
+   "route": "meta-subscription",
+   "client": "pi+cliproxyapi",
+   "model": "muse-spark-1.3",
+   "models_dev": "meta/muse-spark-1.3",
+   "base_model": "meta/muse-spark-1.3",
+   "options": {
+    "prompt_cache_retention": "24h",
+    "reasoning": "low"
+   },
+   "date": "2026-11-10",
+   "source": "results/meta-24h-2026-11-10/M3.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "24h",
+     "age_s": 86400,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 300,
+   "last_warm_s": 300,
+   "first_all_cold_s": 3600,
    "latest": true
   },
   {
@@ -3609,6 +3702,50 @@
    "all_warm_through_s": 7200,
    "last_warm_s": 7200,
    "first_all_cold_s": null,
+   "latest": true
+  },
+  {
+   "id": "meta-24h-2026-11-10/M2",
+   "route": "meta-subscription",
+   "client": "pi+cliproxyapi",
+   "model": "muse-wonder-1.0",
+   "models_dev": "meta/muse-wonder-1.0",
+   "base_model": "meta/muse-wonder-1.0",
+   "options": {
+    "prompt_cache_retention": "24h",
+    "reasoning": "low"
+   },
+   "date": "2026-11-10",
+   "source": "results/meta-24h-2026-11-10/M2.jsonl",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "12h",
+     "age_s": 43200,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "24h",
+     "age_s": 86400,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": 14400,
+   "last_warm_s": 14400,
+   "first_all_cold_s": 43200,
+   "note": "No age under 4 h was tested in this run",
    "latest": true
   },
   {

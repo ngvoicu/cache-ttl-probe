@@ -840,6 +840,41 @@
    "base_model": "openai/gpt-6-luna",
    "requires": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.64 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+  },
+  {
+   "id": "meta-24h-2026-11-10/M1",
+   "file": "results/meta-24h-2026-11-10/M1.jsonl",
+   "route": "meta-subscription",
+   "model": "muse-ember-1.0",
+   "models_dev": "meta/muse-ember-1.0",
+   "base_model": "meta/muse-ember-1.0",
+   "options": {
+    "prompt_cache_retention": "24h"
+   },
+   "continues": "ember-2026-11-10/E2"
+  },
+  {
+   "id": "meta-24h-2026-11-10/M2",
+   "file": "results/meta-24h-2026-11-10/M2.jsonl",
+   "route": "meta-subscription",
+   "model": "muse-wonder-1.0",
+   "models_dev": "meta/muse-wonder-1.0",
+   "base_model": "meta/muse-wonder-1.0",
+   "options": {
+    "prompt_cache_retention": "24h"
+   },
+   "note": "No age under 4 h was tested in this run"
+  },
+  {
+   "id": "meta-24h-2026-11-10/M3",
+   "file": "results/meta-24h-2026-11-10/M3.jsonl",
+   "route": "meta-subscription",
+   "model": "muse-spark-1.3",
+   "models_dev": "meta/muse-spark-1.3",
+   "base_model": "meta/muse-spark-1.3",
+   "options": {
+    "prompt_cache_retention": "24h"
+   }
   }
  ],
  "excluded": [

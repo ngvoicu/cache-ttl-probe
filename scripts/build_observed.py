@@ -152,11 +152,27 @@ def build_cache(manifest):
             "late_excluded": data["late"],
             **summarize(data["checks"]),
         }
-        for key in ("requires", "lacks", "note"):
+        for key in ("requires", "lacks", "note", "continues"):
             if run.get(key):
                 entry[key] = run[key]
         entry["_started"] = data["started"]
+        entry["_checks"] = data["checks"]
         entries.append(entry)
+
+    # "continues": a run that only adds older ages to an earlier one (same route, client, model and options).
+    # Its three summary numbers are taken over both runs' checks; its own `checks` stay as measured.
+    by_id = {e["id"]: e for e in entries}
+    for e in entries:
+        if "continues" not in e:
+            continue
+        base = by_id.get(e["continues"])
+        same = base and all(base[k] == e[k] for k in ("route", "client", "model", "options"))
+        if not same or "continues" in base:
+            raise SystemExit(f"{e['id']}: continues {e['continues']}, which is missing, differs, or continues another run")
+        merged = {age: list(v) for age, v in base["_checks"].items()}
+        for age, v in e["_checks"].items():
+            merged.setdefault(age, []).extend(v)
+        e.update(summarize(merged))
 
     # "latest": the newest run of the same route, client, model and options.
     newest = {}
@@ -167,7 +183,7 @@ def build_cache(manifest):
     for e in entries:
         key = (e["route"], e["client"], e["model"], json.dumps(e["options"], sort_keys=True))
         e["latest"] = newest[key] is e
-        del e["_started"]
+        del e["_started"], e["_checks"]
     entries.sort(key=lambda e: (e["route"], e["model"], e["client"], e["date"], e["id"]))
     return entries
 
