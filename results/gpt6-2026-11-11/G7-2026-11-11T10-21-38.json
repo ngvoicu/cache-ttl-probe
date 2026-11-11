@@ -1,0 +1,154 @@
+{
+  "probeVersion": "0.2.0",
+  "label": "G7",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "probe-key/gpt-6-luna",
+  "runSalt": "c4iotgf0",
+  "replicas": 3,
+  "cacheKey": true,
+  "plannedAges": [
+    300000,
+    900000,
+    1800000,
+    2400000,
+    3600000,
+    7200000
+  ],
+  "startedAt": "2026-11-11T10:21:38.921Z",
+  "status": "stopped-early",
+  "checks": [
+    {
+      "sampleId": "5m-r1",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 300004,
+      "promptTokens": 2760,
+      "cachedTokens": 2757,
+      "warm": true
+    },
+    {
+      "sampleId": "5m-r2",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 300692,
+      "promptTokens": 2734,
+      "cachedTokens": 2731,
+      "warm": true
+    },
+    {
+      "sampleId": "5m-r3",
+      "targetAgeMs": 300000,
+      "actualAgeMs": 300144,
+      "promptTokens": 2752,
+      "cachedTokens": 2749,
+      "warm": true
+    },
+    {
+      "sampleId": "15m-r1",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 900006,
+      "promptTokens": 2717,
+      "cachedTokens": 2714,
+      "warm": true
+    },
+    {
+      "sampleId": "15m-r2",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 900157,
+      "promptTokens": 2776,
+      "cachedTokens": 2773,
+      "warm": true
+    },
+    {
+      "sampleId": "15m-r3",
+      "targetAgeMs": 900000,
+      "actualAgeMs": 904645,
+      "promptTokens": 2714,
+      "cachedTokens": 2711,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r1",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800007,
+      "promptTokens": 2712,
+      "cachedTokens": 2709,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r2",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1800745,
+      "promptTokens": 2759,
+      "cachedTokens": 2756,
+      "warm": true
+    },
+    {
+      "sampleId": "30m-r3",
+      "targetAgeMs": 1800000,
+      "actualAgeMs": 1801213,
+      "promptTokens": 2702,
+      "cachedTokens": 2699,
+      "warm": true
+    },
+    {
+      "sampleId": "40m-r1",
+      "targetAgeMs": 2400000,
+      "actualAgeMs": 2400006,
+      "promptTokens": 2724,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "40m-r2",
+      "targetAgeMs": 2400000,
+      "actualAgeMs": 2400534,
+      "promptTokens": 2724,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "40m-r3",
+      "targetAgeMs": 2400000,
+      "actualAgeMs": 2401099,
+      "promptTokens": 2688,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "1h-r1",
+      "targetAgeMs": 3600000,
+      "actualAgeMs": 3600009,
+      "promptTokens": 2720,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "1h-r2",
+      "targetAgeMs": 3600000,
+      "actualAgeMs": 3600059,
+      "promptTokens": 2716,
+      "cachedTokens": 0,
+      "warm": false
+    },
+    {
+      "sampleId": "1h-r3",
+      "targetAgeMs": 3600000,
+      "actualAgeMs": 3600121,
+      "promptTokens": 2691,
+      "cachedTokens": 0,
+      "warm": false
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 2761,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 2761,
+      "cachedTokens": 2758
+    },
+    "warm": true
+  },
+  "finishedAt": "2026-11-11T11:21:53.564Z"
+}

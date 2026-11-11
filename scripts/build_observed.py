@@ -196,12 +196,14 @@ def check_evidence(rows, item):
 
 
 def build_limits(manifest):
-    path = manifest["limits_file"]
-    rows = [json.loads(line) for line in open(os.path.join(ROOT, path)) if line.strip()]
+    files = {}
     out = []
     for item in manifest["limits"]:
-        check_evidence(rows, item)
-        entry = {k: v for k, v in item.items() if k != "evidence"}
+        path = item.get("file") or manifest["limits_file"]
+        if path not in files:
+            files[path] = [json.loads(line) for line in open(os.path.join(ROOT, path)) if line.strip()]
+        check_evidence(files[path], item)
+        entry = {k: v for k, v in item.items() if k not in ("evidence", "file")}
         entry.setdefault("models_dev", None)
         entry["source"] = path
         out.append(entry)

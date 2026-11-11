@@ -1,0 +1,6 @@
+{"kind": "context", "model": "probe/gpt-6-astra", "n": 930000, "status": 400, "seconds": 2.4, "promptTokens": null, "message": "Your input exceeds the context window of this model. Please adjust your input and try again.", "at": "2026-11-11T12:18:32"}
+{"kind": "context", "model": "probe/gpt-6-astra", "n": 915000, "status": 200, "seconds": 35.8, "promptTokens": 915011, "message": null, "at": "2026-11-11T12:19:08"}
+{"kind": "context", "model": "probe/gpt-6-astra", "n": 922500, "status": 400, "seconds": 3.1, "promptTokens": null, "message": "Your input exceeds the context window of this model. Please adjust your input and try again.", "at": "2026-11-11T12:19:11"}
+{"kind": "context", "model": "probe/gpt-6-luna", "n": 930000, "status": 400, "seconds": 2.5, "promptTokens": null, "message": "Your input exceeds the context window of this model. Please adjust your input and try again.", "at": "2026-11-11T12:19:14"}
+{"kind": "context", "model": "probe/gpt-6-luna", "n": 915000, "status": 200, "seconds": 10.0, "promptTokens": 915011, "message": null, "at": "2026-11-11T12:19:24"}
+{"kind": "context", "model": "probe/gpt-6-luna", "n": 922500, "status": 400, "seconds": 3.8, "promptTokens": null, "message": "Your input exceeds the context window of this model. Please adjust your input and try again.", "at": "2026-11-11T12:19:27"}

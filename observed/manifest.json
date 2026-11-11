@@ -763,6 +763,83 @@
    "options": {
     "prompt_cache_retention": "24h"
    }
+  },
+  {
+   "id": "gpt6-2026-11-11/G1",
+   "file": "results/gpt6-2026-11-11/G1.jsonl",
+   "route": "codex-subscription",
+   "model": "gpt-6-astra",
+   "base_model": "openai/gpt-6-astra"
+  },
+  {
+   "id": "gpt6-2026-11-11/G2",
+   "file": "results/gpt6-2026-11-11/G2.jsonl",
+   "route": "codex-subscription",
+   "model": "gpt-6-luna",
+   "base_model": "openai/gpt-6-luna"
+  },
+  {
+   "id": "gpt6-2026-11-11/G3",
+   "file": "results/gpt6-2026-11-11/G3.jsonl",
+   "route": "devin",
+   "model": "gpt-6-astra",
+   "base_model": "openai/gpt-6-astra"
+  },
+  {
+   "id": "gpt6-2026-11-11/G4",
+   "file": "results/gpt6-2026-11-11/G4.jsonl",
+   "route": "devin",
+   "model": "gpt-6-luna",
+   "base_model": "openai/gpt-6-luna"
+  },
+  {
+   "id": "gpt6-2026-11-11/G5",
+   "file": "results/gpt6-2026-11-11/G5-2026-11-11T10-21-08.json",
+   "route": "openai-api",
+   "model": "gpt-6.1-sol",
+   "client": "cliproxyapi",
+   "models_dev": "openai/gpt-6.1-sol",
+   "base_model": "openai/gpt-6.1-sol"
+  },
+  {
+   "id": "gpt6-2026-11-11/G6",
+   "file": "results/gpt6-2026-11-11/G6-2026-11-11T10-21-23.json",
+   "route": "openai-api",
+   "model": "gpt-6-astra",
+   "client": "cliproxyapi",
+   "models_dev": "openai/gpt-6-astra",
+   "base_model": "openai/gpt-6-astra"
+  },
+  {
+   "id": "gpt6-2026-11-11/G7",
+   "file": "results/gpt6-2026-11-11/G7-2026-11-11T10-21-38.json",
+   "route": "openai-api",
+   "model": "gpt-6-luna",
+   "client": "cliproxyapi",
+   "models_dev": "openai/gpt-6-luna",
+   "base_model": "openai/gpt-6-luna"
+  },
+  {
+   "id": "gpt6-2026-11-11/G8",
+   "file": "results/gpt6-2026-11-11/G8-2026-11-11T10-21-53.json",
+   "route": "openrouter",
+   "model": "openai/gpt-6-astra",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/openai/gpt-6-astra",
+   "base_model": "openai/gpt-6-astra",
+   "requires": "router-for-me/CLIProxyAPI#7284",
+   "note": "CLIProxyAPI 8.0.64 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+  },
+  {
+   "id": "gpt6-2026-11-11/G9",
+   "file": "results/gpt6-2026-11-11/G9-2026-11-11T10-22-08.json",
+   "route": "openrouter",
+   "model": "openai/gpt-6-luna",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/openai/gpt-6-luna",
+   "base_model": "openai/gpt-6-luna",
+   "requires": "router-for-me/CLIProxyAPI#7284",
+   "note": "CLIProxyAPI 8.0.64 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
   }
  ],
  "excluded": [
@@ -1052,6 +1129,46 @@
     {
      "row_model": "meta/muse-wonder",
      "ctx_message_has": "maximum context length is 1048576 tokens"
+    }
+   ]
+  },
+  {
+   "route": "codex-subscription",
+   "client": "cliproxyapi",
+   "model": "gpt-6-astra",
+   "base_model": "openai/gpt-6-astra",
+   "input_accepted": 915011,
+   "input_refused": 922500,
+   "file": "results/gpt6-2026-11-11/limits.jsonl",
+   "note": "Codex's own model list gives a 272K default window and an 872K maximum for this model",
+   "evidence": [
+    {
+     "row_model": "probe/gpt-6-astra",
+     "accepted": 915011
+    },
+    {
+     "row_model": "probe/gpt-6-astra",
+     "refused_n": 922500
+    }
+   ]
+  },
+  {
+   "route": "codex-subscription",
+   "client": "cliproxyapi",
+   "model": "gpt-6-luna",
+   "base_model": "openai/gpt-6-luna",
+   "input_accepted": 915011,
+   "input_refused": 922500,
+   "file": "results/gpt6-2026-11-11/limits.jsonl",
+   "note": "Codex's own model list gives a 272K default window and an 872K maximum for this model",
+   "evidence": [
+    {
+     "row_model": "probe/gpt-6-luna",
+     "accepted": 915011
+    },
+    {
+     "row_model": "probe/gpt-6-luna",
+     "refused_n": 922500
     }
    ]
   }

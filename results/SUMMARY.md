@@ -84,6 +84,9 @@ real OpenRouter model ids through an `openai-compatibility` entry. Files in `cpa
 - `devin-repeat-2026-11-10/`: four Devin open-weight routes again, 5 samples per age (5 min – 2 h), pi → CLIProxyAPI →
   Devin. DeepSeek V4.1 Flash 25/25 warm (≥ 2 h); GLM-5.3 warm at 5 min, 30 min and 1 h, cold at 15 min and 2 h (whole
   batches); Gemini 4 Argon 3/5 at 5 min, then cold; Grok 4.7 4/10 through 15 min, then cold. See its README.
+- `gpt6-2026-11-11/`: GPT-6 Astra and Luna on a ChatGPT plan, Devin, OpenRouter and an OpenAI API key (plus GPT-6.1 Sol
+  on the key), 3 samples per age. OpenAI key and OpenRouter: warm at 30 min, cold at 40. Devin: warm at 30 min, cold at
+  1 h. ChatGPT plan: Astra warm through 2 h; Luna misses from 15 min. Both accept ~915K input there. See its README.
 
 ## What this means
 
