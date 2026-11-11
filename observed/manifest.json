@@ -115,7 +115,8 @@
    "client": "cliproxyapi",
    "models_dev": "openrouter/anthropic/claude-opus-5.5",
    "base_model": "anthropic/claude-opus-5-5",
-   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "lacks": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-8.0.53/O2",
@@ -125,7 +126,8 @@
    "client": "cliproxyapi",
    "models_dev": "openrouter/openai/gpt-6.1-sol",
    "base_model": "openai/gpt-6.1-sol",
-   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "lacks": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-8.0.53/O3",
@@ -135,7 +137,8 @@
    "client": "cliproxyapi",
    "models_dev": "openrouter/openai/gpt-6.1-terra",
    "base_model": "openai/gpt-6.1-terra",
-   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "lacks": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-8.0.53/O4",
@@ -148,7 +151,8 @@
    "options": {
     "prefix_tokens": 5000
    },
-   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "lacks": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-8.0.53/O5",
@@ -161,7 +165,8 @@
    "options": {
     "prefix_tokens": 5000
    },
-   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "lacks": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-8.0.53/O6",
@@ -171,7 +176,8 @@
    "client": "cliproxyapi",
    "models_dev": "openrouter/x-ai/grok-4.7",
    "base_model": "xai/grok-4.7",
-   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "lacks": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-8.0.53/O7",
@@ -181,7 +187,8 @@
    "client": "cliproxyapi",
    "models_dev": "openrouter/moonshotai/kimi-k3.1-pro",
    "base_model": "moonshotai/kimi-k3.1-pro",
-   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "lacks": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-8.0.53/O8",
@@ -191,7 +198,8 @@
    "client": "cliproxyapi",
    "models_dev": "openrouter/deepseek/deepseek-v4-pro",
    "base_model": "deepseek/deepseek-v4-pro",
-   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "lacks": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-8.0.53/O9",
@@ -201,7 +209,8 @@
    "client": "cliproxyapi",
    "models_dev": "openrouter/z-ai/glm-5.3",
    "base_model": "zhipuai/glm-5.3",
-   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "lacks": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-8.0.53/O10",
@@ -211,7 +220,8 @@
    "client": "cliproxyapi",
    "models_dev": "openrouter/meta/muse-wonder",
    "base_model": "meta/muse-wonder-1.0",
-   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "lacks": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-8.0.53/O11",
@@ -221,7 +231,8 @@
    "client": "cliproxyapi",
    "models_dev": "openrouter/mistralai/mistral-large-4-0",
    "base_model": "mistral/mistral-large-4",
-   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
+   "lacks": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-8.0.53/K1-nobeta",
@@ -378,7 +389,8 @@
    "options": {
     "format": "messages"
    },
-   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
+   "requires": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-8.0.53-or/P2",
@@ -392,7 +404,8 @@
     "format": "messages",
     "ttl": "1h"
    },
-   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
+   "requires": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-codex-long-2026-11-06/X1",
@@ -430,7 +443,8 @@
    "options": {
     "prefix_tokens": 8000
    },
-   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
+   "requires": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-latest-2026-11-06/L2",
@@ -440,7 +454,8 @@
    "client": "cliproxyapi",
    "models_dev": "openrouter/moonshotai/kimi-k3.1-pro",
    "base_model": "moonshotai/kimi-k3.1-pro",
-   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
+   "requires": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-latest-2026-11-06/L3",
@@ -450,7 +465,8 @@
    "client": "cliproxyapi",
    "models_dev": "openrouter/deepseek/deepseek-v4.1-flash",
    "base_model": "deepseek/deepseek-v4.1-flash-1017",
-   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+   "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
+   "requires": "router-for-me/CLIProxyAPI#7284"
   },
   {
    "id": "cpa-latest-2026-11-06/L4",

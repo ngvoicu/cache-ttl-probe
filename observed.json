@@ -8,6 +8,7 @@
   "codex-subscription": "ChatGPT plan through the Codex login",
   "devin": "Devin subscription",
   "meta-subscription": "Muse Code subscription key on Meta's Model API",
+  "openai-api": "OpenAI API key",
   "openrouter": "OpenRouter API key",
   "antigravity": "Google Antigravity login"
  },
@@ -3440,6 +3441,7 @@
    "all_warm_through_s": 300,
    "last_warm_s": 300,
    "first_all_cold_s": 450,
+   "requires": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
    "latest": true
   },
@@ -3484,6 +3486,7 @@
    "all_warm_through_s": 1800,
    "last_warm_s": 1800,
    "first_all_cold_s": 3900,
+   "requires": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
    "latest": true
   },
@@ -3555,6 +3558,7 @@
    "all_warm_through_s": null,
    "last_warm_s": null,
    "first_all_cold_s": null,
+   "lacks": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
    "latest": true
   },
@@ -3718,6 +3722,7 @@
    "all_warm_through_s": 600,
    "last_warm_s": 43200,
    "first_all_cold_s": 14400,
+   "lacks": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
    "latest": true
   },
@@ -3889,6 +3894,7 @@
    "all_warm_through_s": null,
    "last_warm_s": 7200,
    "first_all_cold_s": null,
+   "requires": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
    "latest": true
   },
@@ -3913,6 +3919,7 @@
    "all_warm_through_s": null,
    "last_warm_s": null,
    "first_all_cold_s": null,
+   "lacks": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
    "latest": true
   },
@@ -4002,6 +4009,7 @@
    "all_warm_through_s": null,
    "last_warm_s": 450,
    "first_all_cold_s": 600,
+   "lacks": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
    "latest": true
   },
@@ -4051,6 +4059,7 @@
    "all_warm_through_s": 150,
    "last_warm_s": 300,
    "first_all_cold_s": 600,
+   "requires": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
    "latest": true
   },
@@ -4144,6 +4153,7 @@
    "all_warm_through_s": 150,
    "last_warm_s": 300,
    "first_all_cold_s": 450,
+   "lacks": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
    "latest": true
   },
@@ -4261,6 +4271,7 @@
    "all_warm_through_s": 450,
    "last_warm_s": 600,
    "first_all_cold_s": null,
+   "lacks": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
    "latest": true
   },
@@ -4354,6 +4365,7 @@
    "all_warm_through_s": null,
    "last_warm_s": null,
    "first_all_cold_s": 150,
+   "lacks": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
    "latest": false
   },
@@ -4401,6 +4413,7 @@
    "all_warm_through_s": 150,
    "last_warm_s": 300,
    "first_all_cold_s": 600,
+   "requires": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)",
    "latest": true
   },
@@ -4578,6 +4591,7 @@
    "all_warm_through_s": 1800,
    "last_warm_s": 1800,
    "first_all_cold_s": 2400,
+   "lacks": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
    "latest": true
   },
@@ -4743,6 +4757,7 @@
    "all_warm_through_s": 1800,
    "last_warm_s": 1800,
    "first_all_cold_s": 2400,
+   "lacks": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
    "latest": true
   },
@@ -4884,6 +4899,7 @@
    "all_warm_through_s": null,
    "last_warm_s": 600,
    "first_all_cold_s": 900,
+   "lacks": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
    "latest": true
   },
@@ -5049,6 +5065,7 @@
    "all_warm_through_s": 300,
    "last_warm_s": 4500,
    "first_all_cold_s": 900,
+   "lacks": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.53 without router-for-me/CLIProxyAPI#7284 (no cache markers, no session id for OpenRouter)",
    "latest": true
   },

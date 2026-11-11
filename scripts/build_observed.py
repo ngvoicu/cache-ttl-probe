@@ -23,6 +23,7 @@ ROUTES = {
     "codex-subscription": "ChatGPT plan through the Codex login",
     "devin": "Devin subscription",
     "meta-subscription": "Muse Code subscription key on Meta's Model API",
+    "openai-api": "OpenAI API key",
     "openrouter": "OpenRouter API key",
     "antigravity": "Google Antigravity login",
 }
@@ -151,8 +152,9 @@ def build_cache(manifest):
             "late_excluded": data["late"],
             **summarize(data["checks"]),
         }
-        if run.get("note"):
-            entry["note"] = run["note"]
+        for key in ("requires", "lacks", "note"):
+            if run.get(key):
+                entry[key] = run[key]
         entry["_started"] = data["started"]
         entries.append(entry)
 

@@ -2,6 +2,7 @@
 """Pin one model to one login of a local CLIProxyAPI, for a measurement.
 
     python3 harness/pool.py add probe/gpt-6.1-sol --login codex-1234.json --model gpt-6.1-sol
+    python3 harness/pool.py add devin/gpt-6-astra          # a login already serves this exact id
     python3 harness/pool.py list
     python3 harness/pool.py remove probe/gpt-6.1-sol
 
@@ -13,8 +14,8 @@ through CLIProxyAPI's management API:
      own name served as before;
   2. the pool id in the plugin's pool list.
 
-`remove` undoes both. Editing the config by hand is enough only when the login already serves the pool id as
-is (Devin's `devin/...` ids, Meta's `muse-...`); every other login needs the alias, hence this script.
+`remove` undoes both. Without --login and --model only step 2 runs: enough when a login already serves the
+pool id as is (Devin's `devin/...` ids, Meta's `muse-...`).
 
 CLIProxyAPI rewrites the pool list when it saves it, so a YAML comment written inside that list is lost.
 
@@ -81,11 +82,17 @@ class Api:
 def add(api, pool, login, model):
     if "/" not in pool:
         sys.exit("use a pool id of the form <name>/<model>, e.g. probe/gpt-6.1-sol: a plain id is the model's main pool")
-    if login not in api.logins():
-        sys.exit(f"no login file named {login}")
+    if bool(login) != bool(model):
+        sys.exit("give --login and --model together, or neither")
     pools = api.pools()
     if pool in pools:
         sys.exit(f"pool {pool} already exists")
+    if not login:
+        api.set_pools(pools + [pool])
+        print(f"added {pool} (served as is, no alias)")
+        return
+    if login not in api.logins():
+        sys.exit(f"no login file named {login}")
     aliases = api.aliases(login)
     if any(a.get("alias") == pool for a in aliases):
         sys.exit(f"{login} already has an alias {pool}")
@@ -130,8 +137,8 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     p_add = sub.add_parser("add", help="pin a model to one login under a new pool id")
     p_add.add_argument("pool")
-    p_add.add_argument("--login", required=True, help="credential file name, e.g. codex-1234.json")
-    p_add.add_argument("--model", required=True, help="the model id that login serves")
+    p_add.add_argument("--login", help="credential file name, e.g. codex-1234.json")
+    p_add.add_argument("--model", help="the model id that login serves")
     p_remove = sub.add_parser("remove", help="remove a pool made by add")
     p_remove.add_argument("pool")
     sub.add_parser("list", help="show pools and the login aliases behind them")
