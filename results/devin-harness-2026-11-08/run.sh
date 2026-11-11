@@ -5,7 +5,7 @@
 # for Terra in H9). Kimi K3.1 Pro: Devin CLI only (CPA's Devin catalog has K3, not K3.1).
 # pi routes are pinned with TEMPORARY pools devin/* in cliproxyapi.conf; backup
 # ~/.cli-proxy-api-backups/pre-devin-harness-20261108-202642. Remove afterwards.
-cd ~/Projects/ngvoicu/cpa/cache-ttl-probe
+cd "$(dirname "$0")/../.."
 OUT=results/devin-harness-2026-11-08
 AGES=5m,15m,30m,1h,2h
 go() { nohup python3 harness/probe.py --label "$1" --out $OUT --ages $AGES --replicas 2 "${@:2}" > $OUT/logs/$1.log 2>&1 < /dev/null & sleep 20; }

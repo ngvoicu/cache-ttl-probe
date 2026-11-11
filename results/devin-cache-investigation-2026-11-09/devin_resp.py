@@ -1,4 +1,4 @@
-import sys,json,random,string,time,uuid; sys.path.insert(0,'~/Projects/ngvoicu/cpa/cache-ttl-probe/harness'); sys.argv=['x']; import limits
+import sys,json,random,string,time,uuid; import os; sys.path.insert(0,os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..','harness')); sys.argv=['x']; import limits
 def usage(d):
     u=d.get('usage') or {}; return f"{u.get('input_tokens')}/{(u.get('input_tokens_details') or {}).get('cached_tokens')}"
 def run(model, variant, effort="low"):

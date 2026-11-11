@@ -43,4 +43,4 @@ GPT-6 Astra and GPT-6 Luna both accepted **915,011** input tokens and refused 92
 model list gives them a 272K default window and an 872K maximum; the backend takes the same ~922K as GPT-6.1.
 
 Files: `G1.jsonl` – `G4.jsonl` (events), `G5` – `G9` `.json` / `.md` (the plain probe's results), `limits.jsonl`,
-`limits_walk.py`, `run.sh`, `logs/` (not committed), `work-G1` – `work-G4` (pi sessions).
+`limits_walk.py`, `run.sh`. The logs and pi session files stay local.

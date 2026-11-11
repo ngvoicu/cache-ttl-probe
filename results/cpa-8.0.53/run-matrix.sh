@@ -1,7 +1,7 @@
 #!/bin/bash
 # Launch the Measurement Matrix through the local CPA. One detached probe process per row.
-cd ~/Projects/ngvoicu/cpa/cache-ttl-probe
-export CACHE_PROBE_KEY=$(python3 -c "import json;print(json.load(open('~/.pi/agent/cliproxyapi.json'))['apiKey'])")
+cd "$(dirname "$0")/../.."
+export CACHE_PROBE_KEY=$(python3 -c "import json;print(json.load(open('$HOME/.pi/agent/cliproxyapi.json'))['apiKey'])")
 OUT=results/cpa-8.0.53
 run() { # row schedule extra...
   local row=$1 sched=$2; shift 2

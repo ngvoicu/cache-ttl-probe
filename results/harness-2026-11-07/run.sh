@@ -4,7 +4,7 @@
 # harness prompt + half the unique block. Effort low everywhere.
 # pi -> CPA routes are pinned with TEMPORARY single-member pools (cliproxyapi.conf, pools list) and the temporary
 # Codex aliases probe/gpt-6.1-*; backup ~/.cli-proxy-api-backups/pre-harness-probe-20261107-141138. Remove afterwards.
-cd ~/Projects/ngvoicu/cpa/cache-ttl-probe
+cd "$(dirname "$0")/../.."
 OUT=results/harness-2026-11-07
 LONG=5m,15m,30m,1h,2h,4h,6h,8h,10h,12h
 SHORT=2.5m,5m,10m,15m,30m,1h,2h

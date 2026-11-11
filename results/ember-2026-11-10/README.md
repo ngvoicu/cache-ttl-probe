@@ -28,4 +28,4 @@ Meta's pricing lists one cached-input rate and no charge for the longer retentio
 Muse Code 1.4.15 itself doesn't send `prompt_cache_retention`, so E2 is a CLIProxyAPI configuration choice, not what
 the vendor client does. Small samples (2–3 per age): treat as indicative.
 
-Files: `E1.jsonl`, `E2.jsonl` (events), `run.sh`, `logs/` (not committed), `work-E1/`, `work-E2/` (pi sessions).
+Files: `E1.jsonl`, `E2.jsonl` (events), `run.sh`. The logs and pi session files stay local.

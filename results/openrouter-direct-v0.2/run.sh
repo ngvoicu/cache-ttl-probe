@@ -2,7 +2,7 @@
 # 2026-11-06: R1 again with probe 0.2.0 (overdue samples are primed again, late checks left out).
 # Same request as R1 (direct to OpenRouter, Responses format, top-level cache_control, session_id),
 # Haiku instead of Opus: same cache rules, a fraction of the price.
-cd ~/Projects/ngvoicu/cpa/cache-ttl-probe
+cd "$(dirname "$0")/../.."
 export CACHE_PROBE_KEY=$(python3 -c "
 import yaml
 c=yaml.safe_load(open('/opt/homebrew/etc/cliproxyapi.conf'))

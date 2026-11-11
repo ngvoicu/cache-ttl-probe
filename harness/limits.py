@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python3
 """Measure a route's real context window and output limit through CPA.
 
@@ -12,7 +13,7 @@ provider's own count (prompt tokens incl. the small wrapper), not N.
 """
 import argparse, json, re, sys, time, urllib.request, urllib.error
 
-KEY = json.load(open("~/.pi/agent/cliproxyapi.json"))["apiKey"]
+KEY = json.load(open(os.path.expanduser("~/.pi/agent/cliproxyapi.json")))["apiKey"]
 BASE = "http://127.0.0.1:8317"
 
 

@@ -3,8 +3,8 @@
 # OpenRouter entry (CPA with #7284: cache markers, session id): Gemini 4 Argon, Kimi K3.1 Pro, DeepSeek V4.1 Flash,
 # 2 samples per age to keep the cost near $0.35. Muse Wonder on the Meta login (subscription), 3 samples.
 # Devin (Gemini 4 Argon, Muse Wonder, Claude 5.5, GPT-6.1 Terra) waits for its daily quota.
-cd ~/Projects/ngvoicu/cpa/cache-ttl-probe
-export CACHE_PROBE_KEY=$(python3 -c "import json;print(json.load(open('~/.pi/agent/cliproxyapi.json'))['apiKey'])")
+cd "$(dirname "$0")/../.."
+export CACHE_PROBE_KEY=$(python3 -c "import json;print(json.load(open('$HOME/.pi/agent/cliproxyapi.json'))['apiKey'])")
 OUT=results/cpa-latest-2026-11-06
 B=http://127.0.0.1:8317/v1
 AGES=2.5m,5m,10m,15m,30m,1h,2h

@@ -1,4 +1,4 @@
-import sys,json,random,string,time; sys.argv=['x']; sys.path.insert(0,'~/Projects/ngvoicu/cpa/cache-ttl-probe/harness'); import limits
+import sys,json,random,string,time; sys.argv=['x']; import os; sys.path.insert(0,os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..','harness')); import limits
 model=sys.stdin.readline().strip() if False else None
 def run(model, variant):
     salt=''.join(random.choices(string.ascii_lowercase,k=8))

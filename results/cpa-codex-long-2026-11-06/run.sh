@@ -3,8 +3,8 @@
 # 6.1 Sol / Terra are pools in the real CPA, so they are pinned to Codex through temporary aliases
 # probe/gpt-6.1-* on the Codex login (backup pre-codex-probe-aliases-*; remove the aliases afterwards).
 # (GPT-6 Sol / Astra / Luna were started and stopped: the owner needs only 6.1.) Devin was out of daily quota, so not measured here.
-cd ~/Projects/ngvoicu/cpa/cache-ttl-probe
-export CACHE_PROBE_KEY=$(python3 -c "import json;print(json.load(open('~/.pi/agent/cliproxyapi.json'))['apiKey'])")
+cd "$(dirname "$0")/../.."
+export CACHE_PROBE_KEY=$(python3 -c "import json;print(json.load(open('$HOME/.pi/agent/cliproxyapi.json'))['apiKey'])")
 OUT=results/cpa-codex-long-2026-11-06
 B=http://127.0.0.1:8317/v1
 AGES=5m,15m,30m,1h,2h,3h,4h,6h,8h,10h,12h

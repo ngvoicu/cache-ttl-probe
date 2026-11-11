@@ -4,3 +4,5 @@ results/**/*.partial.json
 dist/
 results/**/logs/
 harness/__pycache__/
+# pi session files hold the whole system prompt (skill names, folder paths): local only
+results/**/work-*/
