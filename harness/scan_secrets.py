@@ -78,9 +78,13 @@ def main():
         sys.exit(__doc__)
     secrets = collect()
     hits = files = 0
-    for folder in sys.argv[1:]:
-        for root, dirs, names in os.walk(folder):
-            dirs[:] = [d for d in dirs if d != "logs" and not d.startswith("work-")]  # git-ignored, never committed
+    for target in sys.argv[1:]:
+        if not os.path.exists(target):
+            sys.exit(f"{target}: no such file or folder")
+        # a single file is scanned too (os.walk yields nothing for one, which would pass it unread)
+        walk = [(os.path.dirname(target), [], [os.path.basename(target)])] if os.path.isfile(target) else os.walk(target)
+        for root, dirs, names in walk:
+            dirs[:] = [d for d in dirs if d not in ("logs", ".git", "node_modules") and not d.startswith("work-")]  # never committed
             for name in names:
                 path = os.path.join(root, name)
                 files += 1
@@ -100,6 +104,8 @@ def main():
                 if found:
                     hits += 1
                     print(f"{path}: {', '.join(found)}")
+    if not files:
+        sys.exit("nothing was scanned")
     print(f"{files} files scanned against {len(secrets)} credentials: {'CLEAN' if not hits else str(hits) + ' file(s) with findings'}")
     sys.exit(1 if hits else 0)
 

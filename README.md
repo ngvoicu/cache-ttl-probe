@@ -102,6 +102,9 @@ subscription routes that have no public API (a ChatGPT plan through Codex, Devin
 
 Small samples (2 to 5 per age), one account per route, dated: treat them as observations, not guarantees.
 
+Before the first commit in a clone, install the check that blocks credentials, home-folder paths and session files:
+`ln -sf ../../scripts/pre-commit .git/hooks/pre-commit`.
+
 To add a run: publish its files under `results/`, add it to [`observed/manifest.json`](observed/manifest.json)
 (route, model, options: nothing that is a result), then run `python3 scripts/build_observed.py`. CI fails when
 `observed.json` doesn't match the raw files.
