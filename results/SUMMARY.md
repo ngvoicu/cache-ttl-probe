@@ -90,6 +90,8 @@ real OpenRouter model ids through an `openai-compatibility` entry. Files in `cpa
 - `meta-24h-2026-11-10/`: Meta's `prompt_cache_retention: "24h"` measured out to 24 hours, 3 samples per age. Nothing
   is warm at 12 or 24 hours. Muse Ember 1.0 lasts between 4 and 8 hours, Muse Wonder 1.0 between 4 and 12, and
   Muse Spark 1.3 under an hour even with the setting. See its README.
+- `muse-spark-openrouter-2026-11-12/`: Muse Spark 1.3 on OpenRouter, 3 samples per age. No age fully warm: about half
+  the checks hit between 5 and 15 minutes, none at 2.5, 30 or 40. No safe lifetime. See its README.
 
 ## What this means
 

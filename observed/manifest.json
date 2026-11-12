@@ -875,6 +875,17 @@
    "options": {
     "prompt_cache_retention": "24h"
    }
+  },
+  {
+   "id": "muse-spark-openrouter-2026-11-12/S1",
+   "file": "results/muse-spark-openrouter-2026-11-12/S1-2026-11-12T13-28-11.json",
+   "route": "openrouter",
+   "model": "meta/muse-spark-1.3",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/meta/muse-spark-1.3",
+   "base_model": "meta/muse-spark-1.3",
+   "requires": "router-for-me/CLIProxyAPI#7284",
+   "note": "CLIProxyAPI 8.0.67 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
   }
  ],
  "excluded": [
