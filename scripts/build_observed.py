@@ -160,7 +160,8 @@ def build_cache(manifest):
         entries.append(entry)
 
     # "continues": a run that only adds older ages to an earlier one (same route, client, model and options).
-    # Its three summary numbers are taken over both runs' checks; its own `checks` stay as measured.
+    # Its `checks` and its three summary numbers then cover both runs, so the entry stays consistent in itself for
+    # a reader that doesn't know the field (a run with only cold, old ages would otherwise read as "never cached").
     by_id = {e["id"]: e for e in entries}
     for e in entries:
         if "continues" not in e:
@@ -172,6 +173,7 @@ def build_cache(manifest):
         merged = {age: list(v) for age, v in base["_checks"].items()}
         for age, v in e["_checks"].items():
             merged.setdefault(age, []).extend(v)
+        e["checks"] = [{"age": age_label(age), "age_s": age, "warm": sum(v), "total": len(v)} for age, v in sorted(merged.items())]
         e.update(summarize(merged))
 
     # "latest": the newest run of the same route, client, model and options.

@@ -3245,6 +3245,36 @@
    },
    "checks": [
     {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "2h",
+     "age_s": 7200,
+     "warm": 3,
+     "total": 3
+    },
+    {
+     "age": "4h",
+     "age_s": 14400,
+     "warm": 3,
+     "total": 3
+    },
+    {
      "age": "8h",
      "age_s": 28800,
      "warm": 0,
