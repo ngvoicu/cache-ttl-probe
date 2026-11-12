@@ -909,6 +909,41 @@
    "requires": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.67 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter); ~6,000-token prompt; the 2.5-minute age again with 10 samples",
    "continues": "openrouter-flash-2026-11-12/F2"
+  },
+  {
+   "id": "openrouter-flash-2026-11-12/F3",
+   "file": "results/openrouter-flash-2026-11-12/F3-2026-11-12T19-54-09.json",
+   "route": "openrouter",
+   "model": "deepseek/deepseek-v4.1-flash",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/deepseek/deepseek-v4.1-flash",
+   "base_model": "deepseek/deepseek-v4.1-flash-1017",
+   "requires": "router-for-me/CLIProxyAPI#7284",
+   "note": "CLIProxyAPI 8.0.67 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter); ~6,000-token prompt"
+  },
+  {
+   "id": "openrouter-flash-2026-11-12/F5",
+   "file": "results/openrouter-flash-2026-11-12/F5-2026-11-12T19-59-40.json",
+   "route": "openrouter",
+   "model": "deepseek/deepseek-v4.1-flash",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/deepseek/deepseek-v4.1-flash",
+   "base_model": "deepseek/deepseek-v4.1-flash-1017",
+   "requires": "router-for-me/CLIProxyAPI#7284",
+   "continues": "openrouter-flash-2026-11-12/F3",
+   "note": "CLIProxyAPI 8.0.67 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter); ~6,000-token prompt; the 2.5-minute age again with 10 samples"
+  },
+  {
+   "id": "openrouter-flash-2026-11-12/F6",
+   "file": "results/openrouter-flash-2026-11-12/F6-2026-11-12T20-55-04.json",
+   "route": "openrouter",
+   "model": "deepseek/deepseek-v4.1-flash",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/deepseek/deepseek-v4.1-flash",
+   "base_model": "deepseek/deepseek-v4.1-flash-1017",
+   "requires": "router-for-me/CLIProxyAPI#7284",
+   "continues": "openrouter-flash-2026-11-12/F5",
+   "note": "CLIProxyAPI 8.0.67 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter); ~6,000-token prompt; the 5-minute age again with 10 samples"
   }
  ],
  "excluded": [

@@ -1,0 +1,109 @@
+{
+  "probeVersion": "0.2.0",
+  "label": "F5",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "runSalt": "nmef7wo9",
+  "replicas": 10,
+  "cacheKey": true,
+  "plannedAges": [
+    150000
+  ],
+  "startedAt": "2026-11-12T19:59:40.793Z",
+  "status": "completed",
+  "checks": [
+    {
+      "sampleId": "2.5m-r1",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 150002,
+      "promptTokens": 6012,
+      "cachedTokens": 5888,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r2",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 150576,
+      "promptTokens": 5930,
+      "cachedTokens": 5888,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r3",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 150389,
+      "promptTokens": 5952,
+      "cachedTokens": 5888,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r4",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 150344,
+      "promptTokens": 6015,
+      "cachedTokens": 5888,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r5",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 156873,
+      "promptTokens": 6006,
+      "cachedTokens": 5888,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r6",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 156575,
+      "promptTokens": 5985,
+      "cachedTokens": 5888,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r7",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 156391,
+      "promptTokens": 5954,
+      "cachedTokens": 5888,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r8",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 157756,
+      "promptTokens": 6001,
+      "cachedTokens": 5888,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r9",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 157777,
+      "promptTokens": 6015,
+      "cachedTokens": 5888,
+      "warm": true
+    },
+    {
+      "sampleId": "2.5m-r10",
+      "targetAgeMs": 150000,
+      "actualAgeMs": 158640,
+      "promptTokens": 5970,
+      "cachedTokens": 5888,
+      "warm": true
+    }
+  ],
+  "control": {
+    "prime": {
+      "promptTokens": 5970,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 5970,
+      "cachedTokens": 5888
+    },
+    "warm": true
+  },
+  "finishedAt": "2026-11-12T20:02:29.480Z"
+}

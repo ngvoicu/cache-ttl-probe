@@ -4,7 +4,7 @@
 # Responses format, a prompt_cache_key per sample), OpenRouter's own model ids, 3 samples per age. No config change.
 # F1: GLM, the default ~2,500-token prompt: stopped at the control (1,280 of 2,661 tokens cached, under half).
 # F2: GLM, ~6,000-token prompt.  F3: DeepSeek, ~6,000-token prompt.
-# F4, F5: the 2.5-minute age again with 10 samples (GLM, DeepSeek).
+# F4, F5: the 2.5-minute age again with 10 samples (GLM, DeepSeek).  F6: the 5-minute age, 10 samples (DeepSeek).
 cd "$(dirname "$0")/../.."
 OUT=results/openrouter-flash-2026-11-12
 AGES=2.5m,5m,7.5m,10m,15m,30m,40m,1h
@@ -16,6 +16,7 @@ case "$1" in
   F3) plain F3 deepseek/deepseek-v4.1-flash --prefix-tokens 6000 ;;
   F4) A=2.5m N=10 plain F4 z-ai/glm-5.3-flash --prefix-tokens 6000 ;;
   F5) A=2.5m N=10 plain F5 deepseek/deepseek-v4.1-flash --prefix-tokens 6000 ;;
-  *) echo "usage: run.sh F1|F2|F3|F4|F5"; exit 1 ;;
+  F6) A=5m N=10 plain F6 deepseek/deepseek-v4.1-flash --prefix-tokens 6000 ;;
+  *) echo "usage: run.sh F1|F2|F3|F4|F5|F6"; exit 1 ;;
 esac
 echo launched

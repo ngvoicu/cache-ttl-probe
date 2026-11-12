@@ -159,20 +159,23 @@ def build_cache(manifest):
         entry["_checks"] = data["checks"]
         entries.append(entry)
 
-    # "continues": a run that only adds older ages to an earlier one (same route, client, model and options).
-    # Its `checks` and its three summary numbers then cover both runs, so the entry stays consistent in itself for
-    # a reader that doesn't know the field (a run with only cold, old ages would otherwise read as "never cached").
+    # "continues": a run that adds checks to an earlier one (older ages, or more samples of an age; same route,
+    # client, model and options). Its `checks` and its three summary numbers then cover the earlier run too, and the
+    # runs that one continues, so the entry stays consistent in itself for a reader that doesn't know the field (a
+    # run with only cold, old ages would otherwise read as "never cached").
     by_id = {e["id"]: e for e in entries}
-    for e in entries:
+    for e in sorted(entries, key=lambda e: e["_started"]):
+        e["_merged"] = e["_checks"]
         if "continues" not in e:
             continue
         base = by_id.get(e["continues"])
         same = base and all(base[k] == e[k] for k in ("route", "client", "model", "options"))
-        if not same or "continues" in base:
-            raise SystemExit(f"{e['id']}: continues {e['continues']}, which is missing, differs, or continues another run")
-        merged = {age: list(v) for age, v in base["_checks"].items()}
+        if not same or "_merged" not in base:
+            raise SystemExit(f"{e['id']}: continues {e['continues']}, which is missing, differs, or started later")
+        merged = {age: list(v) for age, v in base["_merged"].items()}
         for age, v in e["_checks"].items():
             merged.setdefault(age, []).extend(v)
+        e["_merged"] = merged
         e["checks"] = [{"age": age_label(age), "age_s": age, "warm": sum(v), "total": len(v)} for age, v in sorted(merged.items())]
         e.update(summarize(merged))
 
@@ -185,7 +188,7 @@ def build_cache(manifest):
     for e in entries:
         key = (e["route"], e["client"], e["model"], json.dumps(e["options"], sort_keys=True))
         e["latest"] = newest[key] is e
-        del e["_started"], e["_checks"]
+        del e["_started"], e["_checks"], e["_merged"]
     entries.sort(key=lambda e: (e["route"], e["model"], e["client"], e["date"], e["id"]))
     return entries
 
