@@ -886,6 +886,17 @@
    "base_model": "meta/muse-spark-1.3",
    "requires": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.67 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter)"
+  },
+  {
+   "id": "openrouter-flash-2026-11-12/F2",
+   "file": "results/openrouter-flash-2026-11-12/F2-2026-11-12T18-50-19.json",
+   "route": "openrouter",
+   "model": "z-ai/glm-5.3-flash",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/z-ai/glm-5.3-flash",
+   "base_model": "zhipuai/glm-5.3-flash",
+   "requires": "router-for-me/CLIProxyAPI#7284",
+   "note": "CLIProxyAPI 8.0.67 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter); ~6,000-token prompt"
   }
  ],
  "excluded": [
@@ -920,6 +931,10 @@
   {
    "id": "devin-smoke-2026-11-08/*",
    "reason": "smoke test before the real run"
+  },
+  {
+   "id": "openrouter-flash-2026-11-12/F1",
+   "reason": "stopped at the control: the ~2,600-token prompt was cached only in part (1,280 of 2,661 tokens); F2 repeats it with a larger prompt"
   }
  ],
  "limits": [

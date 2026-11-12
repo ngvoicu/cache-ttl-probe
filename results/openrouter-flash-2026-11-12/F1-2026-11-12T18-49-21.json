@@ -1,0 +1,36 @@
+{
+  "probeVersion": "0.2.0",
+  "label": "F1",
+  "baseUrl": "http://127.0.0.1:8317/v1",
+  "format": "responses",
+  "model": "z-ai/glm-5.3-flash",
+  "runSalt": "qae56ndt",
+  "replicas": 3,
+  "cacheKey": true,
+  "plannedAges": [
+    150000,
+    300000,
+    450000,
+    600000,
+    900000,
+    1800000,
+    2400000,
+    3600000
+  ],
+  "startedAt": "2026-11-12T18:49:21.266Z",
+  "status": "no-observable-cache",
+  "checks": [],
+  "control": {
+    "prime": {
+      "promptTokens": 2661,
+      "cachedTokens": 0
+    },
+    "check": {
+      "promptTokens": 2661,
+      "cachedTokens": 1280
+    },
+    "warm": false
+  },
+  "error": "an immediate re-send was not served from cache",
+  "finishedAt": "2026-11-12T18:49:50.309Z"
+}
