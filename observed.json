@@ -5958,6 +5958,79 @@
    "first_all_cold_s": 2400,
    "requires": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.67 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter); ~6,000-token prompt",
+   "latest": false
+  },
+  {
+   "id": "openrouter-flash-2026-11-12/F4",
+   "route": "openrouter",
+   "client": "cliproxyapi",
+   "model": "z-ai/glm-5.3-flash",
+   "models_dev": "openrouter/z-ai/glm-5.3-flash",
+   "base_model": "zhipuai/glm-5.3-flash",
+   "options": {},
+   "date": "2026-11-12",
+   "source": "results/openrouter-flash-2026-11-12/F4-2026-11-12T19-59-30.json",
+   "control": {
+    "warm": 1,
+    "total": 1
+   },
+   "checks": [
+    {
+     "age": "2.5m",
+     "age_s": 150,
+     "warm": 7,
+     "total": 13
+    },
+    {
+     "age": "5m",
+     "age_s": 300,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "7.5m",
+     "age_s": 450,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "10m",
+     "age_s": 600,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "15m",
+     "age_s": 900,
+     "warm": 1,
+     "total": 3
+    },
+    {
+     "age": "30m",
+     "age_s": 1800,
+     "warm": 2,
+     "total": 3
+    },
+    {
+     "age": "40m",
+     "age_s": 2400,
+     "warm": 0,
+     "total": 3
+    },
+    {
+     "age": "1h",
+     "age_s": 3600,
+     "warm": 0,
+     "total": 3
+    }
+   ],
+   "late_excluded": 0,
+   "all_warm_through_s": null,
+   "last_warm_s": 1800,
+   "first_all_cold_s": 2400,
+   "requires": "router-for-me/CLIProxyAPI#7284",
+   "note": "CLIProxyAPI 8.0.67 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter); ~6,000-token prompt; the 2.5-minute age again with 10 samples",
+   "continues": "openrouter-flash-2026-11-12/F2",
    "latest": true
   }
  ],

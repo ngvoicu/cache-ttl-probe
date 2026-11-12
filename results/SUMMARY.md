@@ -92,8 +92,8 @@ real OpenRouter model ids through an `openai-compatibility` entry. Files in `cpa
   Muse Spark 1.3 under an hour even with the setting. See its README.
 - `muse-spark-openrouter-2026-11-12/`: Muse Spark 1.3 on OpenRouter, 3 samples per age. No age fully warm: about half
   the checks hit between 5 and 15 minutes, none at 2.5, 30 or 40. No safe lifetime. See its README.
-- `openrouter-flash-2026-11-12/`: GLM 5.3 Flash on OpenRouter, 3 samples per age. Warm at 2.5 minutes, about half the
-  checks from 5 to 30 minutes, none at 40 minutes or 1 hour. No safe lifetime. See its README.
+- `openrouter-flash-2026-11-12/`: GLM 5.3 Flash on OpenRouter. About half the checks hit from 2.5 to 30 minutes (7 of
+  13 at 2.5 minutes), none at 40 minutes or 1 hour. No safe lifetime. See its README.
 
 ## What this means
 

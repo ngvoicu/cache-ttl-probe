@@ -897,6 +897,18 @@
    "base_model": "zhipuai/glm-5.3-flash",
    "requires": "router-for-me/CLIProxyAPI#7284",
    "note": "CLIProxyAPI 8.0.67 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter); ~6,000-token prompt"
+  },
+  {
+   "id": "openrouter-flash-2026-11-12/F4",
+   "file": "results/openrouter-flash-2026-11-12/F4-2026-11-12T19-59-30.json",
+   "route": "openrouter",
+   "model": "z-ai/glm-5.3-flash",
+   "client": "cliproxyapi",
+   "models_dev": "openrouter/z-ai/glm-5.3-flash",
+   "base_model": "zhipuai/glm-5.3-flash",
+   "requires": "router-for-me/CLIProxyAPI#7284",
+   "note": "CLIProxyAPI 8.0.67 with router-for-me/CLIProxyAPI#7284 (cache markers and session id for OpenRouter); ~6,000-token prompt; the 2.5-minute age again with 10 samples",
+   "continues": "openrouter-flash-2026-11-12/F2"
   }
  ],
  "excluded": [
