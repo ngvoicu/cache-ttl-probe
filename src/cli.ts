@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// cache-ttl-probe: measure how long a prompt cache lives on one endpoint/model.
+// groundtruth: measure how long a prompt cache lives on one endpoint/model.
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -10,12 +10,12 @@ import { renderMarkdown } from "./report.ts";
 import { type Deps, PROBE_VERSION, type RunOptions, runProbe } from "./run.ts";
 import { agesFor, formatDuration, planSamples } from "./schedule.ts";
 
-const HELP = `cache-ttl-probe ${PROBE_VERSION}
+const HELP = `groundtruth ${PROBE_VERSION}
 
 Measures prompt-cache lifetime: primes one fresh prefix per sample and checks each exactly once at a fixed age.
 
 Usage:
-  cache-ttl-probe --base-url <url> --model <id> [options]
+  groundtruth --base-url <url> --model <id> [options]
 
 Required:
   --base-url <url>        API base URL including /v1 (e.g. http://127.0.0.1:8317/v1, https://api.anthropic.com/v1)
@@ -145,7 +145,7 @@ if (!(opts.warmFraction! > 0 && opts.warmFraction! <= 1)) fail("--warm-fraction 
 
 if (values["dry-run"]) {
   const samples = planSamples(opts.ages, opts.replicas);
-  const req = buildRequest(format, { model, prefix: makePrefix(opts.runSalt, "control", 40), ttl: opts.ttl, maxOutput: opts.maxOutput, stream: opts.stream, bodyExtra, cacheKey: opts.cacheKey ? `cache-ttl-probe-${opts.runSalt}-control` : undefined });
+  const req = buildRequest(format, { model, prefix: makePrefix(opts.runSalt, "control", 40), ttl: opts.ttl, maxOutput: opts.maxOutput, stream: opts.stream, bodyExtra, cacheKey: opts.cacheKey ? `groundtruth-${opts.runSalt}-control` : undefined });
   process.stdout.write(
     `${label}: ${samples.length} samples + control, ages ${opts.ages.map(formatDuration).join(", ")}\n` +
       `POST ${baseUrl.replace(/\/+$/, "")}${req.path}\nheaders: ${Object.keys({ ...req.headers, ...extraHeaders }).join(", ") || "(none extra)"}\n` +

@@ -248,7 +248,7 @@ def build():
     manifest = json.load(open(os.path.join(ROOT, MANIFEST)))
     return {
         "schema": 1,
-        "repository": "https://github.com/ngvoicu/cache-ttl-probe",
+        "repository": "https://github.com/ngvoicu/groundtruth",
         "about": "Prompt-cache lifetimes and limits as measured, not as documented. Built from results/ by "
                  "scripts/build_observed.py; see README.md, section 'observed.json'.",
         "routes": ROUTES,

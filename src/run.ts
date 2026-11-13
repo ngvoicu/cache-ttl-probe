@@ -101,8 +101,8 @@ function retryable(err: unknown): boolean {
 async function call(o: RunOptions, deps: Deps, prefix: string, sampleId: string): Promise<{ usage: Usage; startedAt: number }> {
   // sampleId also keys the prompt cache and the session, so a re-primed sample (id~2) starts on fresh keys.
   const req = buildRequest(o.format, {
-    cacheKey: o.cacheKey === false ? undefined : `cache-ttl-probe-${o.runSalt}-${sampleId}`,
-    sessionId: o.sessionId ? `cache-ttl-probe-${o.runSalt}-${sampleId}` : undefined,
+    cacheKey: o.cacheKey === false ? undefined : `groundtruth-${o.runSalt}-${sampleId}`,
+    sessionId: o.sessionId ? `groundtruth-${o.runSalt}-${sampleId}` : undefined,
     model: o.model,
     prefix,
     ttl: o.ttl,

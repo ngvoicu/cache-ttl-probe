@@ -5,7 +5,7 @@ Each sample starts a new harness session whose first message carries a unique bl
 age, resumes that session with a short message and reads the cached-token count the harness reports. Harnesses share a
 large system prompt between sessions, so a check is warm only when the cache covers the shared part *and* at least half
 of the sample's unique block: cached >= baseline + unique / 2, where baseline is the prompt size of a session without
-the block (measured once at start). One check per sample, like cache-ttl-probe.
+the block (measured once at start). One check per sample, like the TypeScript probe in src/.
 
 Usage:
   harness/probe.py --harness codex|devin|muse|pi --model ID --ages 5m,15m,1h --replicas 3 --label H1 --out DIR

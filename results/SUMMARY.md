@@ -1,6 +1,6 @@
 # Prompt-cache lifetimes, measured 4–5 November 2026
 
-Measured with `cache-ttl-probe` 0.1.0. Each sample primes a fresh ~2,500-token prefix once and checks it **once** at a fixed
+Measured with version 0.1.0 of this tool. Each sample primes a fresh ~2,500-token prefix once and checks it **once** at a fixed
 age; 3 samples per age. A check is warm when ≥ 50 % of the prompt (and ≥ 500 tokens) is reported as cached. Requests use
 the OpenAI Responses format with a per-sample `prompt_cache_key`, the way pi and Codex send one per conversation.
 

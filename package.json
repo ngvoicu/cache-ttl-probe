@@ -1,16 +1,16 @@
 {
-  "name": "cache-ttl-probe",
+  "name": "groundtruth",
   "version": "0.2.0",
-  "description": "Measure how long LLM prompt caches really live, per endpoint, model and route",
+  "description": "The measuring tool behind providers.dev: how long LLM prompt caches really live and how large the limits really are, per endpoint, model and route",
   "type": "module",
   "license": "MIT",
   "author": "Gabriel Voicu",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngvoicu/cache-ttl-probe.git"
+    "url": "git+https://github.com/ngvoicu/groundtruth.git"
   },
   "bin": {
-    "cache-ttl-probe": "dist/cli.js"
+    "groundtruth": "dist/cli.js"
   },
   "files": [
     "dist",

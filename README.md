@@ -1,6 +1,7 @@
-# cache-ttl-probe
+# groundtruth
 
-Measure how long an LLM prompt cache really lives — per endpoint, model and route.
+The measuring tool behind [providers.dev](https://providers.dev): how long an LLM prompt cache really lives, and how
+large the limits really are, per endpoint, model and route. It was called `cache-ttl-probe` until November 2026.
 
 Providers rarely publish how long a cached prompt prefix survives, and when they do it's a range ("5 to 10 minutes
 of inactivity") or it only holds on their own API, not through a proxy, a reseller or a subscription backend. Agents
@@ -18,17 +19,17 @@ that keep caches warm (or that decide when a pause will cost a full re-write) ne
 export CACHE_PROBE_KEY=sk-...           # never passed on the command line, never printed
 
 # OpenAI-style Responses endpoint, default schedule (2.5 min → 2 h)
-npx github:ngvoicu/cache-ttl-probe --base-url https://api.openai.com/v1 --model gpt-6.1-sol
+npx github:ngvoicu/groundtruth --base-url https://api.openai.com/v1 --model gpt-6.1-sol
 
 # Anthropic, explicit 1-hour cache, three checks
-npx github:ngvoicu/cache-ttl-probe --base-url https://api.anthropic.com/v1 --format messages --model claude-opus-5-5 \
+npx github:ngvoicu/groundtruth --base-url https://api.anthropic.com/v1 --format messages --model claude-opus-5-5 \
   --ttl 1h --ages 10m,30m,65m
 
 # Through a local proxy, long schedule (adds 4 h, 8 h, 12 h)
-npx github:ngvoicu/cache-ttl-probe --base-url http://127.0.0.1:8317/v1 --model gpt-6.1-sol --schedule long
+npx github:ngvoicu/groundtruth --base-url http://127.0.0.1:8317/v1 --model gpt-6.1-sol --schedule long
 
 # Show the plan and the request body without sending anything
-npx github:ngvoicu/cache-ttl-probe --base-url http://127.0.0.1:8317/v1 --model m --dry-run
+npx github:ngvoicu/groundtruth --base-url http://127.0.0.1:8317/v1 --model m --dry-run
 ```
 
 Each run writes `results/<label>-<timestamp>.json` (every check) and `.md` (survival table), and keeps a
@@ -66,11 +67,12 @@ Options: `--schedule std|long|quick`, `--ages 10m,30m`, `--replicas 3`, `--prefi
 
 ## observed.json
 
-Everything measured so far, in one file: [`observed.json`](observed.json). Raw results are in `results/`
+Everything measured so far, in one file: [`observed.json`](observed.json). providers.dev reads it once a day and
+shows each run on the entry it belongs to. Raw results are in `results/`
 (see [`results/SUMMARY.md`](results/SUMMARY.md) for the story of each run).
 
 ```bash
-curl -s https://raw.githubusercontent.com/ngvoicu/cache-ttl-probe/main/observed.json
+curl -s https://raw.githubusercontent.com/ngvoicu/groundtruth/main/observed.json
 ```
 
 It holds what catalogs such as [models.dev](https://models.dev) can't: values **as measured**, including
