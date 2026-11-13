@@ -28,8 +28,9 @@ Options:
   --beta <value>          anthropic-beta header (e.g. extended-cache-ttl-2025-04-11)
   --header <k:v>          extra header, repeatable
   --body-extra <json>     extra top-level body fields (e.g. '{"prompt_cache_options":{"ttl":"12h"}}')
-  --schedule <name>       std (2.5m..2h) | long (std + 4h, 8h, 12h) | quick (5m, 7.5m, 10m) (default: std)
-  --ages <list>           custom ages, comma-separated (e.g. 10m,30m,65m); overrides --schedule
+  --schedule <name>       std (2.5m..2h) | long (std + 4h, 8h, 12h) | quick (2.5m, 5m, 7.5m, 10m) (default: std)
+  --ages <list>           more ages, comma-separated (e.g. 30m,65m), instead of --schedule. Every run checks at once,
+                          then at 2.5m, 5m and 7.5m: those are always added
   --replicas <n>          samples per age (default: 3)
   --prefix-tokens <n>     approximate prefix size (default: 2500; must exceed the provider's minimum)
   --max-output <n>        max output tokens per call (default: 16)

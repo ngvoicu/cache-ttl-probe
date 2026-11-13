@@ -123,6 +123,9 @@ def summarize(checks):
     }
 
 
+LADDER_SINCE = "2026-11-14"
+
+
 def build_cache(manifest):
     entries = []
     for run in manifest["runs"]:
@@ -152,6 +155,13 @@ def build_cache(manifest):
             "late_excluded": data["late"],
             **summarize(data["checks"]),
         }
+        # From 14 November 2026 every evaluation starts the same way: a control (the prompt sent again at once), then
+        # 2.5 minutes as its first age. A run that continues another one carries on from where that one stopped.
+        if entry["date"] >= LADDER_SINCE and not run.get("continues"):
+            first = min(data["checks"]) if data["checks"] else None
+            if not data["control"] or first != 150:
+                raise SystemExit(f"{run['id']}: an evaluation must start with a control and a check at 2.5 minutes "
+                                 f"(control checks: {len(data['control'])}, first age: {first} s)")
         for key in ("requires", "lacks", "note", "continues"):
             if run.get(key):
                 entry[key] = run[key]

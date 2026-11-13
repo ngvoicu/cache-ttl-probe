@@ -3,6 +3,6 @@ results/**/*.partial.json
 .DS_Store
 dist/
 results/**/logs/
-harness/__pycache__/
+__pycache__/
 # pi session files hold the whole system prompt (skill names, folder paths): local only
 results/**/work-*/

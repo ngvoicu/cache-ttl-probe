@@ -8,12 +8,20 @@ of the sample's unique block: cached >= baseline + unique / 2, where baseline is
 the block (measured once at start). One check per sample, like the TypeScript probe in src/.
 
 Usage:
-  harness/probe.py --harness codex|devin|muse|pi --model ID --ages 5m,15m,1h --replicas 3 --label H1 --out DIR
+  harness/probe.py --harness codex|devin|muse|pi --model ID [--schedule std|long | --ages 30m,1h] --replicas 3 --label H1 --out DIR
 """
 import argparse, glob, heapq, json, os, random, subprocess, sys, threading, time, uuid
 from datetime import datetime, timezone
 
 OK_PROMPT = "Reply with OK only. Do not use any tools."
+
+
+# Where every evaluation starts: the control (sent again at once) is always made, then these ages, whatever else
+# is asked for. The same lists as src/schedule.ts (test/schedule.test.ts checks it).
+LADDER_START = ["2.5m", "5m", "7.5m"]
+STD_REST = ["10m", "15m", "20m", "25m", "30m", "40m", "50m", "60m", "75m", "90m", "120m"]
+LONG_REST = ["4h", "8h", "12h"]
+SCHEDULES = {"std": LADDER_START + STD_REST, "long": LADDER_START + STD_REST + LONG_REST}
 
 
 def parse_age(s):
@@ -134,7 +142,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--harness", required=True, choices=HARNESSES)
     ap.add_argument("--model", required=True)
-    ap.add_argument("--ages", required=True)
+    ap.add_argument("--schedule", choices=sorted(SCHEDULES), default="std", help="std: 2.5m to 2h; long: std + 4h, 8h, 12h")
+    ap.add_argument("--ages", help="more ages instead of --schedule, e.g. 30m,1h; 2.5m, 5m and 7.5m are always added")
     ap.add_argument("--replicas", type=int, default=3)
     ap.add_argument("--label", required=True)
     ap.add_argument("--out", required=True)
@@ -163,6 +172,12 @@ def main():
                 log({"event": "retry", "error": str(e)[:300], "try": i + 1}); time.sleep(30)
         return None
 
+    # Custom ages are added to the start of the ladder, never put in its place; each age once, shortest first.
+    wanted = LADDER_START + [x.strip() for x in a.ages.split(",")] if a.ages else SCHEDULES[a.schedule]
+    by_age = {}
+    for x in wanted: by_age.setdefault(parse_age(x), x)
+    ages = sorted(by_age); labels = [by_age[x] for x in ages]
+    a.ages = ",".join(labels)
     log({"event": "start", "harness": a.harness, "model": a.model, "ages": a.ages, "replicas": a.replicas,
          "words": a.words, "effort": a.effort, "salt": salt})
     b = attempt(h.start, OK_PROMPT)
@@ -170,8 +185,7 @@ def main():
     baseline = b[1]["total"]
     log({"event": "baseline", "usage": b[1]})
 
-    ages = [parse_age(x) for x in a.ages.split(",")]
-    samples = [("control", 30.0, 0)] + [(x, ag, r) for r in range(a.replicas) for x, ag in zip(a.ages.split(","), ages)]
+    samples = [("control", 30.0, 0)] + [(x, ag, r) for r in range(a.replicas) for x, ag in zip(labels, ages)]
     # long ages first, so the short checks do not wait behind a long priming queue
     samples = [samples[0]] + sorted(samples[1:], key=lambda s: -s[1])
     heap, hlock, cv = [], threading.Lock(), threading.Condition()

@@ -16,15 +16,22 @@ export function formatDuration(ms: number): string {
   return `${Math.round(ms / 1000)}s`;
 }
 
-const STD = ["2.5m", "5m", "7.5m", "10m", "15m", "20m", "25m", "30m", "40m", "50m", "60m", "75m", "90m", "120m"];
+/**
+ * Where every evaluation starts. The control (the prompt sent again at once) is always made; then come these ages,
+ * whatever else is asked for. A cache that is gone inside five minutes is only visible here, and results can only be
+ * compared when they share their first ages. harness/probe.py has the same lists (test/schedule.test.ts checks it).
+ */
+export const LADDER_START = ["2.5m", "5m", "7.5m"];
+const STD = [...LADDER_START, "10m", "15m", "20m", "25m", "30m", "40m", "50m", "60m", "75m", "90m", "120m"];
 export const SCHEDULES: Record<string, string[]> = {
   std: STD,
   long: [...STD, "4h", "8h", "12h"],
-  quick: ["5m", "7.5m", "10m"],
+  quick: [...LADDER_START, "10m"],
 };
 
 export function agesFor(schedule: string | undefined, custom: string | undefined): number[] {
-  const list = custom ? custom.split(",") : SCHEDULES[schedule ?? "std"];
+  // Custom ages are added to the start of the ladder, never put in its place.
+  const list = custom ? [...LADDER_START, ...custom.split(",")] : SCHEDULES[schedule ?? "std"];
   if (!list) throw new Error(`unknown schedule "${schedule}" (std, long, quick)`);
   const ages = [...new Set(list.map(parseDuration))].sort((a, b) => a - b);
   if (!ages.length || ages[0] <= 0) throw new Error("ages must be positive");

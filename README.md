@@ -21,9 +21,9 @@ export CACHE_PROBE_KEY=sk-...           # never passed on the command line, neve
 # OpenAI-style Responses endpoint, default schedule (2.5 min → 2 h)
 npx github:ngvoicu/groundtruth --base-url https://api.openai.com/v1 --model gpt-6.1-sol
 
-# Anthropic, explicit 1-hour cache, three checks
+# Anthropic, explicit 1-hour cache: the first ages of every run, then 30 and 65 minutes
 npx github:ngvoicu/groundtruth --base-url https://api.anthropic.com/v1 --format messages --model claude-opus-5-5 \
-  --ttl 1h --ages 10m,30m,65m
+  --ttl 1h --ages 30m,65m
 
 # Through a local proxy, long schedule (adds 4 h, 8 h, 12 h)
 npx github:ngvoicu/groundtruth --base-url http://127.0.0.1:8317/v1 --model gpt-6.1-sol --schedule long
@@ -62,7 +62,22 @@ Ages are measured from the *start* of the priming request (Anthropic counts the 
 that wrote the entry). Each result records the actual age of every check, so late checks (sleeping laptop, retries)
 are visible.
 
-Options: `--schedule std|long|quick`, `--ages 10m,30m`, `--replicas 3`, `--prefix-tokens 2500`, `--max-output 16`,
+**Every evaluation starts the same way.** The prompt is sent again at once (the control: it shows that the prompt was
+cached at all and that the route reports cache hits), then checked at 2.5, 5 and 7.5 minutes, and on from there:
+
+| Schedule | Ages |
+|---|---|
+| `std` (default) | 2.5, 5, 7.5, 10, 15, 20, 25, 30, 40, 50 min, 1 h, 1 h 15, 1 h 30, 2 h |
+| `long` | `std`, then 4 h, 8 h, 12 h |
+| `quick` | 2.5, 5, 7.5, 10 min |
+
+`--ages` adds ages to that start, it does not replace it: `--ages 30m,65m` checks at 2.5, 5, 7.5, 30 and 65 minutes.
+A cache that is gone inside five minutes only shows in the first ages, and two results can only be compared when they
+share them. `harness/probe.py` (the same evaluation through a real coding tool) has the same schedules, and
+`scripts/build_observed.py` refuses a run dated 14 November 2026 or later that has no control or does not start at
+2.5 minutes. Runs before that date keep the ages they were made with.
+
+Options: `--schedule std|long|quick`, `--ages 30m,65m`, `--replicas 3`, `--prefix-tokens 2500`, `--max-output 16`,
 `--stream`, `--ttl`, `--beta`, `--header k:v`, `--body-extra '<json>'`, `--label`, `--salt`, `--out`. See `--help`.
 
 ## observed.json
