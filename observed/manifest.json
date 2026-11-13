@@ -1279,6 +1279,26 @@
      "refused_n": 922500
     }
    ]
+  },
+  {
+   "route": "codex-subscription",
+   "client": "cliproxyapi",
+   "model": "gpt-6.1-sol",
+   "base_model": "openai/gpt-6.1-sol",
+   "input_accepted": 915011,
+   "input_refused": 922500,
+   "file": "results/limits-2026-11-13/limits.jsonl",
+   "note": "Codex's own model list gives a 500K default window and an 872K maximum for this model",
+   "evidence": [
+    {
+     "row_model": "probe/gpt-6.1-sol",
+     "accepted": 915011
+    },
+    {
+     "row_model": "probe/gpt-6.1-sol",
+     "refused_n": 922500
+    }
+   ]
   }
  ],
  "known": [

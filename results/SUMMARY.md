@@ -87,6 +87,9 @@ real OpenRouter model ids through an `openai-compatibility` entry. Files in `cpa
 - `gpt6-2026-11-11/`: GPT-6 Astra and Luna on a ChatGPT plan, Devin, OpenRouter and an OpenAI API key (plus GPT-6.1 Sol
   on the key), 3 samples per age. OpenAI key and OpenRouter: warm at 30 min, cold at 40. Devin: warm at 30 min, cold at
   1 h. ChatGPT plan: Astra warm through 2 h; Luna misses from 15 min. Both accept ~915K input there. See its README.
+- `limits-2026-11-13/`: the input limit of GPT-6.1 Sol on a ChatGPT plan: 915,011 accepted, 922,500 refused, the same
+  as the other GPT-6 models there. A walk on Devin's `swe-2` found no refusal up to 930K but could not show that the
+  model reads such an input: kept as a record, not in `observed.json`. See its README.
 - `meta-24h-2026-11-10/`: Meta's `prompt_cache_retention: "24h"` measured out to 24 hours, 3 samples per age. Nothing
   is warm at 12 or 24 hours. Muse Ember 1.0 lasts between 4 and 8 hours, Muse Wonder 1.0 between 4 and 12, and
   Muse Spark 1.3 under an hour even with the setting. See its README.

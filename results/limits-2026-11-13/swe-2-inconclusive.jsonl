@@ -1,0 +1,11 @@
+{"kind": "context", "model": "swe-2", "n": 300000, "status": 200, "seconds": 20.4, "promptTokens": 300475, "message": null, "at": "2026-11-13T19:14:21"}
+{"kind": "context", "model": "swe-2", "n": 520000, "status": 200, "seconds": 20.7, "promptTokens": 520479, "message": null, "at": "2026-11-13T19:14:48"}
+{"kind": "context", "model": "swe-2", "n": 800000, "status": 200, "seconds": 32.2, "promptTokens": 800485, "message": null, "at": "2026-11-13T19:15:24"}
+{"kind": "context", "model": "swe-2", "n": 915000, "status": 200, "seconds": 22.6, "promptTokens": 915487, "message": null, "at": "2026-11-13T19:15:54"}
+{"kind": "context", "model": "swe-2", "n": 925000, "status": 200, "seconds": 10.2, "promptTokens": 925487, "message": null, "at": "2026-11-13T19:16:10"}
+{"kind": "context", "model": "swe-2", "n": 930000, "status": 200, "seconds": 5.6, "promptTokens": 930487, "message": null, "at": "2026-11-13T19:16:32"}
+{"kind": "recall", "model": "swe-2", "n": 915000, "status": null, "seconds": 200.0, "promptTokens": null, "reply": null, "message": "timed out", "at": "2026-11-13T19:19:52"}
+{"kind": "recall", "model": "swe-2", "n": 915000, "status": null, "seconds": 600.0, "promptTokens": null, "reply": null, "message": "timed out", "at": "2026-11-13T19:30:06"}
+{"kind": "recall", "model": "swe-2", "n": 2000, "status": 200, "seconds": 1.5, "promptTokens": 2494, "reply": "APRICOT WALNUT", "message": null, "at": "2026-11-13T19:30:24"}
+{"kind": "recall", "model": "swe-2", "n": 300000, "status": null, "seconds": 300.0, "promptTokens": null, "reply": null, "message": "timed out", "at": "2026-11-13T19:35:24"}
+{"kind": "recall", "model": "swe-2", "n": 250000, "status": null, "seconds": 300.0, "promptTokens": null, "reply": null, "message": "timed out", "at": "2026-11-13T19:40:35"}

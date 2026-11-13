@@ -6308,6 +6308,17 @@
   {
    "route": "codex-subscription",
    "client": "cliproxyapi",
+   "model": "gpt-6.1-sol",
+   "base_model": "openai/gpt-6.1-sol",
+   "input_accepted": 915011,
+   "input_refused": 922500,
+   "note": "Codex's own model list gives a 500K default window and an 872K maximum for this model",
+   "models_dev": null,
+   "source": "results/limits-2026-11-13/limits.jsonl"
+  },
+  {
+   "route": "codex-subscription",
+   "client": "cliproxyapi",
    "model": "gpt-6.1-terra",
    "base_model": "openai/gpt-6.1-terra",
    "input_accepted": 920870,
